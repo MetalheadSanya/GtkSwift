@@ -4,7 +4,7 @@ let app = Application(applicationId: "org.gtk.example", flags: [])!
 app.activateCallbacks.append({ (app: Application, userData: gpointer) -> Void in
 	let window = ApplicationWindow(application: app)
 	window.title = "Test"
-	window.defaultSize = Size(width: 200, height: 200)
+	// window.defaultSize = Size(width: 200, height: 200)
 
 	let buttonBox = ButtonBox(orientation: .Horizontal)
 	window.add(buttonBox)
