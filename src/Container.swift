@@ -19,7 +19,7 @@ class Container: Widget {
 }
 
 extension Container {
-	func add(widget: Widget) {
+	func addWidget(widget: Widget) {
 		gtk_container_add(n_Container, widget.n_Widget)
 	}
 

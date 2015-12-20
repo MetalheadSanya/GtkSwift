@@ -1,7 +1,7 @@
 import CGTK
 
 let buttonCallback = { (button: Button, userData: gpointer) in
-	print("Hellow, World!")
+	print("Hello, World!")
 }
 
 let app = Application(applicationId: "org.gtk.example", flags: [])!
@@ -11,7 +11,7 @@ app.activateCallbacks.append({ (app: Application, userData: gpointer) -> Void in
 	window.borderWidth = 10
 
 	let grid = Grid()
-	window.add(grid)
+	window.addWidget(grid)
 
 	let button = Button(label: "Button 1")
 	button.clickedCallbacks.append(buttonCallback)
