@@ -7,6 +7,15 @@ class Container: Widget {
 		self.n_Container = n_Container
 		super.init(n_Widget: unsafeBitCast(n_Container, UnsafeMutablePointer<GtkWidget>.self))
 	}
+
+	var borderWidth: Int {
+		get {
+			return Int(gtk_container_get_border_width(n_Container))
+		}
+		set(value) {
+			gtk_container_set_border_width(n_Container, UInt32(value))
+		}
+	}
 }
 
 extension Container {
