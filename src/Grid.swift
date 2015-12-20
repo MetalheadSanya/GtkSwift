@@ -10,11 +10,11 @@ class Grid: Container {
 
 	internal init(n_Grid: UnsafeMutablePointer<GtkGrid>) {
 		self.n_Grid = n_Grid
-		super.init(n_Container: unsafeBitCast(self.n_Grid, UnsafeMutablePointer<GtkContainer>))
+		super.init(n_Container: unsafeBitCast(self.n_Grid, UnsafeMutablePointer<GtkContainer>.self))
 	}
 
 	convenience init() {
-		self.init(n_Grid: unsafeBitCast(gtk_grid_new()), UnsafeMutablePointer<GtkGrid>)
+		self.init(n_Grid: unsafeBitCast(gtk_grid_new(), UnsafeMutablePointer<GtkGrid>.self))
 	}
 
 	func attachWidget(widget: Widget, left: Int, top: Int, width: Int, height: Int) {
