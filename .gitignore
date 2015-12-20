@@ -1,2 +1,4 @@
 Packages/
 .build/
+.idea/
+.DS_Store
