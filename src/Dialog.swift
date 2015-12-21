@@ -22,8 +22,10 @@ class Dialog: Window {
 		self.init(n_Dialog: unsafeBitCast(gtk_dialog_new_with_buttons(title, parent.n_Window, UInt32(flags), nil),
 				UnsafeMutablePointer<GtkDialog>.self))
 
-		for button in buttons? {
-			addButtonWithText(button.0, response: button.1)
+		if let buttons = buttons {
+			for button in buttons {
+				addButtonWithText(button.0, response: button.1)
+			}
 		}
 	}
 
