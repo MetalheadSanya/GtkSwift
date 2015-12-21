@@ -5,9 +5,13 @@ typealias ButtonClickedCallback = (Button, gpointer) -> Void
 class Button: Container {
 	internal var n_Button: UnsafeMutablePointer<GtkButton> = nil
 
-	init(label: String) {
-		n_Button = unsafeBitCast(gtk_button_new_with_label(label), UnsafeMutablePointer<GtkButton>.self)
-		super.init(n_Container: unsafeBitCast(n_Button, UnsafeMutablePointer<GtkContainer>.self))
+	internal init(n_Button: UnsafeMutablePointer<GtkButton>) {
+		self.n_Button = n_Button
+		super.init(n_Container: unsafeBitCast(self.n_Button, UnsafeMutablePointer<GtkContainer>.self))
+	}
+
+	convenience init(label: String) {
+		self.init(n_Button: unsafeBitCast(gtk_button_new_with_label(label), UnsafeMutablePointer<GtkButton>.self))
 
 		ButtonNotificationCenter.sharedInstance.registerForClicked(self, fromNativeButton: n_Button)
 

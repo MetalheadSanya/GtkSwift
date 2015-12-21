@@ -18,7 +18,11 @@ app.activateCallbacks.append({ (app: Application, userData: gpointer) -> Void in
 	grid.attachWidget(button, left: 0, top: 0, width: 1, height: 1)
 
 	let button2 = Button(label: "Button 2")
-	button2.clickedCallbacks.append(buttonCallback)
+	button2.clickedCallbacks.append({ (button: Button, userData: gpointer) in
+		let dialog = Dialog(title: "Test", parent: window, flags: 0, buttons: [(text: "Ok", ResponseType.Ok.rawValue)])
+		_ = dialog.run()
+		dialog.destroy()
+	})
 	grid.attachWidget(button2, left: 1, top: 0, width: 1, height: 1)
 
 	let quitButton = Button(label: "Quit")
