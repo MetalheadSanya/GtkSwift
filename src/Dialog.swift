@@ -26,13 +26,32 @@ class Dialog: Window {
 		self.init(n_Dialog: unsafeBitCast(gtk_dialog_new(), UnsafeMutablePointer<GtkDialog>.self))
 	}
 
-	convenience init(title: String?, parent: Window, flags: Int, buttons: [DialogButton]?) {
-		let dialog = g_object_newv(gtk_dialog_get_type(), 0, nil)
+	convenience init(title: String?, parent: Window?, flags: [DialogFlags], buttons: [DialogButton]?) {
+		var val = GValue()
+
+		let G_TYPE_BOOLEAN = ((GType) ((5) << G_TYPE_FUNDAMENTAL_SHIFT))
+
+		g_value_init(&val, G_TYPE_BOOLEAN)
+		g_value_set_boolean(&val, flags.indexOf(.UseHeaderBar) != nil ? 1 : 0)
+
+		var parameter = GParameter(name: "use-header-bar", value: val)
+
+		let dialog = g_object_newv(gtk_dialog_get_type(), 1, &parameter)
 
 		self.init(n_Dialog: unsafeBitCast(dialog, UnsafeMutablePointer<GtkDialog>.self))
 
-		if let title = title {
-			self.title = title
+		self.title = title
+
+		if let parent = parent {
+			self.transientFor = parent
+		}
+
+		if let _ = flags.indexOf(.Modal) {
+			self.modal = true
+		}
+
+		if let _ = flags.indexOf(.DestroyWithParent) {
+			self.destroyWithParent = true
 		}
 
 		if let buttons = buttons {
@@ -75,7 +94,7 @@ class Dialog: Window {
 		return Int(gtk_dialog_get_response_for_widget(n_Dialog, widget.n_Widget))
 	}
 
-	func getWidgetWorResponse(response: Int) -> Widget {
+	func getWidgetWorResponse(response: Int) -> Widget? {
 		return Widget(o_Widget: gtk_dialog_get_widget_for_response(n_Dialog, Int32(response)))
 	}
 

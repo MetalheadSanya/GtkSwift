@@ -8,6 +8,15 @@ class Window: Container {
 		super.init(n_Container: unsafeBitCast(n_Window, UnsafeMutablePointer<GtkContainer>.self))
 	}
 
+	internal init?(o_Window: UnsafeMutablePointer<GtkWindow>) {
+		if o_Window != nil {
+			self.n_Window = o_Window
+			super.init(n_Container: unsafeBitCast(n_Window, UnsafeMutablePointer < GtkContainer>.self))
+		} else {
+			return nil
+		}
+	}
+
 	convenience init(type: WindowType) {
 		self.init(n_Window: unsafeBitCast(gtk_window_new(type.n_Type), UnsafeMutablePointer<GtkWindow>.self))
 	}
@@ -42,6 +51,33 @@ class Window: Container {
 
 		set(value) {
 			gtk_window_set_resizable(n_Window, value ? 1 : 0)
+		}
+	}
+
+	var transientFor: Window? {
+		get {
+			return Window(o_Window: gtk_window_get_transient_for(n_Window))
+		}
+		set (value) {
+			gtk_window_set_transient_for(n_Window, value == nil ? nil : value!.n_Window)
+		}
+	}
+
+	var modal: Bool {
+		get {
+			return gtk_window_get_modal(n_Window) != 0
+		}
+		set(value) {
+			gtk_window_set_modal(n_Window, value ? 1 : 0)
+		}
+	}
+
+	var destroyWithParent: Bool {
+		get {
+			return gtk_window_get_destroy_with_parent(n_Window) != 0
+		}
+		set(value) {
+			gtk_window_set_destroy_with_parent(n_Window, value ? 1 : 0)
 		}
 	}
 }
