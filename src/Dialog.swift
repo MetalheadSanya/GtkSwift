@@ -19,7 +19,7 @@ class Dialog: Window {
 	}
 
 	convenience init(title: String, parent: Window, flags: Int, buttons: [(String, Int32)]?) {
-		self.init(n_Dialog: unsafeBitCast(gtk_dialog_new_with_buttons(title, parent.n_Window, UInt32(flags), nil),
+		self.init(n_Dialog: unsafeBitCast(gtk_dialog_new_with_buttons(title, parent.n_Window, GtkDialogFlags(flags), nil),
 				UnsafeMutablePointer<GtkDialog>.self))
 
 		if let buttons = buttons {
