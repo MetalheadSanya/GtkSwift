@@ -76,7 +76,7 @@ class Dialog: Window {
 	}
 
 	func getWidgetWorResponse(response: Int) -> Widget {
-		return Widget(n_Widget: gtk_dialog_get_widget_for_response(n_Dialog, Int32(response)))
+		return Widget(o_Widget: gtk_dialog_get_widget_for_response(n_Dialog, Int32(response)))
 	}
 
 	func getContentArea() -> Box {
