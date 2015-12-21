@@ -5,7 +5,7 @@
 
 import CGTK
 
-enum DialogFlags: Int {
+enum DialogFlag: Int {
 	case Modal = 0b00000001
 	case DestroyWithParent = 0b00000010
   case UseHeaderBar = 0b00000100
@@ -17,6 +17,10 @@ class Dialog: Window {
 
 	internal var n_Dialog: UnsafeMutablePointer<GtkDialog>
 
+	override class var n_Type: UInt {
+		return gtk_dialog_get_type()
+	}
+
 	internal init(n_Dialog: UnsafeMutablePointer<GtkDialog>) {
 		self.n_Dialog = n_Dialog
 		super.init(n_Window: unsafeBitCast(self.n_Dialog, UnsafeMutablePointer<GtkWindow>.self))
@@ -26,17 +30,10 @@ class Dialog: Window {
 		self.init(n_Dialog: unsafeBitCast(gtk_dialog_new(), UnsafeMutablePointer<GtkDialog>.self))
 	}
 
-	convenience init(title: String?, parent: Window?, flags: [DialogFlags], buttons: [DialogButton]?) {
-		var val = GValue()
+	convenience init(title: String?, parent: Window?, flags: [DialogFlag], buttons: [DialogButton]?) {
+		var parameter = g_parameter_bool(name: "use-header-bar", value: flags.indexOf(.UseHeaderBar) != nil)
 
-		let G_TYPE_BOOLEAN = ((GType) ((5) << G_TYPE_FUNDAMENTAL_SHIFT))
-
-		g_value_init(&val, G_TYPE_BOOLEAN)
-		g_value_set_boolean(&val, flags.indexOf(.UseHeaderBar) != nil ? 1 : 0)
-
-		var parameter = GParameter(name: "use-header-bar", value: val)
-
-		let dialog = g_object_newv(gtk_dialog_get_type(), 1, &parameter)
+		let dialog = g_object_newv(Dialog.n_Type, 1, &parameter)
 
 		self.init(n_Dialog: unsafeBitCast(dialog, UnsafeMutablePointer<GtkDialog>.self))
 

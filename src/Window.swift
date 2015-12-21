@@ -1,7 +1,12 @@
 import CGTK
 
 class Window: Container {
+
 	internal var n_Window: UnsafeMutablePointer<GtkWindow>
+
+	override class var n_Type: UInt {
+		return gtk_window_get_type()
+	}
 
 	internal init(n_Window: UnsafeMutablePointer<GtkWindow>) {
 		self.n_Window = n_Window

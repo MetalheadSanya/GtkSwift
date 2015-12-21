@@ -3,10 +3,6 @@ import Glibc
 
 typealias ApplicationActivateCallback = (Application, gpointer) -> Void
 
-func g_signal_connect (instance: gpointer, _ detailed_signal: String, _ c_handler: UnsafePointer<Void>, _ data: UnsafeMutablePointer<Void>) {
-	g_signal_connect_data ((instance), (detailed_signal), unsafeBitCast(c_handler, GCallback.self), (data), nil, GConnectFlags(0))
-}
-
 class Application {
 	internal var n_App: UnsafeMutablePointer<GtkApplication>
 

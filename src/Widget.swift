@@ -1,7 +1,12 @@
 import CGTK
 
 class Widget {
+
 	var n_Widget: UnsafeMutablePointer<GtkWidget>
+
+	class var n_Type: UInt {
+		return gtk_widget_get_type()
+	}
 
 	internal init(n_Widget: UnsafeMutablePointer<GtkWidget>) {
 		self.n_Widget = n_Widget
