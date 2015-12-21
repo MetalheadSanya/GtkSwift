@@ -3,7 +3,7 @@
 // Copyright (c) 2015 Metalhead. All rights reserved.
 //
 
-import CGtk
+import CGTK
 
 class Dialog: Window {
 
