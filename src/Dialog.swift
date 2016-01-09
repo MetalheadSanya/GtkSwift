@@ -5,7 +5,7 @@
 
 import CGTK
 
-enum DialogFlags: Int {
+enum DialogFlag: Int {
 	case Modal = 0b00000001
 	case DestroyWithParent = 0b00000010
   case UseHeaderBar = 0b00000100
@@ -17,6 +17,10 @@ class Dialog: Window {
 
 	internal var n_Dialog: UnsafeMutablePointer<GtkDialog>
 
+	override class var n_Type: UInt {
+		return gtk_dialog_get_type()
+	}
+
 	internal init(n_Dialog: UnsafeMutablePointer<GtkDialog>) {
 		self.n_Dialog = n_Dialog
 		super.init(n_Window: unsafeBitCast(self.n_Dialog, UnsafeMutablePointer<GtkWindow>.self))
@@ -26,13 +30,25 @@ class Dialog: Window {
 		self.init(n_Dialog: unsafeBitCast(gtk_dialog_new(), UnsafeMutablePointer<GtkDialog>.self))
 	}
 
-	convenience init(title: String?, parent: Window, flags: Int, buttons: [DialogButton]?) {
-		let dialog = g_object_newv(gtk_dialog_get_type(), 0, nil)
+	convenience init(title: String?, parent: Window?, flags: [DialogFlag], buttons: [DialogButton]?) {
+		var parameter = g_parameter_bool(name: "use-header-bar", value: flags.indexOf(.UseHeaderBar) != nil)
+
+		let dialog = g_object_newv(Dialog.n_Type, 1, &parameter)
 
 		self.init(n_Dialog: unsafeBitCast(dialog, UnsafeMutablePointer<GtkDialog>.self))
 
-		if let title = title {
-			self.title = title
+		self.title = title
+
+		if let parent = parent {
+			self.transientFor = parent
+		}
+
+		if let _ = flags.indexOf(.Modal) {
+			self.modal = true
+		}
+
+		if let _ = flags.indexOf(.DestroyWithParent) {
+			self.destroyWithParent = true
 		}
 
 		if let buttons = buttons {
@@ -75,8 +91,8 @@ class Dialog: Window {
 		return Int(gtk_dialog_get_response_for_widget(n_Dialog, widget.n_Widget))
 	}
 
-	func getWidgetWorResponse(response: Int) -> Widget {
-		return Widget(n_Widget: gtk_dialog_get_widget_for_response(n_Dialog, Int32(response)))
+	func getWidgetWorResponse(response: Int) -> Widget? {
+		return Widget(o_Widget: gtk_dialog_get_widget_for_response(n_Dialog, Int32(response)))
 	}
 
 	func getContentArea() -> Box {

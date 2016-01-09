@@ -1,10 +1,23 @@
 import CGTK
 
 class Widget {
+
 	var n_Widget: UnsafeMutablePointer<GtkWidget>
+
+	class var n_Type: UInt {
+		return gtk_widget_get_type()
+	}
 
 	internal init(n_Widget: UnsafeMutablePointer<GtkWidget>) {
 		self.n_Widget = n_Widget
+	}
+
+	internal init?(o_Widget: UnsafeMutablePointer<GtkWidget>) {
+		if o_Widget != nil {
+			self.n_Widget = o_Widget
+		} else {
+			return nil
+		}
 	}
 
 	func showAll() {

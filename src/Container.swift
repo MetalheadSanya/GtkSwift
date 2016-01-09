@@ -1,7 +1,12 @@
 import CGTK
 
 class Container: Widget {
+
 	internal var n_Container: UnsafeMutablePointer<GtkContainer>
+
+	override class var n_Type: UInt {
+		return gtk_container_get_type()
+	}
 
 	init(n_Container: UnsafeMutablePointer<GtkContainer>) {
 		self.n_Container = n_Container
@@ -25,5 +30,11 @@ extension Container {
 
 	func remove(widget: Widget) {
 		gtk_container_remove(n_Container, widget.n_Widget)
+	}
+
+	func getChildren() -> [Widget] {
+		let preArray = Array<UnsafeMutablePointer<GtkWidget>>(gList: gtk_container_get_children(n_Container))
+
+		return preArray.map { Widget.buildRightWidget($0) }
 	}
 }

@@ -19,7 +19,7 @@ app.activateCallbacks.append({ (app: Application, userData: gpointer) -> Void in
 
 	let button2 = Button(label: "Button 2")
 	button2.clickedCallbacks.append({ (button: Button, userData: gpointer) in
-		let dialog = Dialog(title: "Test", parent: window, flags: 0, buttons: [(text: "Ok", ResponseType.Ok.rawValue)])
+		let dialog = MessageDialog(window: window, flags: [.Modal], type: .Question, buttonsType: .YesNo, message: "Super test")
 		_ = dialog.run()
 		dialog.destroy()
 	})
