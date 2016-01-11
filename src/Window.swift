@@ -87,7 +87,7 @@ class Window: Container {
 	}
 }
 
-extension Window: Equatable { }
+// extension Window: Equatable { }
 
 func ==(lhs: Window, rhs: Window) -> Bool {
 	return lhs.n_Window == rhs.n_Window

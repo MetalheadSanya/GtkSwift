@@ -27,7 +27,7 @@ class Button: Container {
 	var clickedCallbacks = [ButtonClickedCallback]()
 }
 
-extension Button: Equatable { }
+// extension Button: Equatable { }
 
 func ==(lhs: Button, rhs: Button) -> Bool {
 	return lhs.n_Button == rhs.n_Button

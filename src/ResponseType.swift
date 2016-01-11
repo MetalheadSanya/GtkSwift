@@ -3,8 +3,6 @@
 // Copyright (c) 2015 Metalhead. All rights reserved.
 //
 
-import Foundation
-
 enum ResponseType: Int {
 	case None = -1
 	case Reject = -2
