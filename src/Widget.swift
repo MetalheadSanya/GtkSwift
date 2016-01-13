@@ -1,5 +1,41 @@
 import CGTK
 
+let gtk_widget_destroy_real = GtkWidgetClass.destroy
+
+typealias CDestroyFunc = gtk_widget_destroy_real.dynamicType
+
+
+
+private class WidgetNotificationCenter {
+	static let sharedInstance = WidgetNotificationCenter()
+
+	private let desroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
+		WidgetNotificationCenter.sharedInstance.destroy($0)
+	}
+
+	init() {
+		GtkWidgetClass.destroy = desroy_widget
+	}
+
+	private var registers = [(widget: Widget, gtkWidget: UnsafeMutablePointer<GtkWidget>)]()
+
+	func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkButton>) {
+		registers.append((obj, widget))
+	}
+
+	func unregisterForClicked(obj: Widget) {
+		registers = registers.filter { $0.button != obj }
+	}
+
+	func destroy(widget: UnsafeMutablePointer<GtkWidget>) {
+		let forPerform = registers.filter { $0.gtkWidget == widget }
+
+		for (obj, _) in forPerform {
+			obj.destroy()
+		}
+	}
+}
+
 class Widget {
 
 	class var n_Type: UInt {
@@ -18,7 +54,7 @@ class Widget {
 	}
 
 	func destroy() {
-		gtk_widget_destroy(n_Widget)
+		gtk_widget_destroy_real(n_Widget)
 	}
 
 	// TODO: some for gtk_widget_in_destruction(), gtk_widget_destroyed()
@@ -92,8 +128,12 @@ class Widget {
 
 	// TODO: some for gtk_widget_size_allocate(), gtk_widget_size_allocate_with_baseline(), need GtkAllocation
 
-	func sizeAllocation(rect: Rectangle) {
+	func sizeAllocate(rect: Rectangle) {
 		gtk_widget_size_allocate(n_Widget, rect.gdkRectangle)
+	}
+
+	func sizeAllocateWithBaseline(rect: Rectangle, baseline: Int) {
+
 	}
 
 	// TODO: some for gtk_widget_add_accelerator(), need GtkAccelGroup, GtkModifierType GtkAccelFlags
