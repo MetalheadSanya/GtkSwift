@@ -26,6 +26,27 @@ class Window: Container {
 		self.init(n_Window: unsafeBitCast(gtk_window_new(type.n_Type), UnsafeMutablePointer<GtkWindow>.self))
 	}
 
+	private static var gtk_window_destroy_real: @convention(c) CDestroyFunc!
+
+	private func overrideGtkHandler() {
+		let gtkClass = getGtkWidgetClass()
+
+		if Window.gtk_window_destroy_real == nil {
+			Window.gtk_window_destroy_real = gtkClass.memory.destroy
+		}
+
+		gtkClass.memory.destroy = WidgetNotificationCenter.sharedInstance.destroy_widget
+
+		WidgetNotificationCenter.sharedInstance.register(self, fromNativeWidget: n_Widget)
+	}
+
+	override func destroy() {
+		print("window destroy")
+
+		Window.gtk_window_destroy_real(n_Widget)
+	}
+
+
 	var title: String? {
 		get {
 			return String.fromCString(gtk_window_get_title(n_Window))
