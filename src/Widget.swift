@@ -5,7 +5,7 @@ typealias CDestroyFunc = (UnsafeMutablePointer<GtkWidget>) -> Void
 private class WidgetNotificationCenter {
 	static let sharedInstance = WidgetNotificationCenter()
 
-	private let desroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
+	private let destroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
 		WidgetNotificationCenter.sharedInstance.destroy($0)
 	}
 
@@ -57,14 +57,15 @@ class Widget {
 	private func overrideGtkHandler() {
 		let gtkClass = getGtkWidgetClass()
 
-		gtk_widget_destroy_real = gtkClass.memory.desroy
+		gtk_widget_destroy_real = gtkClass.memory.destroy
 
-		gtkClass.memory.desroy = WidgetNotificationCenter.desroy_widget
+		gtkClass.memory.destroy = WidgetNotificationCenter.destroy_widget
 
 		WidgetNotificationCenter.register(self, n_Widget)
 	}
 
 	func destroy() {
+		print("destroy overriding success")
 		gtk_widget_destroy_real(n_Widget)
 	}
 
