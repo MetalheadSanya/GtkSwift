@@ -10,7 +10,7 @@ struct Rectangle {
 	var size: Size
 
 	// TODO: use gdk-swift
-	internal var gdkRectangle: UnsafeMutablePointer<﻿_cairo_rectangle_int> {
+	internal var gdkRectangle: UnsafeMutablePointer<GtkAllocation> {
 		let allocation = UnsafeMutablePointer<Int32>.alloc(4)
 
 		allocation.memory = Int32(origin.x)
@@ -18,6 +18,6 @@ struct Rectangle {
 		allocation.advancedBy(2).memory = Int32(size.width)
 		allocation.advancedBy(3).memory = Int32(size.height)
 
-		return unsafeBitCast(allocation, UnsafeMutablePointer<﻿_cairo_rectangle_int>.self)
+		return unsafeBitCast(allocation, UnsafeMutablePointer<GtkAllocation>.self)
 	}
 }
