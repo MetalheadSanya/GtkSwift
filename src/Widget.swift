@@ -1,10 +1,6 @@
 import CGTK
 
-let gtk_widget_destroy_real = GtkWidgetClass.destroy
-
-typealias CDestroyFunc = gtk_widget_destroy_real.dynamicType
-
-
+typealias CDestroyFunc = (UnsafeMutablePointer<GtkWidget>) -> Void
 
 private class WidgetNotificationCenter {
 	static let sharedInstance = WidgetNotificationCenter()
@@ -13,18 +9,14 @@ private class WidgetNotificationCenter {
 		WidgetNotificationCenter.sharedInstance.destroy($0)
 	}
 
-	init() {
-		GtkWidgetClass.destroy = desroy_widget
-	}
-
 	private var registers = [(widget: Widget, gtkWidget: UnsafeMutablePointer<GtkWidget>)]()
 
-	func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkButton>) {
+	func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkWidget>) {
 		registers.append((obj, widget))
 	}
 
 	func unregisterForClicked(obj: Widget) {
-		registers = registers.filter { $0.button != obj }
+		registers = registers.filter { $0.widget != obj }
 	}
 
 	func destroy(widget: UnsafeMutablePointer<GtkWidget>) {
@@ -46,11 +38,27 @@ class Widget {
 
 	internal init(n_Widget: UnsafeMutablePointer<GtkWidget>) {
 		self.n_Widget = n_Widget
+		overrideGtkHandler()
 	}
 
 	internal init?(o_Widget: UnsafeMutablePointer<GtkWidget>) {
 		guard o_Widget != nil else { return nil }
 		self.n_Widget = o_Widget
+		overrideGtkHandler()
+	}
+
+	private var gtk_widget_destroy_real: CDestroyFunc
+
+	private func getGtkWidgetClass() -> UnsafeMutablePointer<GtkWidgetClass> {
+		unsafeBitCast(unsafeBitCast(n_Widget, UnsafeMutablePointer<GTypeInstance>).memory.g_class, UnsafeMutablePointer<GtkWidgetClass>)
+	}
+
+	private func overrideGtkHandler() {
+		let gtkClass = getGtkWidgetClass()
+
+		gtk_widget_destroy_real = gktClass.memory.desroy
+
+		gktClass.memory.desroy = WidgetNotificationCenter.desroy_widget
 	}
 
 	func destroy() {
