@@ -27,6 +27,7 @@ app.activateCallbacks.append({ (app: Application, userData: gpointer) -> Void in
 
 	let quitButton = Button(label: "Quit")
 	quitButton.clickedCallbacks.append({ (button: Button, userData: gpointer) in
+		quitButton.destroy()
 		window.destroy()
 	})
 	grid.attachWidget(quitButton, left: 0, top: 1, width: 2, height: 1)
