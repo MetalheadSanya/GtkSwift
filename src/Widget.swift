@@ -1,8 +1,8 @@
 import CGTK
 
-typealias CDestroyFunc = (UnsafeMutablePointer<GtkWidget>) -> Void
+internal typealias CDestroyFunc = (UnsafeMutablePointer<GtkWidget>) -> Void
 
-private class WidgetNotificationCenter {
+internal class WidgetNotificationCenter {
 	static let sharedInstance = WidgetNotificationCenter()
 
 	private let destroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
