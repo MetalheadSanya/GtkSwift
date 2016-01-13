@@ -5,7 +5,7 @@ internal typealias CDestroyFunc = (UnsafeMutablePointer<GtkWidget>) -> Void
 internal class WidgetNotificationCenter {
 	static let sharedInstance = WidgetNotificationCenter()
 
-	private let destroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
+	internal let destroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
 		WidgetNotificationCenter.sharedInstance.destroy($0)
 	}
 
