@@ -57,10 +57,8 @@ class Widget {
 	private func overrideGtkHandler() {
 		let gtkClass = getGtkWidgetClass()
 
-		if gtk_widget_destroy_real == nil {
-			print(gtkClass.memory.destroy.dynamicType)
-			print(gtkClass.memory.destroy.memory.dynamicType)
-			gtk_widget_destroy_real = gtkClass.memory.destroy
+		if Widget.gtk_widget_destroy_real == nil {
+			Widget.gtk_widget_destroy_real = gtkClass.memory.destroy
 		}
 
 		gtkClass.memory.destroy = WidgetNotificationCenter.sharedInstance.destroy_widget
@@ -70,7 +68,7 @@ class Widget {
 
 	func destroy() {
 		print("destroy overriding success")
-		gtk_widget_destroy_real(n_Widget)
+		Widget.gtk_widget_destroy_real(n_Widget)
 	}
 
 	// TODO: some for gtk_widget_in_destruction(), gtk_widget_destroyed()
