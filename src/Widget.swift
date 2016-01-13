@@ -58,6 +58,8 @@ class Widget {
 		let gtkClass = getGtkWidgetClass()
 
 		if gtk_widget_destroy_real == nil {
+			print(gtkClass.memory.destroy.dynamicType)
+			print(gtkClass.memory.destroy.memory.dynamicType)
 			gtk_widget_destroy_real = gtkClass.memory.destroy
 		}
 
