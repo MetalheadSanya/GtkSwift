@@ -26,7 +26,7 @@ class Window: Container {
 		self.init(n_Window: unsafeBitCast(gtk_window_new(type.n_Type), UnsafeMutablePointer<GtkWindow>.self))
 	}
 
-	private static var gtk_window_destroy_real: @convention(c) CDestroyFunc!
+	private static var gtk_window_destroy_real: CDestroyFunc!
 
 	private func overrideGtkHandler() {
 		let gtkClass = getGtkWidgetClass()
