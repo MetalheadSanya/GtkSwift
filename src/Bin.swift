@@ -14,7 +14,7 @@ class Bin: Container {
 		if _child != nil {
 			return nil
 		} else {
-			return Widget.Type
+			return Widget.self
 		}
 	}
 
