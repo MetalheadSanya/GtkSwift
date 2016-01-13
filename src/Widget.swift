@@ -38,13 +38,13 @@ class Widget {
 
 	internal init(n_Widget: UnsafeMutablePointer<GtkWidget>) {
 		self.n_Widget = n_Widget
-		overrideGtkHandler()
+//		overrideGtkHandler()
 	}
 
 	internal init?(o_Widget: UnsafeMutablePointer<GtkWidget>) {
 		guard o_Widget != nil else { return nil }
 		self.n_Widget = o_Widget
-		overrideGtkHandler()
+//		overrideGtkHandler()
 	}
 
 	private static var gtk_widget_destroy_real: CDestroyFunc!
