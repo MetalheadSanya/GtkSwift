@@ -92,6 +92,10 @@ class Widget {
 
 	// TODO: some for gtk_widget_size_allocate(), gtk_widget_size_allocate_with_baseline(), need GtkAllocation
 
+	func sizeAllocation(rect: Rectangle) {
+		gtk_widget_size_allocate(n_Widget, rect.gdkRectangle)
+	}
+
 	// TODO: some for gtk_widget_add_accelerator(), need GtkAccelGroup, GtkModifierType GtkAccelFlags
 
 	// TODO: some for gtk_widget_remove_accelerator(), need GtkAccelGroup, GtkModifierType
@@ -137,11 +141,14 @@ class Widget {
 		}
 	}
 
-	// var sensitive: Bool {
-	// 	set(value) {
-	// 		gtk_widget_set_sensitive(n_Widget, value ? 1 : 0)
-	// 	}
-	// }
+	var sensitive: Bool {
+		get {
+			return gtk_widget_get_sensitive(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_sensitive(n_Widget, value ? 1 : 0)
+		}
+	}
 
 	/**
 	This function is useful only when implementing subclasses of Container.
@@ -252,11 +259,14 @@ class Widget {
 
 	// TODO: some for gtk_widget_queue_draw_region(), need cario-swift
 
-	// var appPrintable: Bool {
-	// 	set(value) {
-	// 		gtk_widget_set_app_paintable(n_Widget, value ? 1 : 0)
-	// 	}
-	// }
+	var appPrintable: Bool {
+		get {
+			return gtk_widget_get_app_paintable(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_app_paintable(n_Widget, value ? 1 : 0)
+		}
+	}
 
 	// var redrawOnAllocate: Bool {
 	// 	set(value) {
@@ -338,7 +348,352 @@ class Widget {
 		gtk_widget_error_bell(n_Widget)
 	}
 
+	func keynavFailed(direction: DirectionType) -> Bool {
+		return gtk_widget_keynav_failed(n_Widget, direction.rawValue) != 0
+	}
 
+	var tooltipMarkup: String {
+		get {
+			return String(gtk_widget_get_tooltip_markup(n_Widget))
+		}
+		set(value) {
+			gtk_widget_set_tooltip_markup(n_Widget, value)
+		}
+	}
+
+	var tooltipText: String {
+		get {
+			return String(gtk_widget_get_tooltip_text(n_Widget))
+		}
+		set(value) {
+			gtk_widget_set_tooltip_text(n_Widget, value)
+		}
+	}
+
+	// TODO: some for gtk_widget_get_tooltip_window(), gtk_widget_set_tooltip_window(), need get defailt tooltip_window
+
+	var hasTooltip: Bool {
+		get {
+			return gtk_widget_get_has_tooltip(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_has_tooltip(n_Widget, value ? 1 : 0)
+		}
+	}
+
+	func triggerTooltipQuery() {
+		gtk_widget_trigger_tooltip_query(n_Widget)
+	}
+
+	// TODO: use gdk-swift
+	// var window: Window? {
+	// 	didSet {
+	// 		let pointer: COpaquePointer
+	// 		if let window = window {
+	// 			pointer = COpaquePointer(window.n_Window)
+	// 		} else {
+	// 			pointer = COpaquePointer()
+	// 		}
+	// 		gtk_widget_set_window(n_Widget, pointer)
+	// 	}
+	// }
+
+	func registerWindow(window: Window) {
+		gtk_widget_register_window(n_Widget, COpaquePointer(window.n_Window))
+	}
+
+	func unregisterWindow(window: Window) {
+		gtk_widget_unregister_window(n_Widget, COpaquePointer(window.n_Window))
+	}
+
+	// TODO: some for gtk_cairo_should_draw_window(), gtk_cairo_transform_to_window(), use cario-swift
+
+	var allocatedWidth: Int {
+		return Int(gtk_widget_get_allocated_width(n_Widget))
+	}
+
+	var allocatedHeight: Int {
+		return Int(gtk_widget_get_allocated_height(n_Widget))
+	}
+
+	// TODO: some for gtk_widget_get_allocation(), gtk_widget_set_allocation(), need GtkAllocation class
+
+	var allocatedBaseline: Int {
+		return Int(gtk_widget_get_allocated_baseline(n_Widget))
+	}
+
+	// TODO: some for gtk_widget_get_clip(), gtk_widget_set_clip(), need GtkAllocation class
+
+  var canDefault: Bool {
+  	get {
+  		return gtk_widget_get_can_default(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_can_default(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var canFocus: Bool {
+  	get {
+  		return gtk_widget_get_can_focus(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_can_focus(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var hasWindow: Bool {
+  	get {
+  		return gtk_widget_get_has_window(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_has_window(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var isSensitive: Bool {
+  	return gtk_widget_is_sensitive(n_Widget) != 0
+  }
+
+  var visible: Bool {
+  	get {
+  		return gtk_widget_get_visible(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_visible(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var isVisible: Bool {
+  	return gtk_widget_is_visible(n_Widget) != 0
+  }
+
+  // TODO: some for gtk_widget_set_state_flags(), gtk_widget_unset_state_flags(), gtk_widget_get_state_flags(), need GtkStateFlags enum
+
+  var hasDefault: Bool {
+  	return gtk_widget_has_default(n_Widget) != 0
+  }
+
+  var hasFocus: Bool {
+  	return gtk_widget_has_focus(n_Widget) != 0
+  }
+
+  var hasVisibleFocus: Bool {
+  	return gtk_widget_has_visible_focus(n_Widget) != 0
+  }
+
+  var hasGrab: Bool {
+  	return gtk_widget_has_grab(n_Widget) != 0
+  }
+
+  var isDrawable: Bool {
+  	return gtk_widget_is_drawable(n_Widget) != 0
+  }
+
+  var isToplevel: Bool {
+  	return gtk_widget_is_toplevel(n_Widget) != 0
+  }
+
+  var receivesDefault: Bool {
+  	get {
+  		return gtk_widget_get_receives_default(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_receives_default(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var supportMultidevice: Bool {
+  	get {
+  		return gtk_widget_get_support_multidevice(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_support_multidevice(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var realized: Bool {
+  	get {
+  		return gtk_widget_get_realized(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_realized(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var mapped: Bool {
+  	get {
+  		return gtk_widget_get_mapped(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_mapped(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  // TODO: some for gtk_widget_device_is_shadowed(), gtk_widget_get_modifier_mask(), use gdk-swift
+
+  // TODO: some for gtk_widget_insert_action_group(), use gio-swift
+
+  var opacity: Double {
+  	get {
+  		return gtk_widget_get_opacity(n_Widget)
+  	}
+  	set(value) {
+  		gtk_widget_set_opacity(n_Widget, value)
+  	}
+  }
+
+  // TODO: some for gtk_widget_list_action_prefixes()
+
+  // TODO: some for gtk_widget_get_action_group(), use gio-swift
+
+  // TODO: some for gtk_widget_get_path(), need GtkWidgetPath class 
+  	
+  // TODO: some for gtk_widget_get_style_context(), need GtkStyleContext class
+
+  func resetStyle() {
+  	gtk_widget_reset_style(n_Widget)
+  }
+
+  // TODO: some for gtk_requisition_new(), gtk_requisition_copy(), gtk_requisition_free(), need GtkRequisition class
+
+  func getPreferredHeight() -> (minimum: Int, natural: Int) {
+  	let minimum: UnsafeMutablePointer<Int32> = nil
+		let natural: UnsafeMutablePointer<Int32> = nil
+
+		gtk_widget_get_preferred_height(n_Widget, minimum, natural)
+
+		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
+  }
+
+  func getPreferredWidth() -> (minimum: Int, natural: Int) {
+  	let minimum: UnsafeMutablePointer<Int32> = nil
+		let natural: UnsafeMutablePointer<Int32> = nil
+
+		gtk_widget_get_preferred_width(n_Widget, minimum, natural)
+
+		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
+  }
+
+  func getPreferredHeightForWidth(width: Int) -> (minimum: Int, natural: Int) {
+  	let minimum: UnsafeMutablePointer<Int32> = nil
+		let natural: UnsafeMutablePointer<Int32> = nil
+
+		gtk_widget_get_preferred_height_for_width(n_Widget, Int32(width), minimum, natural)
+
+		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
+  }
+
+  func getPreferredWidthForHeight(height: Int) -> (minimum: Int, natural: Int) {
+  	let minimum: UnsafeMutablePointer<Int32> = nil
+		let natural: UnsafeMutablePointer<Int32> = nil
+
+		gtk_widget_get_preferred_width_for_height(n_Widget, Int32(height), minimum, natural)
+
+		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
+  }
+
+  func getPreferredHeightAndBaselineForWidth(width: Int) -> (height: (minimum: Int, natural: Int), baseline: (minimum: Int, natural: Int)) {
+  	let minimumHeight: UnsafeMutablePointer<Int32> = nil
+		let naturalHeight: UnsafeMutablePointer<Int32> = nil
+
+		let minimumBaseline: UnsafeMutablePointer<Int32> = nil
+		let naturalBaseline: UnsafeMutablePointer<Int32> = nil
+
+
+		gtk_widget_get_preferred_height_and_baseline_for_width(n_Widget, Int32(width), minimumHeight, naturalHeight, minimumBaseline, naturalBaseline)
+
+		return (height: (minimum: Int(minimumHeight.memory), natural: Int(naturalHeight.memory)), 
+			baseline: (minimum: Int(minimumBaseline.memory), natural: Int(naturalBaseline.memory)))
+  }
+
+  // TODO: some for gtk_widget_get_request_mode(), need GtkSizeRequestMode class
+
+  // TODO: some for gtk_widget_get_preferred_size(), need GtkRequisition class
+
+  // TODO: some for gtk_distribute_natural_allocation(), need GtkRequestedSize class
+
+  // TODO: some for gtk_widget_get_halign(), gtk_widget_set_halign(), gtk_widget_get_valign(), gtk_widget_get_valign_with_baseline(), gtk_widget_set_valign(), need GtkAlign class
+
+  var marginStart: Int {
+  	get {
+  		return Int(gtk_widget_get_margin_start(n_Widget))
+  	}
+  	set(value) {
+  		gtk_widget_set_margin_start(n_Widget, Int32(value))
+  	}
+  }
+
+  var marginEnd: Int {
+  	get {
+  		return Int(gtk_widget_get_margin_end(n_Widget))
+  	}
+  	set(value) {
+  		gtk_widget_set_margin_end(n_Widget, Int32(value))
+  	}
+  }
+
+  var marginTop: Int {
+  	get {
+  		return Int(gtk_widget_get_margin_top(n_Widget))
+  	}
+  	set(value) {
+  		gtk_widget_set_margin_top(n_Widget, Int32(value))
+  	}
+  }
+
+  var marginBottom: Int {
+  	get {
+  		return Int(gtk_widget_get_margin_bottom(n_Widget))
+  	}
+  	set(value) {
+  		gtk_widget_set_margin_bottom(n_Widget, Int32(value))
+  	}
+  }
+
+  var hexpand: Bool {
+  	get {
+  		return gtk_widget_get_hexpand(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_hexpand(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var hexpandSet: Bool {
+  	get {
+  		return gtk_widget_get_hexpand_set(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_hexpand_set(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var vexpand: Bool {
+  	get {
+  		return gtk_widget_get_vexpand(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_vexpand(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  var vexpandSet: Bool {
+  	get {
+  		return gtk_widget_get_vexpand_set(n_Widget) != 0
+  	}
+  	set(value) {
+  		gtk_widget_set_vexpand_set(n_Widget, value ? 1 : 0)
+  	}
+  }
+
+  func queueComputeExpand() {
+  	gtk_widget_queue_compute_expand(n_Widget)
+  }
+
+  func computeExpand(orientation: Orientation) -> Bool {
+  	return gtk_widget_compute_expand(n_Widget, orientation.rawValue) != 0
+  }
 }
 
 extension Widget: Equatable { }
