@@ -47,7 +47,7 @@ class Widget {
 		overrideGtkHandler()
 	}
 
-	private var gtk_widget_destroy_real: CDestroyFunc
+	private var gtk_widget_destroy_real: CDestroyFunc!
 
 	private func getGtkWidgetClass() -> UnsafeMutablePointer<GtkWidgetClass> {
 		return unsafeBitCast(unsafeBitCast(n_Widget, UnsafeMutablePointer<GTypeInstance>.self).memory.g_class,
