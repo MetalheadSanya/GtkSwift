@@ -60,6 +60,8 @@ class Widget {
 		gtk_widget_destroy_real = gtkClass.memory.desroy
 
 		gtkClass.memory.desroy = WidgetNotificationCenter.desroy_widget
+
+		WidgetNotificationCenter.register(self, n_Widget)
 	}
 
 	func destroy() {
