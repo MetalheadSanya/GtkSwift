@@ -16,7 +16,8 @@ class Window: Container {
 	internal init?(o_Window: UnsafeMutablePointer<GtkWindow>) {
 		if o_Window != nil {
 			self.n_Window = o_Window
-			super.init(n_Container: unsafeBitCast(n_Window, UnsafeMutablePointer < GtkContainer>.self))
+			super.init(n_Container: unsafeBitCast(n_Window, UnsafeMutablePointer <GtkContainer>.self))
+			overrideGtkHandler()
 		} else {
 			return nil
 		}
@@ -43,7 +44,7 @@ class Window: Container {
 	override func destroy() {
 		print("window destroy")
 
-		Window.gtk_window_destroy_real(n_Widget)
+		Window.gtk_widget_destroy_real(n_Widget)
 	}
 
 
