@@ -61,7 +61,7 @@ class Widget {
 
 		gtkClass.memory.destroy = WidgetNotificationCenter.sharedInstance.destroy_widget
 
-		WidgetNotificationCenter.sharedInstance.register(self, ﻿fromNativeWidget: n_Widget)
+		WidgetNotificationCenter.sharedInstance.register(self, fromNativeWidget: n_Widget)
 	}
 
 	func destroy() {
