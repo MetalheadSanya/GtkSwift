@@ -57,7 +57,7 @@ class Widget {
 	private func overrideGtkHandler() {
 		let gtkClass = getGtkWidgetClass()
 
-		gtk_widget_destroy_real = gtkClass.memory.destroy
+		gtk_widget_destroy_real = gtkClass.memory.destroy.memory
 
 		gtkClass.memory.destroy = WidgetNotificationCenter.sharedInstance.destroy_widget
 
