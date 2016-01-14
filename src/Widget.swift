@@ -25,9 +25,9 @@ internal class WidgetNotificationCenter {
 	func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkWidget>) {
 		registers.append((obj, widget))
 
-		if registerTypes[toString(obj.dynamicType)] == nil {
+		if registerTypes[String(obj.dynamicType)] == nil {
 			let widgetClass = getGtkWidgetClass(widget)
-			registerTypes[obj.dynamicType] = widgetClass.memory
+			registerTypes[String(obj.dynamicType)] = widgetClass.memory
 			overrideGtkHandlerForWidgetClass(widgetClass)
 		}
 	}
@@ -71,7 +71,7 @@ class Widget {
 
 	func destroy() {
 		print("destroy widget")
-		WidgetNotificationCenter.sharedInstance.registerTypes[self.dynamicType].destroy(n_Widget)
+		WidgetNotificationCenter.sharedInstance.registerTypes[String(dynamicType)].destroy(n_Widget)
 	}
 
 	// TODO: some for gtk_widget_in_destruction(), gtk_widget_destroyed()
