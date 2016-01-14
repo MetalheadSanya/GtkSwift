@@ -12,8 +12,9 @@ internal class WidgetNotificationCenter {
 	private var registers = [(widget: Widget, gtkWidget: UnsafeMutablePointer<GtkWidget>)]()
 	private var registerTypes = [AnyObject.Type: UnsafeMutablePointer<GtkWidgetClass>]()
 
-	internal func getGtkWidgetClass(widget: Widget) -> UnsafeMutablePointer<GtkWidgetClass> {
-		return unsafeBitCast(unsafeBitCast(n_Widget, UnsafeMutablePointer<GTypeInstance>.self).memory.g_class,
+
+	internal func getGtkWidgetClass(widget: UnsafeMutablePointer<GtkWidget>) -> UnsafeMutablePointer<GtkWidgetClass> {
+		return unsafeBitCast(unsafeBitCast(widget, UnsafeMutablePointer<GTypeInstance>.self).memory.g_class,
 				UnsafeMutablePointer<GtkWidgetClass>.self)
 	}
 
