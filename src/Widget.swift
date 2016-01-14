@@ -10,7 +10,7 @@ internal class WidgetNotificationCenter {
 	}
 
 	private var registers = [(widget: Widget, gtkWidget: UnsafeMutablePointer<GtkWidget>)]()
-	private var registerTypes = [AnyObject.Type: UnsafeMutablePointer<GtkWidgetClass>]()
+	private var registerTypes = [String: UnsafeMutablePointer<GtkWidgetClass>]()
 
 
 	internal func getGtkWidgetClass(widget: UnsafeMutablePointer<GtkWidget>) -> UnsafeMutablePointer<GtkWidgetClass> {
@@ -19,20 +19,15 @@ internal class WidgetNotificationCenter {
 	}
 
 	private func overrideGtkHandlerForWidgetClass(widgetClass: UnsafeMutablePointer<GtkWidgetClass>) {
-
-		if Widget.gtk_widget_destroy_real == nil {
-			Widget.gtk_widget_destroy_real = widgetClass.memory.destroy
-		}
-
 		widgetClass.memory.destroy = WidgetNotificationCenter.sharedInstance.destroy_widget
 	}
 
 	func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkWidget>) {
 		registers.append((obj, widget))
 
-		if registerTypes[obj.dynamicType] == nil {
-			let widgetClass = getGtkWidgetClass(widget).memory
-			registerTypes[obj.dynamicType] = widgetClass
+		if registerTypes[toString(obj.dynamicType)] == nil {
+			let widgetClass = getGtkWidgetClass(widget)
+			registerTypes[obj.dynamicType] = widgetClass.memory
 			overrideGtkHandlerForWidgetClass(widgetClass)
 		}
 	}
@@ -70,7 +65,7 @@ class Widget {
 	}
 
 	func overrideGtkHandler() {
-		WidgetNotificationCenter.register(self, fromNativeWidget: n_Widget)
+		WidgetNotificationCenter.sharedInstance.register(self, fromNativeWidget: n_Widget)
 	}
 
 
