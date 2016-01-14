@@ -19,7 +19,7 @@ class Bin: Container {
 	}
 
 	override func addWidget(widget: Widget) {
-		guard _child != nil else {
+		guard _child == nil else {
 			print("Attempting to add a widget with type \(widget.dynamicType) to a \(self.dynamicType), but as a GtkBin subclass a \(self.dynamicType) can only contain one widget at a time; it already contains a widget of type \(_child!.dynamicType)")
 			return
 		}
