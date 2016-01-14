@@ -1,6 +1,6 @@
 import CGTK
 
-class Window: Container {
+class Window: Bin {
 
 	internal var n_Window: UnsafeMutablePointer<GtkWindow>
 
@@ -10,14 +10,13 @@ class Window: Container {
 
 	internal init(n_Window: UnsafeMutablePointer<GtkWindow>) {
 		self.n_Window = n_Window
-		super.init(n_Container: unsafeBitCast(n_Window, UnsafeMutablePointer<GtkContainer>.self))
+		super.init(n_Bin: unsafeBitCast(n_Window, UnsafeMutablePointer<GtkBin>.self))
 	}
 
 	internal init?(o_Window: UnsafeMutablePointer<GtkWindow>) {
 		if o_Window != nil {
 			self.n_Window = o_Window
-			super.init(n_Container: unsafeBitCast(n_Window, UnsafeMutablePointer <GtkContainer>.self))
-			overrideGtkHandler()
+			super.init(n_Bin: unsafeBitCast(n_Window, UnsafeMutablePointer <GtkBin>.self))
 		} else {
 			return nil
 		}
