@@ -10,9 +10,30 @@ internal class WidgetNotificationCenter {
 	}
 
 	private var registers = [(widget: Widget, gtkWidget: UnsafeMutablePointer<GtkWidget>)]()
+	private var registerTypes = [AnyObject.Type: UnsafeMutablePointer<GtkWidgetClass>]()
+
+	internal func getGtkWidgetClass(widget: Widget) -> UnsafeMutablePointer<GtkWidgetClass> {
+		return unsafeBitCast(unsafeBitCast(n_Widget, UnsafeMutablePointer<GTypeInstance>.self).memory.g_class,
+				UnsafeMutablePointer<GtkWidgetClass>.self)
+	}
+
+	private func overrideGtkHandlerForWidgetClass(widgetClass: UnsafeMutablePointer<GtkWidgetClass>) {
+
+		if Widget.gtk_widget_destroy_real == nil {
+			Widget.gtk_widget_destroy_real = widgetClass.memory.destroy
+		}
+
+		widgetClass.memory.destroy = WidgetNotificationCenter.sharedInstance.destroy_widget
+	}
 
 	func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkWidget>) {
 		registers.append((obj, widget))
+
+		if registerTypes[obj.dynamicType] == nil {
+			let widgetClass = getGtkWidgetClass(widget).memory
+			registerTypes[obj.dynamicType] = widgetClass
+			overrideGtkHandlerForWidgetClass(widgetClass)
+		}
 	}
 
 	func unregisterForClicked(obj: Widget) {
@@ -47,28 +68,14 @@ class Widget {
 		overrideGtkHandler()
 	}
 
-	private static var gtk_widget_destroy_real: CDestroyFunc!
-
-	internal func getGtkWidgetClass() -> UnsafeMutablePointer<GtkWidgetClass> {
-		return unsafeBitCast(unsafeBitCast(n_Widget, UnsafeMutablePointer<GTypeInstance>.self).memory.g_class,
-				UnsafeMutablePointer<GtkWidgetClass>.self)
+	func overrideGtkHandler() {
+		WidgetNotificationCenter.register(self, fromNativeWidget: n_Widget)
 	}
 
-	private func overrideGtkHandler() {
-		let gtkClass = getGtkWidgetClass()
-
-		if self.Type.gtk_widget_destroy_real == nil {
-			self.Type.gtk_widget_destroy_real = gtkClass.memory.destroy
-		}
-
-		gtkClass.memory.destroy = WidgetNotificationCenter.sharedInstance.destroy_widget
-
-		WidgetNotificationCenter.sharedInstance.register(self, fromNativeWidget: n_Widget)
-	}
 
 	func destroy() {
-		print("destroy overriding success")
-		self.Type.gtk_widget_destroy_real(n_Widget)
+		print("destroy widget")
+		WidgetNotificationCenter.sharedInstance.registerTypes[self.dynamicType].destroy(n_Widget)
 	}
 
 	// TODO: some for gtk_widget_in_destruction(), gtk_widget_destroyed()
