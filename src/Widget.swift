@@ -71,7 +71,7 @@ class Widget {
 
 	func destroy() {
 		print("destroy widget")
-		WidgetNotificationCenter.sharedInstance.registerTypes[String(self.dynamicType)].destroy(n_Widget)
+		WidgetNotificationCenter.sharedInstance.registerTypes[String(self.dynamicType)]!.destroy(n_Widget)
 	}
 
 	// TODO: some for gtk_widget_in_destruction(), gtk_widget_destroyed()
