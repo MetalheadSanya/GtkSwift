@@ -70,6 +70,7 @@ class Widget {
 
 	func destroy() {
 		print(String(self.dynamicType))
+
 		WidgetNotificationCenter.sharedInstance.registerTypes[String(self.dynamicType)]!.destroy(n_Widget)
 	}
 
