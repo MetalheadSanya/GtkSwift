@@ -25,12 +25,6 @@ class Button: Container {
 
 
 	var clickedCallbacks = [ButtonClickedCallback]()
-
-	override func destroy() {
-		print("This is a button")
-		super.destroy()
-	}
-
 }
 
 

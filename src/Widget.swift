@@ -5,13 +5,12 @@ internal typealias CDestroyFunc = (UnsafeMutablePointer<GtkWidget>) -> Void
 internal class WidgetNotificationCenter {
 	static let sharedInstance = WidgetNotificationCenter()
 
-	internal let destroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
+	private let destroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
 		WidgetNotificationCenter.sharedInstance.destroy($0)
 	}
 
 	private var registers = [(widget: Widget, gtkWidget: UnsafeMutablePointer<GtkWidget>)]()
 	private var registerTypes = [String: GtkWidgetClass]()
-
 
 	internal func getGtkWidgetClass(widget: UnsafeMutablePointer<GtkWidget>) -> UnsafeMutablePointer<GtkWidgetClass> {
 		return unsafeBitCast(unsafeBitCast(widget, UnsafeMutablePointer<GTypeInstance>.self).memory.g_class,
@@ -70,7 +69,7 @@ class Widget {
 
 
 	func destroy() {
-		print("destroy widget")
+		print(String(self.dynamicType))
 		WidgetNotificationCenter.sharedInstance.registerTypes[String(self.dynamicType)]!.destroy(n_Widget)
 	}
 

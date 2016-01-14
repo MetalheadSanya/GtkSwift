@@ -27,13 +27,6 @@ class Window: Container {
 		self.init(n_Window: unsafeBitCast(gtk_window_new(type.n_Type), UnsafeMutablePointer<GtkWindow>.self))
 	}
 
-	override func destroy() {
-		print("window destroy")
-
-		super.destroy()
-	}
-
-
 	var title: String? {
 		get {
 			return String.fromCString(gtk_window_get_title(n_Window))
