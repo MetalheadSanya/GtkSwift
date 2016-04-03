@@ -1,50 +1,32 @@
 import CGTK
+import gobjectswift
 
-internal typealias CDestroyFunc = (UnsafeMutablePointer<GtkWidget>) -> Void
+typealias WidgetAccelClosuresChangedCallback = (Widget) -> Void
+// TODO: some for “button-press-event”, “button-release-event”, need gdk-swift
+// TODO: some for “can-activate-accel”, need understand this
+// TODO: some for “child-notify”, need understand this
+typealias WidgetCompositedChangedCallback = (Widget) -> Void
+// TODO: some for “configure-event”, “damage-event”, “delete-event”, need gdk-swift
+typealias WidgetDestroyCallback = (Widget) -> Void
+// TODO: some for “destroy-event”, need gdk-swift
+typealias WidgetTextDirectionChangedCallback = (Widget, TextDirection) -> Void
+/* TODO: some for “drag-begin”, “drag-data-delete”, “drag-data-get”, “drag-data-received”, “drag-drop”, “drag-end”,
+         “drag-failed”, “drag-leave”, “drag-motion”, need gdk-swift */
+// TODO: some for “draw”, need cario-swift
+// TODO: some for “enter-notify-event”, “event”, “event-after”, need gdk-swift
+typealias WidgetFocusCallback = (Widget, TextDirection) -> Bool
+// TODO: some for “focus-in-event”, “focus-out-event”, “grab-broken-event”, need gdk-swift
+typealias WidgetGrabFocusCallback = (Widget) -> Void
+typealias WidgetGrabNotifyCallback = (Widget, Bool) -> Void
+typealias WidgetHideCallback = (Widget) -> Void
+// TODO: need some ideas about 'The “hierarchy-changed” signal'
+// TODO: some for “key-press-event”, “key-release-event”, need gdk-swift
+typealias WidgetKeyboardNavigationFailedCallback = (Widget, TextDirection) -> Bool
+// TODO: some for “leave-notify-event”, need gdk-swift
+typealias WidgetMapCallback = (Widget) -> Void
 
-internal class WidgetNotificationCenter {
-	static let sharedInstance = WidgetNotificationCenter()
 
-	private let destroy_widget: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>) -> Void = {
-		WidgetNotificationCenter.sharedInstance.destroy($0)
-	}
-
-	private var registers = [(widget: Widget, gtkWidget: UnsafeMutablePointer<GtkWidget>)]()
-	private var registerTypes = [String: GtkWidgetClass]()
-
-	internal func getGtkWidgetClass(widget: UnsafeMutablePointer<GtkWidget>) -> UnsafeMutablePointer<GtkWidgetClass> {
-		return unsafeBitCast(unsafeBitCast(widget, UnsafeMutablePointer<GTypeInstance>.self).memory.g_class,
-				UnsafeMutablePointer<GtkWidgetClass>.self)
-	}
-
-	private func overrideGtkHandlerForWidgetClass(widgetClass: UnsafeMutablePointer<GtkWidgetClass>) {
-		widgetClass.memory.destroy = WidgetNotificationCenter.sharedInstance.destroy_widget
-	}
-
-	func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkWidget>) {
-		registers.append((obj, widget))
-
-		if registerTypes[String(obj.dynamicType)] == nil {
-			let widgetClass = getGtkWidgetClass(widget)
-			registerTypes[String(obj.dynamicType)] = widgetClass.memory
-			overrideGtkHandlerForWidgetClass(widgetClass)
-		}
-	}
-
-	func unregisterForClicked(obj: Widget) {
-		registers = registers.filter { $0.widget != obj }
-	}
-
-	func destroy(widget: UnsafeMutablePointer<GtkWidget>) {
-		let forPerform = registers.filter { $0.gtkWidget == widget }
-
-		for (obj, _) in forPerform {
-			obj.destroy()
-		}
-	}
-}
-
-class Widget {
+class Widget: Object {
 
 	class var n_Type: UInt {
 		return 0
@@ -54,24 +36,46 @@ class Widget {
 
 	internal init(n_Widget: UnsafeMutablePointer<GtkWidget>) {
 		self.n_Widget = n_Widget
-		overrideGtkHandler()
+		super.init(n_Object: unsafeBitCast(n_Widget, UnsafeMutablePointer<GObject>.self))
+		WidgetNotificationCenter.sharedInstance.register(self, fromNativeWidget: self.n_Widget)
 	}
 
 	internal init?(o_Widget: UnsafeMutablePointer<GtkWidget>) {
-		guard o_Widget != nil else { return nil }
+		guard o_Widget != nil else {
+			return nil
+		}
 		self.n_Widget = o_Widget
-		overrideGtkHandler()
+		super.init(n_Object: unsafeBitCast(o_Widget, UnsafeMutablePointer<GObject>.self))
+
 	}
 
-	func overrideGtkHandler() {
-		WidgetNotificationCenter.sharedInstance.register(self, fromNativeWidget: n_Widget)
-	}
+	typealias WidgetDestroyNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
 
+	lazy var destoySignal: Signal<WidgetDestroyCallback, WidgetDestroyNative> = Signal(obj: self, signal: "destroy",
+			c_handler: {
+				(_, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<WidgetDestroyCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				action(widget as! Widget)
+			})
+
+	var accelClosuresChangedCallbacks = [WidgetAccelClosuresChangedCallback]()
+	var compositesChangedCallbacks = [WidgetCompositedChangedCallback]()
+	var destroyCallbacks = [WidgetDestroyCallback]()
+	// TODO: Now not work, very strange
+	var textDirectionChangedCallbacks = [WidgetTextDirectionChangedCallback]()
+	var focusCallbacks = [WidgetFocusCallback]()
+	var grabFocusCallbacks = [WidgetGrabFocusCallback]()
+	var grabNotifyCallbacks = [WidgetGrabNotifyCallback]()
+	var hideCallbacks = [WidgetHideCallback]()
+	var keyboardNavigationFailedCallbacks = [WidgetKeyboardNavigationFailedCallback]()
+	var mapCallbacks = [WidgetMapCallback]()
 
 	func destroy() {
-		print(String(self.dynamicType))
-
-		WidgetNotificationCenter.sharedInstance.registerTypes[String(self.dynamicType)]!.destroy(n_Widget)
+		gtk_widget_destroy(n_Widget)
 	}
 
 	// TODO: some for gtk_widget_in_destruction(), gtk_widget_destroyed()
@@ -120,7 +124,9 @@ class Widget {
 		gtk_widget_queue_draw(n_Widget)
 	}
 
-	/// This function is only for use in widget implementations. Flags a widget to have its size renegotiated; should be called when a widget for some reason has a new size request. For example, when you change the text in a GtkLabel, GtkLabel queues a resize to ensure there’s enough space for the new text.
+	/// This function is only for use in widget implementations. Flags a widget to have its size renegotiated;
+	/// should be called when a widget for some reason has a new size request. For example, when you change the text in a
+	/// GtkLabel, GtkLabel queues a resize to ensure there’s enough space for the new text.
 	func queueResize() {
 		gtk_widget_queue_resize(n_Widget)
 	}
@@ -209,8 +215,10 @@ class Widget {
 
 	/**
 	This function is useful only when implementing subclasses of Container.
-	Sets the container as the parent of widget, and takes care of some details such as updating the state and style of the child to reflect its new location.
-	Remove parent can be called by implementations of the remove method on Container, to dissociate a child from the container.
+	Sets the container as the parent of widget, and takes care of some details such as updating the state and style of
+	the child to reflect its new location.
+	Remove parent can be called by implementations of the remove method on Container, to dissociate a child from
+	the container.
 	*/
 	var parent: Widget? {
 		didSet {
@@ -222,7 +230,7 @@ class Widget {
 		}
 	}
 
-  // TODO: Fix
+	// TODO: Fix
 	// var parentWindow: Window? {
 	// 	didSet {
 	// 		if let parentWindow = parentWindow {
@@ -242,7 +250,8 @@ class Widget {
 
 	// TODO: some for gtk_widget_add_events(), use gdk-swift
 
-	// TODO: some for gtk_widget_set_device_events(), gtk_widget_det_device_events(), gtk_widget_add_device_events() use gdk-swift
+	/* TODO: some for gtk_widget_set_device_events(), gtk_widget_det_device_events(), gtk_widget_add_device_events(),
+	         need gdk-swift */
 
 	// TODO: some for gtk_widget_set_device_enabled(), gtk_widget_get_device_enabled(), user gdk-swift
 
@@ -256,11 +265,13 @@ class Widget {
 		return widget
 	}
 
-	func getAncestor<T: Widget>() -> T? {
+	func getAncestor<T:Widget>() -> T? {
 		var widget = self
 
 		while !(widget is T) {
-			guard let parent = widget.parent else { return nil }
+			guard let parent = widget.parent else {
+				return nil
+			}
 			widget = parent
 		}
 
@@ -277,7 +288,7 @@ class Widget {
 				return true
 			}
 			widget = widget.parent!
-		} 
+		}
 
 		return false
 	}
@@ -310,7 +321,8 @@ class Widget {
 
 	// TODO: some for gtk_widget_shape_combine_region(), gtk_widget_input_shape_combine_region(), need cario-swift
 
-	// TODO: some for gtk_widget_create_pango_context(), gtk_widget_get_pango_context(), gtk_widget_create_pango_layout(), need pango-swift
+	/* TODO: some for gtk_widget_create_pango_context(), gtk_widget_get_pango_context(), gtk_widget_create_pango_layout(),
+	         need pango-swift */
 
 	// TODO: some for gtk_widget_queue_draw_area(), need Rectangle struct
 
@@ -337,13 +349,17 @@ class Widget {
 	// 	}
 	// }
 
-	// TODO: some for gtk_widget_class_install_style_property(), gtk_widget_class_install_style_property_parser(), gtk_widget_class_find_style_property(), gtk_widget_class_list_style_properties(), after new idea about properties
+	/* TODO: some for gtk_widget_class_install_style_property(), gtk_widget_class_install_style_property_parser(),
+	         gtk_widget_class_find_style_property(), gtk_widget_class_list_style_properties(),
+	         after new idea about properties */
 
 	// TODO: some for gtk_widget_send_expose(), gtk_widget_send_focus_change(), use gdk-swift
 
-	// TODO: some for gtk_widget_style_get(), gtk_widget_style_get_property(), gtk_widget_style_get_valist(), after new idea about properties and styles
+	/* TODO: some for gtk_widget_style_get(), gtk_widget_style_get_property(), gtk_widget_style_get_valist(),
+	         after new idea about properties and styles */
 
-	// TODO: some for gtk_widget_class_set_accessible_type(), gtk_widget_class_set_accessible_role(), gtk_widget_get_accessible(), use atk-swift
+	/* TODO: some for gtk_widget_class_set_accessible_type(), gtk_widget_class_set_accessible_role(),
+	   gtk_widget_get_accessible(), use atk-swift */
 
 	func childFocus(direcrion: DirectionType) -> Bool {
 		return gtk_widget_child_focus(n_Widget, direcrion.rawValue) != 0
@@ -393,7 +409,8 @@ class Widget {
 		}
 	}
 
-	// TODO: some for gtk_widget_list_mnemonic_labels(), gtk_widget_add_mnemonic_label(), gtk_widget_remove_mnemonic_label(), need understand this
+	/* TODO: some for gtk_widget_list_mnemonic_labels(), gtk_widget_add_mnemonic_label(),
+	         gtk_widget_remove_mnemonic_label(), need understand this */
 
 	var composited: Bool {
 		get {
@@ -481,276 +498,406 @@ class Widget {
 
 	// TODO: some for gtk_widget_get_clip(), gtk_widget_set_clip(), need GtkAllocation class
 
-  var canDefault: Bool {
-  	get {
-  		return gtk_widget_get_can_default(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_can_default(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var canDefault: Bool {
+		get {
+			return gtk_widget_get_can_default(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_can_default(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var canFocus: Bool {
-  	get {
-  		return gtk_widget_get_can_focus(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_can_focus(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var canFocus: Bool {
+		get {
+			return gtk_widget_get_can_focus(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_can_focus(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var hasWindow: Bool {
-  	get {
-  		return gtk_widget_get_has_window(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_has_window(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var hasWindow: Bool {
+		get {
+			return gtk_widget_get_has_window(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_has_window(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var isSensitive: Bool {
-  	return gtk_widget_is_sensitive(n_Widget) != 0
-  }
+	var isSensitive: Bool {
+		return gtk_widget_is_sensitive(n_Widget) != 0
+	}
 
-  var visible: Bool {
-  	get {
-  		return gtk_widget_get_visible(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_visible(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var visible: Bool {
+		get {
+			return gtk_widget_get_visible(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_visible(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var isVisible: Bool {
-  	return gtk_widget_is_visible(n_Widget) != 0
-  }
+	var isVisible: Bool {
+		return gtk_widget_is_visible(n_Widget) != 0
+	}
 
-  // TODO: some for gtk_widget_set_state_flags(), gtk_widget_unset_state_flags(), gtk_widget_get_state_flags(), need GtkStateFlags enum
+	/* TODO: some for gtk_widget_set_state_flags(), gtk_widget_unset_state_flags(), gtk_widget_get_state_flags(),
+	         need GtkStateFlags enum */
 
-  var hasDefault: Bool {
-  	return gtk_widget_has_default(n_Widget) != 0
-  }
+	var hasDefault: Bool {
+		return gtk_widget_has_default(n_Widget) != 0
+	}
 
-  var hasFocus: Bool {
-  	return gtk_widget_has_focus(n_Widget) != 0
-  }
+	var hasFocus: Bool {
+		return gtk_widget_has_focus(n_Widget) != 0
+	}
 
-  var hasVisibleFocus: Bool {
-  	return gtk_widget_has_visible_focus(n_Widget) != 0
-  }
+	var hasVisibleFocus: Bool {
+		return gtk_widget_has_visible_focus(n_Widget) != 0
+	}
 
-  var hasGrab: Bool {
-  	return gtk_widget_has_grab(n_Widget) != 0
-  }
+	var hasGrab: Bool {
+		return gtk_widget_has_grab(n_Widget) != 0
+	}
 
-  var isDrawable: Bool {
-  	return gtk_widget_is_drawable(n_Widget) != 0
-  }
+	var isDrawable: Bool {
+		return gtk_widget_is_drawable(n_Widget) != 0
+	}
 
-  var isToplevel: Bool {
-  	return gtk_widget_is_toplevel(n_Widget) != 0
-  }
+	var isToplevel: Bool {
+		return gtk_widget_is_toplevel(n_Widget) != 0
+	}
 
-  var receivesDefault: Bool {
-  	get {
-  		return gtk_widget_get_receives_default(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_receives_default(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var receivesDefault: Bool {
+		get {
+			return gtk_widget_get_receives_default(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_receives_default(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var supportMultidevice: Bool {
-  	get {
-  		return gtk_widget_get_support_multidevice(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_support_multidevice(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var supportMultidevice: Bool {
+		get {
+			return gtk_widget_get_support_multidevice(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_support_multidevice(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var realized: Bool {
-  	get {
-  		return gtk_widget_get_realized(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_realized(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var realized: Bool {
+		get {
+			return gtk_widget_get_realized(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_realized(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var mapped: Bool {
-  	get {
-  		return gtk_widget_get_mapped(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_mapped(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var mapped: Bool {
+		get {
+			return gtk_widget_get_mapped(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_mapped(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  // TODO: some for gtk_widget_device_is_shadowed(), gtk_widget_get_modifier_mask(), use gdk-swift
+	// TODO: some for gtk_widget_device_is_shadowed(), gtk_widget_get_modifier_mask(), use gdk-swift
 
-  // TODO: some for gtk_widget_insert_action_group(), use gio-swift
+	// TODO: some for gtk_widget_insert_action_group(), use gio-swift
 
-  var opacity: Double {
-  	get {
-  		return gtk_widget_get_opacity(n_Widget)
-  	}
-  	set(value) {
-  		gtk_widget_set_opacity(n_Widget, value)
-  	}
-  }
+	var opacity: Double {
+		get {
+			return gtk_widget_get_opacity(n_Widget)
+		}
+		set(value) {
+			gtk_widget_set_opacity(n_Widget, value)
+		}
+	}
 
-  // TODO: some for gtk_widget_list_action_prefixes()
+	// TODO: some for gtk_widget_list_action_prefixes()
 
-  // TODO: some for gtk_widget_get_action_group(), use gio-swift
+	// TODO: some for gtk_widget_get_action_group(), use gio-swift
 
-  // TODO: some for gtk_widget_get_path(), need GtkWidgetPath class 
-  	
-  // TODO: some for gtk_widget_get_style_context(), need GtkStyleContext class
+	// TODO: some for gtk_widget_get_path(), need GtkWidgetPath class
 
-  func resetStyle() {
-  	gtk_widget_reset_style(n_Widget)
-  }
+	// TODO: some for gtk_widget_get_style_context(), need GtkStyleContext class
 
-  // TODO: some for gtk_requisition_new(), gtk_requisition_copy(), gtk_requisition_free(), need GtkRequisition class
+	func resetStyle() {
+		gtk_widget_reset_style(n_Widget)
+	}
 
-  func getPreferredHeight() -> (minimum: Int, natural: Int) {
-  	let minimum: UnsafeMutablePointer<Int32> = nil
+	// TODO: some for gtk_requisition_new(), gtk_requisition_copy(), gtk_requisition_free(), need GtkRequisition class
+
+	func getPreferredHeight() -> (minimum:Int, natural:Int) {
+		let minimum: UnsafeMutablePointer<Int32> = nil
 		let natural: UnsafeMutablePointer<Int32> = nil
 
 		gtk_widget_get_preferred_height(n_Widget, minimum, natural)
 
 		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
-  }
+	}
 
-  func getPreferredWidth() -> (minimum: Int, natural: Int) {
-  	let minimum: UnsafeMutablePointer<Int32> = nil
+	func getPreferredWidth() -> (minimum:Int, natural:Int) {
+		let minimum: UnsafeMutablePointer<Int32> = nil
 		let natural: UnsafeMutablePointer<Int32> = nil
 
 		gtk_widget_get_preferred_width(n_Widget, minimum, natural)
 
 		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
-  }
+	}
 
-  func getPreferredHeightForWidth(width: Int) -> (minimum: Int, natural: Int) {
-  	let minimum: UnsafeMutablePointer<Int32> = nil
+	func getPreferredHeightForWidth(width: Int) -> (minimum:Int, natural:Int) {
+		let minimum: UnsafeMutablePointer<Int32> = nil
 		let natural: UnsafeMutablePointer<Int32> = nil
 
 		gtk_widget_get_preferred_height_for_width(n_Widget, Int32(width), minimum, natural)
 
 		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
-  }
+	}
 
-  func getPreferredWidthForHeight(height: Int) -> (minimum: Int, natural: Int) {
-  	let minimum: UnsafeMutablePointer<Int32> = nil
+	func getPreferredWidthForHeight(height: Int) -> (minimum:Int, natural:Int) {
+		let minimum: UnsafeMutablePointer<Int32> = nil
 		let natural: UnsafeMutablePointer<Int32> = nil
 
 		gtk_widget_get_preferred_width_for_height(n_Widget, Int32(height), minimum, natural)
 
 		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
-  }
+	}
 
-  func getPreferredHeightAndBaselineForWidth(width: Int) -> (height: (minimum: Int, natural: Int), baseline: (minimum: Int, natural: Int)) {
-  	let minimumHeight: UnsafeMutablePointer<Int32> = nil
+	func getPreferredHeightAndBaselineForWidth(width: Int) -> (height:(minimum:Int, natural:Int),
+	                                                           baseline:(minimum:Int, natural:Int)) {
+		let minimumHeight: UnsafeMutablePointer<Int32> = nil
 		let naturalHeight: UnsafeMutablePointer<Int32> = nil
 
 		let minimumBaseline: UnsafeMutablePointer<Int32> = nil
 		let naturalBaseline: UnsafeMutablePointer<Int32> = nil
 
 
-		gtk_widget_get_preferred_height_and_baseline_for_width(n_Widget, Int32(width), minimumHeight, naturalHeight, minimumBaseline, naturalBaseline)
+		gtk_widget_get_preferred_height_and_baseline_for_width(n_Widget, Int32(width), minimumHeight, naturalHeight,
+				minimumBaseline, naturalBaseline)
 
-		return (height: (minimum: Int(minimumHeight.memory), natural: Int(naturalHeight.memory)), 
-			baseline: (minimum: Int(minimumBaseline.memory), natural: Int(naturalBaseline.memory)))
-  }
+		return (height: (minimum: Int(minimumHeight.memory), natural: Int(naturalHeight.memory)),
+				baseline: (minimum: Int(minimumBaseline.memory), natural: Int(naturalBaseline.memory)))
+	}
 
-  // TODO: some for gtk_widget_get_request_mode(), need GtkSizeRequestMode class
+	// TODO: some for gtk_widget_get_request_mode(), need GtkSizeRequestMode class
 
-  // TODO: some for gtk_widget_get_preferred_size(), need GtkRequisition class
+	// TODO: some for gtk_widget_get_preferred_size(), need GtkRequisition class
 
-  // TODO: some for gtk_distribute_natural_allocation(), need GtkRequestedSize class
+	// TODO: some for gtk_distribute_natural_allocation(), need GtkRequestedSize class
 
-  // TODO: some for gtk_widget_get_halign(), gtk_widget_set_halign(), gtk_widget_get_valign(), gtk_widget_get_valign_with_baseline(), gtk_widget_set_valign(), need GtkAlign class
+	/* TODO: some for gtk_widget_get_halign(), gtk_widget_set_halign(), gtk_widget_get_valign(),
+					 gtk_widget_get_valign_with_baseline(), gtk_widget_set_valign(), need GtkAlign class */
 
-  var marginStart: Int {
-  	get {
-  		return Int(gtk_widget_get_margin_start(n_Widget))
-  	}
-  	set(value) {
-  		gtk_widget_set_margin_start(n_Widget, Int32(value))
-  	}
-  }
+	var marginStart: Int {
+		get {
+			return Int(gtk_widget_get_margin_start(n_Widget))
+		}
+		set(value) {
+			gtk_widget_set_margin_start(n_Widget, Int32(value))
+		}
+	}
 
-  var marginEnd: Int {
-  	get {
-  		return Int(gtk_widget_get_margin_end(n_Widget))
-  	}
-  	set(value) {
-  		gtk_widget_set_margin_end(n_Widget, Int32(value))
-  	}
-  }
+	var marginEnd: Int {
+		get {
+			return Int(gtk_widget_get_margin_end(n_Widget))
+		}
+		set(value) {
+			gtk_widget_set_margin_end(n_Widget, Int32(value))
+		}
+	}
 
-  var marginTop: Int {
-  	get {
-  		return Int(gtk_widget_get_margin_top(n_Widget))
-  	}
-  	set(value) {
-  		gtk_widget_set_margin_top(n_Widget, Int32(value))
-  	}
-  }
+	var marginTop: Int {
+		get {
+			return Int(gtk_widget_get_margin_top(n_Widget))
+		}
+		set(value) {
+			gtk_widget_set_margin_top(n_Widget, Int32(value))
+		}
+	}
 
-  var marginBottom: Int {
-  	get {
-  		return Int(gtk_widget_get_margin_bottom(n_Widget))
-  	}
-  	set(value) {
-  		gtk_widget_set_margin_bottom(n_Widget, Int32(value))
-  	}
-  }
+	var marginBottom: Int {
+		get {
+			return Int(gtk_widget_get_margin_bottom(n_Widget))
+		}
+		set(value) {
+			gtk_widget_set_margin_bottom(n_Widget, Int32(value))
+		}
+	}
 
-  var hexpand: Bool {
-  	get {
-  		return gtk_widget_get_hexpand(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_hexpand(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var hexpand: Bool {
+		get {
+			return gtk_widget_get_hexpand(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_hexpand(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var hexpandSet: Bool {
-  	get {
-  		return gtk_widget_get_hexpand_set(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_hexpand_set(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var hexpandSet: Bool {
+		get {
+			return gtk_widget_get_hexpand_set(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_hexpand_set(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var vexpand: Bool {
-  	get {
-  		return gtk_widget_get_vexpand(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_vexpand(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var vexpand: Bool {
+		get {
+			return gtk_widget_get_vexpand(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_vexpand(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  var vexpandSet: Bool {
-  	get {
-  		return gtk_widget_get_vexpand_set(n_Widget) != 0
-  	}
-  	set(value) {
-  		gtk_widget_set_vexpand_set(n_Widget, value ? 1 : 0)
-  	}
-  }
+	var vexpandSet: Bool {
+		get {
+			return gtk_widget_get_vexpand_set(n_Widget) != 0
+		}
+		set(value) {
+			gtk_widget_set_vexpand_set(n_Widget, value ? 1 : 0)
+		}
+	}
 
-  func queueComputeExpand() {
-  	gtk_widget_queue_compute_expand(n_Widget)
-  }
+	func queueComputeExpand() {
+		gtk_widget_queue_compute_expand(n_Widget)
+	}
 
-  func computeExpand(orientation: Orientation) -> Bool {
-  	return gtk_widget_compute_expand(n_Widget, orientation.rawValue) != 0
-  }
+	func computeExpand(orientation: Orientation) -> Bool {
+		return gtk_widget_compute_expand(n_Widget, orientation.rawValue) != 0
+	}
+
+	private class WidgetNotificationCenter {
+		static let sharedInstance = WidgetNotificationCenter()
+
+		func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkWidget>) {
+
+			func connect(obj: Widget, function: UnsafePointer<Void>, signal: String) {
+				g_signal_connect(obj.n_Widget, signal, function, unsafeBitCast(obj, gpointer.self))
+			}
+
+			connect(obj, function: unsafeBitCast(accel_closures_changed, UnsafePointer<Void>.self),
+					signal: "accel-closures-changed")
+			connect(obj, function: unsafeBitCast(composited_changed, UnsafePointer<Void>.self),
+					signal: "composited-changed")
+			connect(obj, function: unsafeBitCast(destroy, UnsafePointer<Void>.self), signal: "destroy")
+			connect(obj, function: unsafeBitCast(direction_changed, UnsafePointer<Void>.self), signal: "direction_changed")
+			connect(obj, function: unsafeBitCast(focus, UnsafePointer<Void>.self), signal: "focus")
+			connect(obj, function: unsafeBitCast(grab_focus, UnsafePointer<Void>.self), signal: "grab-focus")
+			connect(obj, function: unsafeBitCast(grab_notify, UnsafePointer<Void>.self), signal: "grab-notify")
+			connect(obj, function: unsafeBitCast(hide, UnsafePointer<Void>.self), signal: "hide")
+			connect(obj, function: unsafeBitCast(keynav_failed, UnsafePointer<Void>.self), signal: "keynav-failed")
+			connect(obj, function: unsafeBitCast(map, UnsafePointer<Void>.self), signal: "map")
+		}
+
+		private let accel_closures_changed: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                                    user_data: gpointer) -> Void = {
+			(_, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+			_ = widget.accelClosuresChangedCallbacks.map {
+				$0(widget)
+			}
+		}
+
+		private let composited_changed: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                                user_data: gpointer) -> Void = {
+			(_, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+			_ = widget.compositesChangedCallbacks.map {
+				$0(widget)
+			}
+		}
+
+		private let destroy: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                     user_data: gpointer) -> Void = {
+			(_, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+			_ = widget.destroyCallbacks.map {
+				$0(widget)
+			}
+		}
+
+		private let direction_changed: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                               previous_derection: GtkTextDirection,
+		                                               user_data: gpointer) -> Void = {
+			(_, previous_derection, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+			_ = widget.textDirectionChangedCallbacks.map {
+				$0(widget, TextDirection(rawValue: previous_derection))
+			}
+		}
+
+		private let focus: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                   direction: GtkTextDirection,
+		                                   user_data: gpointer) -> gboolean = {
+			(_, direction, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+
+			let bools = widget.focusCallbacks.map {
+				$0(widget, TextDirection(rawValue: direction))
+			}
+
+			return bools.reduce(true) {$0 && $1} ? 1 : 0
+		}
+
+		private let grab_focus: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                        user_data: gpointer) -> Void = {
+			(_, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+			_ = widget.grabFocusCallbacks.map {
+				$0(widget)
+			}
+		}
+
+		private let grab_notify: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                         was_grabbed: gboolean,
+		                                         user_data: gpointer) -> Void = {
+			(_, was_grabbed, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+			let wasGrabbed = was_grabbed != 0
+
+			_ = widget.grabNotifyCallbacks.map {
+				$0(widget, wasGrabbed)
+			}
+		}
+
+		private let hide: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                  user_data: gpointer) -> Void = {
+			(_, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+			_ = widget.hideCallbacks.map {
+				$0(widget)
+			}
+		}
+
+		private let keynav_failed: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                           direction: GtkTextDirection,
+		                                           user_data: gpointer) -> gboolean = {
+			(_, direction, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+
+			let bools = widget.keyboardNavigationFailedCallbacks.map {
+				$0(widget, TextDirection(rawValue: direction))
+			}
+
+			return bools.reduce(true) {$0 && $1} ? 1 : 0
+		}
+
+		private let map: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
+		                                 user_data: gpointer) -> Void = {
+			(_, user_data) in
+			let widget: Widget = unsafeBitCast(user_data, Widget.self)
+			_ = widget.mapCallbacks.map {
+				$0(widget)
+			}
+		}
+	}
 }
 
 extension Widget: Equatable { }
@@ -776,7 +923,7 @@ enum TextDirection: RawRepresentable {
 	}
 
 	init(rawValue: RawValue) {
-		self = (rawValue == GTK_TEXT_DIR_LTR) ? .LeftToRight : 
-		    (rawValue == GTK_TEXT_DIR_RTL) ? .RightToLeft : .None
+		self = (rawValue == GTK_TEXT_DIR_LTR) ? .LeftToRight :
+				(rawValue == GTK_TEXT_DIR_RTL) ? .RightToLeft : .None
 	}
 }
