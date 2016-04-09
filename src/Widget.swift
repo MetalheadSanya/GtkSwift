@@ -9,21 +9,26 @@ typealias WidgetCompositedChangedCallback = (Widget) -> Void
 // TODO: some for “configure-event”, “damage-event”, “delete-event”, need gdk-swift
 typealias WidgetDestroyCallback = (Widget) -> Void
 // TODO: some for “destroy-event”, need gdk-swift
-typealias WidgetTextDirectionChangedCallback = (Widget, TextDirection) -> Void
+typealias WidgetDirectionChangedCallback = (Widget, TextDirection) -> Void
 /* TODO: some for “drag-begin”, “drag-data-delete”, “drag-data-get”, “drag-data-received”, “drag-drop”, “drag-end”,
          “drag-failed”, “drag-leave”, “drag-motion”, need gdk-swift */
 // TODO: some for “draw”, need cario-swift
 // TODO: some for “enter-notify-event”, “event”, “event-after”, need gdk-swift
-typealias WidgetFocusCallback = (Widget, TextDirection) -> Bool
+typealias WidgetFocusCallback = (Widget, DirectionType) -> Bool
 // TODO: some for “focus-in-event”, “focus-out-event”, “grab-broken-event”, need gdk-swift
 typealias WidgetGrabFocusCallback = (Widget) -> Void
 typealias WidgetGrabNotifyCallback = (Widget, Bool) -> Void
 typealias WidgetHideCallback = (Widget) -> Void
 // TODO: need some ideas about 'The “hierarchy-changed” signal'
 // TODO: some for “key-press-event”, “key-release-event”, need gdk-swift
-typealias WidgetKeyboardNavigationFailedCallback = (Widget, TextDirection) -> Bool
+typealias WidgetKeyboardNavigationFailedCallback = (Widget, DirectionType) -> Bool
 // TODO: some for “leave-notify-event”, need gdk-swift
 typealias WidgetMapCallback = (Widget) -> Void
+// TODO: some for "map-event", need gdk-swift
+typealias WidgetMnemonicActivateCallback = (Widget, Bool) -> Bool
+// TODO: some for “motion-notify-event”, need gdk-swift
+typealias WidgetMoveFocusCallback = (Widget, DirectionType) -> Bool
+typealias WidgetPopupMenuCallback = (Widget) -> Bool
 
 
 class Widget: Object {
@@ -37,7 +42,6 @@ class Widget: Object {
 	internal init(n_Widget: UnsafeMutablePointer<GtkWidget>) {
 		self.n_Widget = n_Widget
 		super.init(n_Object: unsafeBitCast(n_Widget, UnsafeMutablePointer<GObject>.self))
-		WidgetNotificationCenter.sharedInstance.register(self, fromNativeWidget: self.n_Widget)
 	}
 
 	internal init?(o_Widget: UnsafeMutablePointer<GtkWidget>) {
@@ -48,31 +52,179 @@ class Widget: Object {
 		super.init(n_Object: unsafeBitCast(o_Widget, UnsafeMutablePointer<GObject>.self))
 
 	}
-
-	typealias WidgetDestroyNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
-
-	lazy var destoySignal: Signal<WidgetDestroyCallback, WidgetDestroyNative> = Signal(obj: self, signal: "destroy",
-			c_handler: {
+	
+	typealias WidgetAccelClosuresChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	
+	lazy var accelClosuresChangedSignal: Signal<WidgetAccelClosuresChangedCallback, Widget, WidgetAccelClosuresChangedNative> 
+			= Signal(obj: self, signal: "accel-closures-changed", c_handler: {
 				(_, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<WidgetDestroyCallback>.self)
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetAccelClosuresChangedCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
 
-				action(widget as! Widget)
+				action(widget)
 			})
 
-	var accelClosuresChangedCallbacks = [WidgetAccelClosuresChangedCallback]()
-	var compositesChangedCallbacks = [WidgetCompositedChangedCallback]()
-	var destroyCallbacks = [WidgetDestroyCallback]()
-	// TODO: Now not work, very strange
-	var textDirectionChangedCallbacks = [WidgetTextDirectionChangedCallback]()
-	var focusCallbacks = [WidgetFocusCallback]()
-	var grabFocusCallbacks = [WidgetGrabFocusCallback]()
-	var grabNotifyCallbacks = [WidgetGrabNotifyCallback]()
-	var hideCallbacks = [WidgetHideCallback]()
-	var keyboardNavigationFailedCallbacks = [WidgetKeyboardNavigationFailedCallback]()
-	var mapCallbacks = [WidgetMapCallback]()
+	typealias WidgetCompositesChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+
+	lazy var compositesChangedSignal: Signal<WidgetCompositedChangedCallback, Widget, WidgetCompositesChangedNative> 
+			= Signal(obj: self, signal: "composited-changed", c_handler: {
+				(_, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetAccelClosuresChangedCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				action(widget)
+			})
+			
+	typealias WidgetDestroyNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+
+	lazy var destoySignal: Signal<WidgetDestroyCallback, Widget, WidgetDestroyNative> = Signal(obj: self, signal: "destroy",
+			c_handler: {
+				(_, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetDestroyCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				action(widget)
+			})
+			
+	typealias WidgetDirectionChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkTextDirection, gpointer) -> Void
+
+	lazy var directionChangedSignal: Signal<WidgetDirectionChangedCallback, Widget, WidgetDirectionChangedNative> 
+			= Signal(obj: self, signal: "direction-changed", c_handler: {
+				(_, c_text_direction, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetDirectionChangedCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				action(widget, TextDirection(rawValue: c_text_direction)!)
+			})
+			
+	typealias WidgetFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Bool
+	
+	lazy var focusSignal: Signal<WidgetFocusCallback, Widget, WidgetFocusNative> 
+			= Signal(obj: self, signal: "focus", c_handler: {
+				(_, c_direction_type, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetFocusCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				// TODO: replace on optional
+				return action(widget, DirectionType(rawValue: c_direction_type))
+			})
+	
+	typealias WidgetGrabFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	
+	lazy var grabFocusSignal: Signal<WidgetGrabFocusCallback, Widget, WidgetGrabFocusNative> = Signal(obj: self, signal: "grab-focus",
+			c_handler: {
+				(_, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetGrabFocusCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				action(widget)
+			})
+	
+	typealias WidgetGrabNotifyNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, Int32, gpointer) -> Void
+	
+	lazy var grabNotifySignal: Signal<WidgetGrabNotifyCallback, Widget, WidgetGrabNotifyNative> 
+			= Signal(obj: self, signal: "grab-notify", c_handler: {
+				(_, c_was_grabbed, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetGrabNotifyCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				// TODO: replace on optional
+				action(widget, c_was_grabbed != 0)
+			})
+			
+	typealias WidgetHideNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	
+	lazy var hideSignal: Signal<WidgetHideCallback, Widget, WidgetHideNative> = Signal(obj: self, signal: "hide",
+			c_handler: {
+				(_, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetHideCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				action(widget)
+			})
+			
+	typealias WidgetKeyboardNavigationFailedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Bool
+
+	lazy var keyboardNavigationFailedSignal: Signal<WidgetKeyboardNavigationFailedCallback, Widget, WidgetKeyboardNavigationFailedNative> 
+			= Signal(obj: self, signal: "keynav-failed", c_handler: {
+				(_, c_direction_type, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetKeyboardNavigationFailedCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				// TODO: replace on optional
+				return action(widget, DirectionType(rawValue: c_direction_type))
+			})
+			
+	typealias WidgetMapNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+
+	lazy var mapSignal: Signal<WidgetMapCallback, Widget, WidgetMapNative> = Signal(obj: self, signal: "map",
+			c_handler: {
+				(_, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetHideCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				action(widget)
+			})
+			
+	typealias WidgetMnemonicActivateNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, Int32, gpointer) -> Int32
+	
+	lazy var mnemonicActivateSignal: Signal<WidgetMnemonicActivateCallback, Widget, WidgetMnemonicActivateNative> 
+			= Signal(obj: self, signal: "mnemonic-activate", c_handler: {
+				(_, arg1, user_data) -> Int32 in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetMnemonicActivateCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				return action(widget, arg1 != 0) ? 1 : 0
+			})
+			
+	typealias WidgetMoveFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Int32
+	
+	lazy var moveFocusSignal: Signal<WidgetMoveFocusCallback, Widget, WidgetMoveFocusNative> 
+			= Signal(obj: self, signal: "move-focus", c_handler: {
+				(_, c_direction_type, user_data) in
+				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetMoveFocusCallback>.self)
+
+				let widget = data.obj
+				let action = data.function
+
+				// TODO: replace on optional
+				return action(widget, DirectionType(rawValue: c_direction_type)) ? 1 : 0
+			})
+	
+	typealias WidgetPopupMenuNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Int32
+	
+	lazy var popupMenuSignal: Signal<WidgetPopupMenuCallback, Widget, WidgetPopupMenuNative> 
+			= Signal(obj: self, signal: "popup-menu", c_handler: {
+					(_, user_data) -> Int32 in
+					let data = unsafeBitCast(user_data, SignalData<Widget, WidgetPopupMenuCallback>.self)
+
+					let widget = data.obj
+					let action = data.function
+
+					return action(widget) ? 1 : 0
+				})
 
 	func destroy() {
 		gtk_widget_destroy(n_Widget)
@@ -302,7 +454,7 @@ class Widget: Object {
 	var direction: TextDirection {
 		get {
 			let direction = gtk_widget_get_direction(n_Widget)
-			return TextDirection(rawValue: direction)
+			return TextDirection(rawValue: direction)!
 		}
 		set(value) {
 			gtk_widget_set_direction(n_Widget, direction.rawValue)
@@ -312,7 +464,7 @@ class Widget: Object {
 	class var defaultDirection: TextDirection {
 		get {
 			let direction = gtk_widget_get_default_direction()
-			return TextDirection(rawValue: direction)
+			return TextDirection(rawValue: direction)!
 		}
 		set(value) {
 			gtk_widget_set_default_direction(value.rawValue)
@@ -772,158 +924,10 @@ class Widget: Object {
 	func computeExpand(orientation: Orientation) -> Bool {
 		return gtk_widget_compute_expand(n_Widget, orientation.rawValue) != 0
 	}
-
-	private class WidgetNotificationCenter {
-		static let sharedInstance = WidgetNotificationCenter()
-
-		func register(obj: Widget, fromNativeWidget widget: UnsafeMutablePointer<GtkWidget>) {
-
-			func connect(obj: Widget, function: UnsafePointer<Void>, signal: String) {
-				g_signal_connect(obj.n_Widget, signal, function, unsafeBitCast(obj, gpointer.self))
-			}
-
-			connect(obj, function: unsafeBitCast(accel_closures_changed, UnsafePointer<Void>.self),
-					signal: "accel-closures-changed")
-			connect(obj, function: unsafeBitCast(composited_changed, UnsafePointer<Void>.self),
-					signal: "composited-changed")
-			connect(obj, function: unsafeBitCast(destroy, UnsafePointer<Void>.self), signal: "destroy")
-			connect(obj, function: unsafeBitCast(direction_changed, UnsafePointer<Void>.self), signal: "direction_changed")
-			connect(obj, function: unsafeBitCast(focus, UnsafePointer<Void>.self), signal: "focus")
-			connect(obj, function: unsafeBitCast(grab_focus, UnsafePointer<Void>.self), signal: "grab-focus")
-			connect(obj, function: unsafeBitCast(grab_notify, UnsafePointer<Void>.self), signal: "grab-notify")
-			connect(obj, function: unsafeBitCast(hide, UnsafePointer<Void>.self), signal: "hide")
-			connect(obj, function: unsafeBitCast(keynav_failed, UnsafePointer<Void>.self), signal: "keynav-failed")
-			connect(obj, function: unsafeBitCast(map, UnsafePointer<Void>.self), signal: "map")
-		}
-
-		private let accel_closures_changed: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                                    user_data: gpointer) -> Void = {
-			(_, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-			_ = widget.accelClosuresChangedCallbacks.map {
-				$0(widget)
-			}
-		}
-
-		private let composited_changed: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                                user_data: gpointer) -> Void = {
-			(_, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-			_ = widget.compositesChangedCallbacks.map {
-				$0(widget)
-			}
-		}
-
-		private let destroy: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                     user_data: gpointer) -> Void = {
-			(_, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-			_ = widget.destroyCallbacks.map {
-				$0(widget)
-			}
-		}
-
-		private let direction_changed: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                               previous_derection: GtkTextDirection,
-		                                               user_data: gpointer) -> Void = {
-			(_, previous_derection, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-			_ = widget.textDirectionChangedCallbacks.map {
-				$0(widget, TextDirection(rawValue: previous_derection))
-			}
-		}
-
-		private let focus: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                   direction: GtkTextDirection,
-		                                   user_data: gpointer) -> gboolean = {
-			(_, direction, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-
-			let bools = widget.focusCallbacks.map {
-				$0(widget, TextDirection(rawValue: direction))
-			}
-
-			return bools.reduce(true) {$0 && $1} ? 1 : 0
-		}
-
-		private let grab_focus: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                        user_data: gpointer) -> Void = {
-			(_, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-			_ = widget.grabFocusCallbacks.map {
-				$0(widget)
-			}
-		}
-
-		private let grab_notify: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                         was_grabbed: gboolean,
-		                                         user_data: gpointer) -> Void = {
-			(_, was_grabbed, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-			let wasGrabbed = was_grabbed != 0
-
-			_ = widget.grabNotifyCallbacks.map {
-				$0(widget, wasGrabbed)
-			}
-		}
-
-		private let hide: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                  user_data: gpointer) -> Void = {
-			(_, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-			_ = widget.hideCallbacks.map {
-				$0(widget)
-			}
-		}
-
-		private let keynav_failed: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                           direction: GtkTextDirection,
-		                                           user_data: gpointer) -> gboolean = {
-			(_, direction, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-
-			let bools = widget.keyboardNavigationFailedCallbacks.map {
-				$0(widget, TextDirection(rawValue: direction))
-			}
-
-			return bools.reduce(true) {$0 && $1} ? 1 : 0
-		}
-
-		private let map: @convention(c) (widget: UnsafeMutablePointer<GtkWidget>,
-		                                 user_data: gpointer) -> Void = {
-			(_, user_data) in
-			let widget: Widget = unsafeBitCast(user_data, Widget.self)
-			_ = widget.mapCallbacks.map {
-				$0(widget)
-			}
-		}
-	}
 }
 
 extension Widget: Equatable { }
 
 func ==(lhs: Widget, rhs: Widget) -> Bool {
 	return lhs.n_Widget == rhs.n_Widget
-}
-
-enum TextDirection: RawRepresentable {
-	case None, LeftToRight, RightToLeft
-
-	typealias RawValue = GtkTextDirection
-
-	var rawValue: RawValue {
-		switch self {
-		case .None:
-			return GTK_TEXT_DIR_NONE
-		case .LeftToRight:
-			return GTK_TEXT_DIR_LTR
-		case .RightToLeft:
-			return GTK_TEXT_DIR_RTL
-		}
-	}
-
-	init(rawValue: RawValue) {
-		self = (rawValue == GTK_TEXT_DIR_LTR) ? .LeftToRight :
-				(rawValue == GTK_TEXT_DIR_RTL) ? .RightToLeft : .None
-	}
 }
