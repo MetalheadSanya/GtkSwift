@@ -2,4 +2,4 @@ Packages/
 .build/
 .idea/
 .DS_Store
-GTK.xcodeproj/
+GTK-swift.xcodeproj/
