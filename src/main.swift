@@ -23,11 +23,9 @@ app.activateSignal.connect {
 	let button2 = Button(label: "Button 2")
 	button2.clickedSignal.connect {
 		_ in
-		let dialog: MessageDialog = MessageDialog(window: window, flags: [.Modal], type: .Question, buttonsType: .YesNo, message: "Super test")
-
-		for widget in dialog.getChildren() {
-			print(String(widget.dynamicType))
-		}
+		let dialog = AboutDialog()
+		dialog.programName = "Test"
+		dialog.version = "1.0.0"
 
 		_ = dialog.run()
 		dialog.destroy()

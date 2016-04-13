@@ -31,7 +31,7 @@ typealias WidgetMoveFocusCallback = (Widget, DirectionType) -> Bool
 typealias WidgetPopupMenuCallback = (Widget) -> Bool
 
 
-class Widget: Object {
+public class Widget: Object {
 
 	class var n_Type: UInt {
 		return 0
@@ -928,6 +928,6 @@ class Widget: Object {
 
 extension Widget: Equatable { }
 
-func ==(lhs: Widget, rhs: Widget) -> Bool {
+public func ==(lhs: Widget, rhs: Widget) -> Bool {
 	return lhs.n_Widget == rhs.n_Widget
 }

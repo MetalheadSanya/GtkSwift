@@ -1,6 +1,6 @@
 import CGTK
 
-class Bin: Container {
+public class Bin: Container {
 	internal var n_Bin: UnsafeMutablePointer<GtkBin>
 
 	internal var _child: Widget?

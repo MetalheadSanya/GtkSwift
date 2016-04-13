@@ -1,6 +1,6 @@
 import CGTK
 
-class Container: Widget {
+public class Container: Widget {
 
 	internal var n_Container: UnsafeMutablePointer<GtkContainer>
 

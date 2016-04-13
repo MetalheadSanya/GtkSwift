@@ -1,6 +1,6 @@
 import CGTK
 
-class Window: Bin {
+public class Window: Bin {
 
 	internal var n_Window: UnsafeMutablePointer<GtkWindow>
 

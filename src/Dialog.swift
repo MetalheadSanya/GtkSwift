@@ -17,7 +17,7 @@ typealias DialogResponseCallback = (Dialog, Int) -> Void
 
 typealias DialogButton = (text: String, response: Int)
 
-class Dialog: Window {
+public class Dialog: Window {
 
 	internal var n_Dialog: UnsafeMutablePointer<GtkDialog>
 
