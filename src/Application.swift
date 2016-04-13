@@ -1,8 +1,10 @@
 import CGTK
-import Glibc
+//import Glibc
 import gobjectswift
 
 typealias ApplicationActivateCallback = (Application) -> Void
+typealias ApplicationWindowAddedCallback = (Application, Window!) -> Void
+typealias ApplicationWindowRemovedCallback = (Application, Window!) -> Void
 
 class Application: Object {
 	internal var n_App: UnsafeMutablePointer<GtkApplication>
@@ -17,7 +19,7 @@ class Application: Object {
 		let totalFlag = flags.reduce(0) { $0 | $1.rawValue }
 		
 		n_App = gtk_application_new(applicationId, GApplicationFlags(totalFlag))
-		super.init(n_Object: unsafeBitCast(n_App, UnsafeMutablePointer<GObject>.self))
+		super.init(n_Object: unsafeBitCast(n_App, to: UnsafeMutablePointer<GObject>.self))
 	}
 
 	deinit {
@@ -26,9 +28,9 @@ class Application: Object {
 
 	// MARK: - GApplication
 
-	func run(arguments: [String]) -> Int {
+	func run(_ arguments: [String]) -> Int {
 		return Int(g_application_run (UnsafeMutablePointer<GApplication> (n_App), Int32(arguments.count), arguments.withUnsafeBufferPointer {
-			let buffer = UnsafeMutablePointer<UnsafeMutablePointer<CChar>>.alloc($0.count + 1)
+			let buffer = UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>(allocatingCapacity: $0.count + 1)
 			buffer.initializeFrom($0.map { $0.withCString(strdup) })
 			buffer[$0.count] = nil
 			return buffer
@@ -40,26 +42,70 @@ class Application: Object {
 	lazy var activateSignal: Signal<ApplicationActivateCallback, Application, ApplicationActivateNative>
 			= Signal(obj: self, signal: "activate", c_handler: {
 				(_, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Application, ApplicationActivateCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Application, ApplicationActivateCallback>.self)
 
 				let application = data.obj
 				let action = data.function
 
 				action(application)
 			})
+
+	typealias ApplicationWindowAddedNative = @convention(c)(UnsafeMutablePointer<GtkApplication>,
+			UnsafeMutablePointer<GtkWindow>, gpointer) -> Void
+
+	/// Emitted when a Window is added to application through Application.addWindow(_:).
+	lazy var windowAddedSignal: Signal<ApplicationWindowAddedCallback, Application, ApplicationWindowAddedNative>
+			= Signal(obj: self, signal: "window-added", c_handler: {
+				(_, n_Window, user_data) in
+				let data = unsafeBitCast(user_data, to: SignalData<Application, ApplicationWindowAddedCallback>.self)
+
+				let application = data.obj
+				let window = application._getWindowForNativeWindow(n_Window)
+				let action = data.function
+
+				action(application, window)
+			})
+
+	typealias ApplicationWindowRemovedNative = @convention(c)(UnsafeMutablePointer<GtkApplication>,
+			UnsafeMutablePointer<GtkWindow>, gpointer) -> Void
+
+	lazy var windowRemovedSignal: Signal<ApplicationWindowRemovedCallback, Application, ApplicationWindowRemovedNative>
+			= Signal(obj: self, signal: "window-removed", c_handler: {
+				(_, n_Window, user_data) in
+				let data = unsafeBitCast(user_data, to: SignalData<Application, ApplicationWindowRemovedCallback>.self)
+
+				let application = data.obj
+				let window = application._getWindowForNativeWindow(n_Window)
+				let action = data.function
+
+				action(application, window)
+			})
 }
 
 // MARK: - Windows
 extension Application {
-	
-	func addWindow(window: Window) {
+
+	internal func _getWindowForNativeWindow(_ n_Window: UnsafeMutablePointer<GtkWindow>) -> Window! {
+		for window in _windows {
+			if window.n_Window == n_Window {
+				return window
+			}
+		}
+		return nil
+	}
+
+	internal func _addWindowToApplicationStack(_ window: Window) {
+		_windows.append(window)
+	}
+
+	func addWindow(_ window: Window) {
 		_windows.append(window)
 		gtk_application_add_window(n_App, window.n_Window)
 	}
 
-	func removeWindow(window: Window) {
-		if let index = _windows.indexOf(window) {
-			_windows.removeAtIndex(index)
+	func removeWindow(_ window: Window) {
+		if let index = _windows.index(of: window) {
+			_windows.remove(at: index)
 		}
 		
 		gtk_application_remove_window(n_App, window.n_Window)
@@ -67,12 +113,7 @@ extension Application {
 
 	var activeWindow: Window! {
 		let n_Window = gtk_application_get_active_window(n_App)
-		for window in _windows {
-			if window.n_Window == n_Window {
-				return window
-			}
-		}
-		return nil
+		return _getWindowForNativeWindow(n_Window)
 	}
 
 	// TODO: in future

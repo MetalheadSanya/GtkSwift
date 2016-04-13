@@ -15,7 +15,7 @@ class Label: Misc {
 
 	init(n_Label: UnsafeMutablePointer<GtkLabel>) {
 		self.n_Label = n_Label
-		super.init(n_Misc: unsafeBitCast(self.n_Label, UnsafeMutablePointer<GtkMisc>.self))
+		super.init(n_Misc: unsafeBitCast(self.n_Label, to: UnsafeMutablePointer<GtkMisc>.self))
 	}
 
 	var text: String? {
@@ -29,7 +29,7 @@ class Label: Misc {
 		get {
 			let str = gtk_label_get_text(n_Label)
 			if str != nil {
-				return String.fromCString(str)
+				return String(cString: str)
 			} else {
 				return nil
 			}

@@ -10,25 +10,25 @@ class Window: Bin {
 
 	internal init(n_Window: UnsafeMutablePointer<GtkWindow>) {
 		self.n_Window = n_Window
-		super.init(n_Bin: unsafeBitCast(n_Window, UnsafeMutablePointer<GtkBin>.self))
+		super.init(n_Bin: unsafeBitCast(n_Window, to: UnsafeMutablePointer<GtkBin>.self))
 	}
 
-	internal init?(o_Window: UnsafeMutablePointer<GtkWindow>) {
+	internal init?(o_Window: UnsafeMutablePointer<GtkWindow>?) {
 		if o_Window != nil {
-			self.n_Window = o_Window
-			super.init(n_Bin: unsafeBitCast(n_Window, UnsafeMutablePointer <GtkBin>.self))
+			self.n_Window = o_Window!
+			super.init(n_Bin: unsafeBitCast(n_Window, to: UnsafeMutablePointer <GtkBin>.self))
 		} else {
 			return nil
 		}
 	}
 
 	convenience init(type: WindowType) {
-		self.init(n_Window: unsafeBitCast(gtk_window_new(type.n_Type), UnsafeMutablePointer<GtkWindow>.self))
+		self.init(n_Window: unsafeBitCast(gtk_window_new(type.n_Type), to: UnsafeMutablePointer<GtkWindow>.self))
 	}
 
 	var title: String? {
 		get {
-			return String.fromCString(gtk_window_get_title(n_Window))
+			return String(cString: gtk_window_get_title(n_Window))
 		}
 		set(value) {
 			gtk_window_set_title(n_Window, value!)
@@ -37,12 +37,12 @@ class Window: Bin {
 
 	var defaultSize: Size {
 		get {
-			let width: UnsafeMutablePointer<Int32> = nil
-			let height: UnsafeMutablePointer<Int32> = nil
+			let width = UnsafeMutablePointer<Int32>(nil)
+			let height = UnsafeMutablePointer<Int32>(nil)
 
 			gtk_window_get_default_size(n_Window, width, height)
 
-			return Size(width: Int(width.memory), height: Int(height.memory))
+			return Size(width: Int(width!.pointee), height: Int(height!.pointee))
 		}
 		set(value) {
 			gtk_window_set_default_size(n_Window, Int32(value.width), Int32(value.height))

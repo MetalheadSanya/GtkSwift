@@ -15,6 +15,6 @@ class Misc: Widget {
 
 	init(n_Misc: UnsafeMutablePointer<GtkMisc>) {
 		self.n_Misc = n_Misc
-		super.init(n_Widget: unsafeBitCast(self.n_Misc, UnsafeMutablePointer<GtkWidget>.self))
+		super.init(n_Widget: unsafeBitCast(self.n_Misc, to: UnsafeMutablePointer<GtkWidget>.self))
 	}
 }

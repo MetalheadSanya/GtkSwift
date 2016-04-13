@@ -22,7 +22,7 @@ class MessageDialog: Dialog {
 
 	internal init(n_MessageDialog: UnsafeMutablePointer<GtkMessageDialog>) {
 		self.n_MessageDialog = n_MessageDialog
-		super.init(n_Dialog: unsafeBitCast(n_MessageDialog, UnsafeMutablePointer<GtkDialog>.self))
+		super.init(n_Dialog: unsafeBitCast(n_MessageDialog, to: UnsafeMutablePointer<GtkDialog>.self))
 	}
 
 	convenience init(window: Window, flags: [DialogFlag], type: MessageType, buttonsType: ButtonsType, message: String?) {
@@ -32,15 +32,17 @@ class MessageDialog: Dialog {
 				g_parameter_int32(name: "buttons", value: buttonsType.rawValue),
 		]
 
-		let arrayOfParameters = UnsafeMutablePointer<GParameter>.alloc(3)
-		arrayOfParameters.memory = parameters[0]
-		arrayOfParameters.advancedBy(1).memory = parameters[1]
-		arrayOfParameters.advancedBy(2).memory = parameters[2]
+		let arrayOfParameters = UnsafeMutablePointer<GParameter>(allocatingCapacity: 3)
+		arrayOfParameters.pointee = parameters[0]
+		arrayOfParameters.advanced(by: 1).pointee = parameters[1]
+		arrayOfParameters.advanced(by: 2).pointee = parameters[2]
 
 		self.init(n_MessageDialog: unsafeBitCast(g_object_newv((MessageDialog.n_Type),
-				UInt32(parameters.count), arrayOfParameters), UnsafeMutablePointer<GtkMessageDialog>.self))
+				UInt32(parameters.count), arrayOfParameters), to: UnsafeMutablePointer<GtkMessageDialog>.self))
 
-		arrayOfParameters.dealloc(3)
+		arrayOfParameters.deallocateCapacity(3)
+
+		buildWidgetTree()
 
 		for widget in getMessageArea().getChildren() {
 			if let label = widget as? Label {
@@ -51,16 +53,16 @@ class MessageDialog: Dialog {
 
 		transientFor = window
 
-		if let _ = flags.indexOf(.Modal) {
+		if let _ = flags.index(of: .Modal) {
 			self.modal = true
 		}
 
-		if let _ = flags.indexOf(.DestroyWithParent) {
+		if let _ = flags.index(of: .DestroyWithParent) {
 			self.destroyWithParent = true
 		}
 	}
 
-	func setMarkup(murkupString: String) {
+	func setMarkup(_ murkupString: String) {
 		gtk_message_dialog_set_markup(n_MessageDialog, murkupString)
 	}
 
@@ -69,6 +71,6 @@ class MessageDialog: Dialog {
 
 	func getMessageArea() -> VBox {
 		return VBox(n_VBox: unsafeBitCast(gtk_message_dialog_get_message_area(n_MessageDialog),
-				UnsafeMutablePointer<GtkVBox>.self))
+				to: UnsafeMutablePointer<GtkVBox>.self))
 	}
 }

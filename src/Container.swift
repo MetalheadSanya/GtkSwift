@@ -13,10 +13,10 @@ class Container: Widget {
 
 	internal init(n_Container: UnsafeMutablePointer<GtkContainer>) {
 		self.n_Container = n_Container
-		super.init(n_Widget: unsafeBitCast(n_Container, UnsafeMutablePointer<GtkWidget>.self))
+		super.init(n_Widget: unsafeBitCast(n_Container, to: UnsafeMutablePointer<GtkWidget>.self))
 	}
 
-	func addWidget(widget: Widget) {
+	func addWidget(_ widget: Widget) {
 		guard widget.parent == nil else { 
 			print("Attempting to add a widget to a container, but the widget is already inside a container, please remove the widget from its existing container first.")
 			return 
@@ -27,13 +27,23 @@ class Container: Widget {
 		widget.parent = self
 	}
 
-	func removeWidget(widget: Widget) {
+	internal func outsideGtkAddWidget(_ widget: Widget) {
+		guard widget.parent == nil else {
+			print("Attempting to add a widget to a container, but the widget is already inside a container, please remove the widget from its existing container first.")
+			return
+		}
+
+		_children.append(widget)
+//		widget.parent = self
+	}
+
+	func removeWidget(_ widget: Widget) {
 		guard widget != self else { return }
 
 		gtk_container_remove(n_Container, widget.n_Widget)
 
-		guard let index = _children.indexOf(widget) else { return } 
-		_children.removeAtIndex(index)
+		guard let index = _children.index(of: widget) else { return }
+		_children.remove(at: index)
 		widget.parent = nil
 	}
 
@@ -43,7 +53,7 @@ class Container: Widget {
 		gtk_container_check_resize(n_Container)
 	}
 
-	func forEach(f: (Widget) -> Void) {
+	func forEach(_ f: (Widget) -> Void) {
 		_ = _children.map(f)
 	}
 
@@ -97,7 +107,7 @@ class Container: Widget {
 
 	// TODO: some for gtk_container_child_notify(), idea about signal
 
-	func forAll(f: (Widget) -> Void) {
+	func forAll(_ f: (Widget) -> Void) {
 		_ = _children.map(f)
 
 		_ = _internalChildren.map(f)

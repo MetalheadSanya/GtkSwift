@@ -10,6 +10,6 @@ class VBox: Box {
 
 	internal init(n_VBox: UnsafeMutablePointer<GtkVBox>) {
 		self.n_VBox = n_VBox
-		super.init(n_Box: unsafeBitCast(n_VBox, UnsafeMutablePointer<GtkBox>.self))
+		super.init(n_Box: unsafeBitCast(n_VBox, to: UnsafeMutablePointer<GtkBox>.self))
 	}
 }

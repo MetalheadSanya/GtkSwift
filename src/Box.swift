@@ -10,8 +10,6 @@ class Box: Container {
 
 	internal init(n_Box: UnsafeMutablePointer<GtkBox>) {
 		self.n_Box = n_Box
-		super.init(n_Container: unsafeBitCast(self.n_Box, UnsafeMutablePointer<GtkContainer>.self))
+		super.init(n_Container: unsafeBitCast(self.n_Box, to: UnsafeMutablePointer<GtkContainer>.self))
 	}
-
-
 }

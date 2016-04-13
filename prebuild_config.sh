@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 sudo ln -sf /usr/include/gtk-3.0/gtk /usr/include/gtk
 sudo ln -sf /usr/include/gtk-3.0/gdk /usr/include/gdk
 

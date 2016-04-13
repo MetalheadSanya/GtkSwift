@@ -5,8 +5,7 @@ internal class GTypeHelper {
 	private static let containerType = gtk_container_get_type()
 	private static let binType = gtk_bin_get_type()
 
-	class func convertToClass(type: GType) -> AnyObject.Type? {
-
+	class func convertToClass(_ type: GType) -> AnyObject.Type? {
 
 		if type == widgetType {
 			return Widget.self

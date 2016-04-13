@@ -41,15 +41,15 @@ class Widget: Object {
 
 	internal init(n_Widget: UnsafeMutablePointer<GtkWidget>) {
 		self.n_Widget = n_Widget
-		super.init(n_Object: unsafeBitCast(n_Widget, UnsafeMutablePointer<GObject>.self))
+		super.init(n_Object: unsafeBitCast(n_Widget, to: UnsafeMutablePointer<GObject>.self))
 	}
 
-	internal init?(o_Widget: UnsafeMutablePointer<GtkWidget>) {
+	internal init?(o_Widget: UnsafeMutablePointer<GtkWidget>?) {
 		guard o_Widget != nil else {
 			return nil
 		}
-		self.n_Widget = o_Widget
-		super.init(n_Object: unsafeBitCast(o_Widget, UnsafeMutablePointer<GObject>.self))
+		self.n_Widget = o_Widget!
+		super.init(n_Object: unsafeBitCast(o_Widget!, to: UnsafeMutablePointer<GObject>.self))
 
 	}
 	
@@ -58,7 +58,7 @@ class Widget: Object {
 	lazy var accelClosuresChangedSignal: Signal<WidgetAccelClosuresChangedCallback, Widget, WidgetAccelClosuresChangedNative> 
 			= Signal(obj: self, signal: "accel-closures-changed", c_handler: {
 				(_, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetAccelClosuresChangedCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetAccelClosuresChangedCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -71,7 +71,7 @@ class Widget: Object {
 	lazy var compositesChangedSignal: Signal<WidgetCompositedChangedCallback, Widget, WidgetCompositesChangedNative> 
 			= Signal(obj: self, signal: "composited-changed", c_handler: {
 				(_, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetAccelClosuresChangedCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetAccelClosuresChangedCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -84,7 +84,7 @@ class Widget: Object {
 	lazy var destoySignal: Signal<WidgetDestroyCallback, Widget, WidgetDestroyNative> = Signal(obj: self, signal: "destroy",
 			c_handler: {
 				(_, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetDestroyCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetDestroyCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -97,7 +97,7 @@ class Widget: Object {
 	lazy var directionChangedSignal: Signal<WidgetDirectionChangedCallback, Widget, WidgetDirectionChangedNative> 
 			= Signal(obj: self, signal: "direction-changed", c_handler: {
 				(_, c_text_direction, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetDirectionChangedCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetDirectionChangedCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -110,7 +110,7 @@ class Widget: Object {
 	lazy var focusSignal: Signal<WidgetFocusCallback, Widget, WidgetFocusNative> 
 			= Signal(obj: self, signal: "focus", c_handler: {
 				(_, c_direction_type, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetFocusCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetFocusCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -124,7 +124,7 @@ class Widget: Object {
 	lazy var grabFocusSignal: Signal<WidgetGrabFocusCallback, Widget, WidgetGrabFocusNative> = Signal(obj: self, signal: "grab-focus",
 			c_handler: {
 				(_, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetGrabFocusCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetGrabFocusCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -137,7 +137,7 @@ class Widget: Object {
 	lazy var grabNotifySignal: Signal<WidgetGrabNotifyCallback, Widget, WidgetGrabNotifyNative> 
 			= Signal(obj: self, signal: "grab-notify", c_handler: {
 				(_, c_was_grabbed, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetGrabNotifyCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetGrabNotifyCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -151,7 +151,7 @@ class Widget: Object {
 	lazy var hideSignal: Signal<WidgetHideCallback, Widget, WidgetHideNative> = Signal(obj: self, signal: "hide",
 			c_handler: {
 				(_, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetHideCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetHideCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -164,7 +164,7 @@ class Widget: Object {
 	lazy var keyboardNavigationFailedSignal: Signal<WidgetKeyboardNavigationFailedCallback, Widget, WidgetKeyboardNavigationFailedNative> 
 			= Signal(obj: self, signal: "keynav-failed", c_handler: {
 				(_, c_direction_type, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetKeyboardNavigationFailedCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetKeyboardNavigationFailedCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -178,7 +178,7 @@ class Widget: Object {
 	lazy var mapSignal: Signal<WidgetMapCallback, Widget, WidgetMapNative> = Signal(obj: self, signal: "map",
 			c_handler: {
 				(_, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetHideCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetHideCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -191,7 +191,7 @@ class Widget: Object {
 	lazy var mnemonicActivateSignal: Signal<WidgetMnemonicActivateCallback, Widget, WidgetMnemonicActivateNative> 
 			= Signal(obj: self, signal: "mnemonic-activate", c_handler: {
 				(_, arg1, user_data) -> Int32 in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetMnemonicActivateCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetMnemonicActivateCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -204,7 +204,7 @@ class Widget: Object {
 	lazy var moveFocusSignal: Signal<WidgetMoveFocusCallback, Widget, WidgetMoveFocusNative> 
 			= Signal(obj: self, signal: "move-focus", c_handler: {
 				(_, c_direction_type, user_data) in
-				let data = unsafeBitCast(user_data, SignalData<Widget, WidgetMoveFocusCallback>.self)
+				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetMoveFocusCallback>.self)
 
 				let widget = data.obj
 				let action = data.function
@@ -218,7 +218,7 @@ class Widget: Object {
 	lazy var popupMenuSignal: Signal<WidgetPopupMenuCallback, Widget, WidgetPopupMenuNative> 
 			= Signal(obj: self, signal: "popup-menu", c_handler: {
 					(_, user_data) -> Int32 in
-					let data = unsafeBitCast(user_data, SignalData<Widget, WidgetPopupMenuCallback>.self)
+					let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetPopupMenuCallback>.self)
 
 					let widget = data.obj
 					let action = data.function
@@ -303,7 +303,7 @@ class Widget: Object {
 
 	// TODO: some for gtk_widget_size_allocate(), gtk_widget_size_allocate_with_baseline(), need GtkAllocation
 
-	func sizeAllocate(rect: Rectangle) {
+	func sizeAllocate(_ rect: Rectangle) {
 		gtk_widget_size_allocate(n_Widget, rect.gdkRectangle)
 	}
 
@@ -432,7 +432,7 @@ class Widget: Object {
 
 	// TODO: some for gtk_widget_get_visual(), gtk_widget_set_visual(), user gdk-swift
 
-	func isAncestorFor(ancestor: Widget) -> Bool {
+	func isAncestorFor(_ ancestor: Widget) -> Bool {
 		var widget = self
 
 		while widget.parent != nil {
@@ -538,12 +538,12 @@ class Widget: Object {
 
 	var sizeRequest: Size {
 		get {
-			let width: UnsafeMutablePointer<Int32> = nil
-			let height: UnsafeMutablePointer<Int32> = nil
+			let width = UnsafeMutablePointer<Int32>(nil)
+			let height = UnsafeMutablePointer<Int32>(nil)
 
 			gtk_widget_get_size_request(n_Widget, width, height)
 
-			return Size(width: Int(width.memory), height: Int(height.memory))
+			return Size(width: Int(width!.pointee), height: Int(height!.pointee))
 		}
 		set(value) {
 			gtk_widget_set_size_request(n_Widget, Int32(value.width), Int32(value.height))
@@ -574,7 +574,7 @@ class Widget: Object {
 		gtk_widget_error_bell(n_Widget)
 	}
 
-	func keynavFailed(direction: DirectionType) -> Bool {
+	func keynavFailed(_ direction: DirectionType) -> Bool {
 		return gtk_widget_keynav_failed(n_Widget, direction.rawValue) != 0
 	}
 
@@ -624,12 +624,12 @@ class Widget: Object {
 	// 	}
 	// }
 
-	func registerWindow(window: Window) {
-		gtk_widget_register_window(n_Widget, COpaquePointer(window.n_Window))
+	func registerWindow(_ window: Window) {
+		gtk_widget_register_window(n_Widget, OpaquePointer(window.n_Window))
 	}
 
-	func unregisterWindow(window: Window) {
-		gtk_widget_unregister_window(n_Widget, COpaquePointer(window.n_Window))
+	func unregisterWindow(_ window: Window) {
+		gtk_widget_unregister_window(n_Widget, OpaquePointer(window.n_Window))
 	}
 
 	// TODO: some for gtk_cairo_should_draw_window(), gtk_cairo_transform_to_window(), use cario-swift
@@ -785,55 +785,55 @@ class Widget: Object {
 	// TODO: some for gtk_requisition_new(), gtk_requisition_copy(), gtk_requisition_free(), need GtkRequisition class
 
 	func getPreferredHeight() -> (minimum:Int, natural:Int) {
-		let minimum: UnsafeMutablePointer<Int32> = nil
-		let natural: UnsafeMutablePointer<Int32> = nil
+		let minimum = UnsafeMutablePointer<Int32>(nil)
+		let natural = UnsafeMutablePointer<Int32>(nil)
 
 		gtk_widget_get_preferred_height(n_Widget, minimum, natural)
 
-		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
+		return (minimum: Int(minimum!.pointee), natural: Int(natural!.pointee))
 	}
 
 	func getPreferredWidth() -> (minimum:Int, natural:Int) {
-		let minimum: UnsafeMutablePointer<Int32> = nil
-		let natural: UnsafeMutablePointer<Int32> = nil
+		let minimum = UnsafeMutablePointer<Int32>(nil)
+		let natural = UnsafeMutablePointer<Int32>(nil)
 
 		gtk_widget_get_preferred_width(n_Widget, minimum, natural)
 
-		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
+		return (minimum: Int(minimum!.pointee), natural: Int(natural!.pointee))
 	}
 
-	func getPreferredHeightForWidth(width: Int) -> (minimum:Int, natural:Int) {
-		let minimum: UnsafeMutablePointer<Int32> = nil
-		let natural: UnsafeMutablePointer<Int32> = nil
+	func getPreferredHeightForWidth(_ width: Int) -> (minimum:Int, natural:Int) {
+		let minimum = UnsafeMutablePointer<Int32>(nil)
+		let natural = UnsafeMutablePointer<Int32>(nil)
 
 		gtk_widget_get_preferred_height_for_width(n_Widget, Int32(width), minimum, natural)
 
-		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
+		return (minimum: Int(minimum!.pointee), natural: Int(natural!.pointee))
 	}
 
-	func getPreferredWidthForHeight(height: Int) -> (minimum:Int, natural:Int) {
-		let minimum: UnsafeMutablePointer<Int32> = nil
-		let natural: UnsafeMutablePointer<Int32> = nil
+	func getPreferredWidthForHeight(_ height: Int) -> (minimum:Int, natural:Int) {
+		let minimum = UnsafeMutablePointer<Int32>(nil)
+		let natural = UnsafeMutablePointer<Int32>(nil)
 
 		gtk_widget_get_preferred_width_for_height(n_Widget, Int32(height), minimum, natural)
 
-		return (minimum: Int(minimum.memory), natural: Int(natural.memory))
+		return (minimum: Int(minimum!.pointee), natural: Int(natural!.pointee))
 	}
 
-	func getPreferredHeightAndBaselineForWidth(width: Int) -> (height:(minimum:Int, natural:Int),
+	func getPreferredHeightAndBaselineForWidth(_ width: Int) -> (height:(minimum:Int, natural:Int),
 	                                                           baseline:(minimum:Int, natural:Int)) {
-		let minimumHeight: UnsafeMutablePointer<Int32> = nil
-		let naturalHeight: UnsafeMutablePointer<Int32> = nil
+		let minimumHeight = UnsafeMutablePointer<Int32>(nil)
+		let naturalHeight = UnsafeMutablePointer<Int32>(nil)
 
-		let minimumBaseline: UnsafeMutablePointer<Int32> = nil
-		let naturalBaseline: UnsafeMutablePointer<Int32> = nil
+		let minimumBaseline = UnsafeMutablePointer<Int32>(nil)
+		let naturalBaseline = UnsafeMutablePointer<Int32>(nil)
 
 
 		gtk_widget_get_preferred_height_and_baseline_for_width(n_Widget, Int32(width), minimumHeight, naturalHeight,
 				minimumBaseline, naturalBaseline)
 
-		return (height: (minimum: Int(minimumHeight.memory), natural: Int(naturalHeight.memory)),
-				baseline: (minimum: Int(minimumBaseline.memory), natural: Int(naturalBaseline.memory)))
+		return (height: (minimum: Int(minimumHeight!.pointee), natural: Int(naturalHeight!.pointee)),
+				baseline: (minimum: Int(minimumBaseline!.pointee), natural: Int(naturalBaseline!.pointee)))
 	}
 
 	// TODO: some for gtk_widget_get_request_mode(), need GtkSizeRequestMode class

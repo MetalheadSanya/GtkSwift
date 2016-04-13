@@ -11,13 +11,13 @@ struct Rectangle {
 
 	// TODO: use gdk-swift
 	internal var gdkRectangle: UnsafeMutablePointer<GtkAllocation> {
-		let allocation = UnsafeMutablePointer<Int32>.alloc(4)
+		let allocation = UnsafeMutablePointer<Int32>(allocatingCapacity: 4)
 
-		allocation.memory = Int32(origin.x)
-		allocation.advancedBy(1).memory = Int32(origin.y)
-		allocation.advancedBy(2).memory = Int32(size.width)
-		allocation.advancedBy(3).memory = Int32(size.height)
+		allocation.pointee = Int32(origin.x)
+		allocation.advanced(by: 1).pointee = Int32(origin.y)
+		allocation.advanced(by: 2).pointee = Int32(size.width)
+		allocation.advanced(by: 3).pointee = Int32(size.height)
 
-		return unsafeBitCast(allocation, UnsafeMutablePointer<GtkAllocation>.self)
+		return unsafeBitCast(allocation, to: UnsafeMutablePointer<GtkAllocation>.self)
 	}
 }
