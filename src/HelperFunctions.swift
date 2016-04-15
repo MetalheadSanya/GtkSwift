@@ -116,6 +116,14 @@ internal extension Container {
 		case "GtkLabel":
 			let label = Label(n_Label: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkLabel>.self))
 			return label
+		case "GtkListBox":
+			let listBox = ListBox(n_ListBox: UnsafeMutablePointer<GtkListBox>(obj.n_Widget))
+			listBox.buildWidgetTree()
+			return listBox
+		case "GtkListBoxRow":
+			let row = ListBox.Row(n_ListBoxRow: UnsafeMutablePointer<GtkListBoxRow>(obj.n_Widget))
+			row.buildWidgetTree()
+			return row
 		case "GtkMessageDialog":
 			let messageDialog = MessageDialog(n_MessageDialog: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkMessageDialog>.self))
 			messageDialog.buildWidgetTree()
