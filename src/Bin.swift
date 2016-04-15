@@ -10,7 +10,7 @@ public class Bin: Container {
 		super.init(n_Container: unsafeBitCast(n_Bin, to: UnsafeMutablePointer<GtkContainer>.self))
 	}
 
-	override func childType() -> AnyObject.Type? {
+	override public func childType() -> AnyObject.Type? {
 		if _child == nil {
 			return nil
 		} else {
@@ -18,7 +18,7 @@ public class Bin: Container {
 		}
 	}
 
-	override func addWidget(_ widget: Widget) {
+	override public func addWidget(_ widget: Widget) {
 		guard _child == nil else {
 			print("Attempting to add a widget with type \(widget.dynamicType) to a \(self.dynamicType), but as a GtkBin subclass a \(self.dynamicType) can only contain one widget at a time; it already contains a widget of type \(_child!.dynamicType)")
 			return
@@ -30,7 +30,7 @@ public class Bin: Container {
 		_child = widget
 	}
 
-	override func removeWidget(_ widget: Widget) {
+	override public func removeWidget(_ widget: Widget) {
 		guard _child == widget else { return }
 
 		super.removeWidget(widget)
@@ -43,7 +43,7 @@ public class Bin: Container {
 		return _child
 	}
 
-	override func forAll(_ f: (Widget) -> Void) {
+	override public func forAll(_ f: (Widget) -> Void) {
 		guard let child = _child else { return }
 		f(child)
 	}
