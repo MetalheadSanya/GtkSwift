@@ -5,6 +5,47 @@
 
 import CGTK
 
+/// The `Box` widget organizes child widgets into a rectangular area.
+///
+/// The rectangular area of a `Box` is organized into either a single row or a
+/// single column of child widgets depending upon the orientation. Thus, all 
+/// children of a `Box` are allocated one dimension in common, which is the 
+/// height of a row, or the width of a column.
+///
+/// `Box` uses a notion of packing. Packing refers to adding widgets with
+/// reference to a particular position in a `Container`. For a Box, there are 
+/// two reference positions: the start and the end of the box. For a vertical 
+/// `Box`, the start is defined as the top of the box and the end is defined as 
+/// the bottom. For a horizontal `Box` the start is defined as the left side and 
+/// the end is defined as the right side.
+///
+/// Use repeated calls to `packStart(child:expand:fill:padding)` to pack widgets
+/// into a `Box` from start to end. Use `packEnd(child:expand:fill:padding)` to 
+/// add widgets from end to start. You may intersperse these calls and add 
+/// widgets from both ends of the same `Box`.
+/// 
+/// Because `Box` is a `Container`, you may also use `addWidget(_:)` to insert 
+/// widgets into the box, and they will be packed with the default values for 
+/// expand and fill child properties. Use `removeWidget(_:)` to remove widgets 
+/// from the `Box`.
+///
+/// Use `homogeneous` property to specify whether or not all children of the 
+/// `Box` are forced to get the same amount of space.
+///
+/// Use `spacing` property to determine how much space will be minimally placed 
+/// between all children in the `Box`. Note that spacing is added between the 
+/// children, while padding added by `packStart(child:expand:fill:padding)` or 
+/// `packEnd(child:expand:fill:padding)` is added on either side of the widget 
+/// it belongs to.
+///
+/// Use `reorder(child:position:)` to move a `Box` child to a different place in
+/// the box.
+///
+/// Use `setChildPacking(_:forChild:)` to reset the expand, fill and padding 
+/// child properties. Use `getQueryChildPacking(child:)` to query these fields.
+///
+/// Note that a single-row or single-column Grid provides exactly the same 
+/// functionality as Box.
 public class Box: Container {
 	public struct ChildPacking {
 		public var padding: UInt
