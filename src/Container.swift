@@ -13,23 +13,32 @@ public class Container: Widget {
 
 	internal init(n_Container: UnsafeMutablePointer<GtkContainer>) {
 		self.n_Container = n_Container
-		super.init(n_Widget: unsafeBitCast(n_Container, to: UnsafeMutablePointer<GtkWidget>.self))
+		super.init(n_Widget:
+			unsafeBitCast(n_Container, to: UnsafeMutablePointer<GtkWidget>.self))
 	}
 
-	func addWidget(_ widget: Widget) {
+	public func addWidget(_ widget: Widget) {
 		guard widget.parent == nil else { 
-			print("Attempting to add a widget to a container, but the widget is already inside a container, please remove the widget from its existing container first.")
+			print("Attempting to add a widget to a container, but the widget is " +
+				"already inside a container, please remove the widget from its " +
+				"existing container first.")
 			return 
 		}
 
 		gtk_container_add(n_Container, widget.n_Widget)
-		_children.append(widget)
+		
+		if !_children.contains(widget) {
+			_children.append(widget)
+		}
+		
 		widget.parent = self
 	}
 
 	internal func outsideGtkAddWidget(_ widget: Widget) {
 		guard widget.parent == nil else {
-			print("Attempting to add a widget to a container, but the widget is already inside a container, please remove the widget from its existing container first.")
+			print("Attempting to add a widget to a container, but the widget is " +
+				"already inside a container, please remove the widget from its " +
+				"existing container first.")
 			return
 		}
 
@@ -37,7 +46,7 @@ public class Container: Widget {
 //		widget.parent = self
 	}
 
-	func removeWidget(_ widget: Widget) {
+	public func removeWidget(_ widget: Widget) {
 		guard widget != self else { return }
 
 		gtk_container_remove(n_Container, widget.n_Widget)
@@ -49,21 +58,21 @@ public class Container: Widget {
 
 	// TODO: some for gtk_container_add_with_properties, vardic func
 
-	func checkResize() {
+	public func checkResize() {
 		gtk_container_check_resize(n_Container)
 	}
 
-	func forEach(_ f: (Widget) -> Void) {
+	public func forEach(_ f: (Widget) -> Void) {
 		_ = _children.map(f)
 	}
 
-	func getChildren() -> [Widget] {
+	public func getChildren() -> [Widget] {
 		return _children
 	}
 
 	// TODO: some for gtk_container_get_path_for_child(), need GtkWidgetPath class
 
-	var focusChild: Widget? {
+	public var focusChild: Widget? {
 		get {
 			let pWidget = gtk_container_get_focus_child(n_Container)
 
@@ -83,7 +92,8 @@ public class Container: Widget {
 		}
 		set(value) {
 			if let value = value {
-				guard _children.contains(value) || _internalChildren.contains(value) else { return }
+				guard _children.contains(value) || _internalChildren.contains(value)
+					else { return }
 			}
 
 			let pWidget = value?.n_Widget ?? nil
@@ -92,28 +102,33 @@ public class Container: Widget {
 		}
 	}
 
-	// TODO: some for gtk_container_get_focus_vadjustment(), gtk_container_set_focus_vadjustment(), need GtkAdjustment class
-	// TODO: some for gtk_container_get_focus_hadjustment(), gtk_container_set_focus_hadjustment(), need GtkAdjustment class
+	// TODO: some for gtk_container_get_focus_vadjustment(), 
+	//       gtk_container_set_focus_vadjustment(), need GtkAdjustment class
+	// TODO: some for gtk_container_get_focus_hadjustment(), 
+	//       gtk_container_set_focus_hadjustment(), need GtkAdjustment class
 
-	func childType() -> AnyObject.Type? {
+	public func childType() -> AnyObject.Type? {
 		return GTypeHelper.convertToClass(gtk_container_child_type(n_Container))
 	}
 
-	// TODO: some for gtk_container_child_get(), gtk_container_child_set(), need vardic
+	// TODO: some for gtk_container_child_get(), gtk_container_child_set(), 
+	//       need vardic
 
-	// TODO: some for gtk_container_child_get_property(), gtk_container_child_set_property(), realy need?
+	// TODO: some for gtk_container_child_get_property(), 
+	//       gtk_container_child_set_property(), realy need?
 
-	// TODO: some for gtk_container_child_get_valist(), gtk_container_child_set_valist(), need valist
+	// TODO: some for gtk_container_child_get_valist(), 
+	//       gtk_container_child_set_valist(), need valist
 
 	// TODO: some for gtk_container_child_notify(), idea about signal
 
-	func forAll(_ f: (Widget) -> Void) {
+	public func forAll(_ f: (Widget) -> Void) {
 		_ = _children.map(f)
 
 		_ = _internalChildren.map(f)
 	}
 
-	var borderWidth: Int {
+	public var borderWidth: Int {
 		get {
 			return Int(gtk_container_get_border_width(n_Container))
 		}

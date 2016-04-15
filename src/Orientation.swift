@@ -1,11 +1,11 @@
 import CGTK
 
-enum Orientation: RawRepresentable {
+public enum Orientation: RawRepresentable {
 	case Horizontal, Vertical
 
-	typealias RawValue = GtkOrientation
+	public typealias RawValue = GtkOrientation
 
-	var rawValue: RawValue {
+	public var rawValue: RawValue {
 		switch self {
 		case .Horizontal:
 			return GTK_ORIENTATION_HORIZONTAL
@@ -14,7 +14,7 @@ enum Orientation: RawRepresentable {
 		}
 	}
 
-	init(rawValue: RawValue) {
+	public init(rawValue: RawValue) {
 		self = (rawValue == GTK_ORIENTATION_HORIZONTAL) ? .Horizontal : .Vertical
 	}
 }
