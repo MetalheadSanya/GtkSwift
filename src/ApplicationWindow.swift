@@ -1,16 +1,20 @@
 import CGTK
 
-class ApplicationWindow: Window {
+public class ApplicationWindow: Window {
 	internal var n_ApplicationWindow: UnsafeMutablePointer<GtkApplicationWindow>
+	
+	internal init(n_ApplicationWindow: UnsafeMutablePointer<GtkApplicationWindow>) {
+		self.n_ApplicationWindow = n_ApplicationWindow
+		super.init(n_Window: UnsafeMutablePointer<GtkWindow>(n_ApplicationWindow))
+	}
 
-	init(application: Application) {
-		n_ApplicationWindow = unsafeBitCast(gtk_application_window_new(application.n_App), to: UnsafeMutablePointer<GtkApplicationWindow>.self)
-		super.init(n_Window: unsafeBitCast(n_ApplicationWindow, to: UnsafeMutablePointer<GtkWindow>.self))
+	public convenience init(application: Application) {
+		self.init(n_ApplicationWindow: UnsafeMutablePointer<GtkApplicationWindow>(gtk_application_window_new(application.n_App)))
 
 		application._addWindowToApplicationStack(self)
 	}
 
-	var showManuBar: Bool {
+	public var showManuBar: Bool {
 		get {
 			return gtk_application_window_get_show_menubar(n_ApplicationWindow) != 0
 		}
@@ -19,7 +23,7 @@ class ApplicationWindow: Window {
 		}
 	}
 
-	var id: UInt {
+	public var id: UInt {
 		return UInt(gtk_application_window_get_id(n_ApplicationWindow))
 	}
 

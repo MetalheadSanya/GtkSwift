@@ -1,12 +1,15 @@
 import CGTK
-//import Glibc
 import gobjectswift
 
-typealias ApplicationActivateCallback = (Application) -> Void
-typealias ApplicationWindowAddedCallback = (Application, Window!) -> Void
-typealias ApplicationWindowRemovedCallback = (Application, Window!) -> Void
+#if os(Linux)
+	import Glibc
+#endif
 
-class Application: Object {
+public typealias ApplicationActivateCallback = (Application) -> Void
+public typealias ApplicationWindowAddedCallback = (Application, Window!) -> Void
+public typealias ApplicationWindowRemovedCallback = (Application, Window!) -> Void
+
+public class Application: Object {
 	internal var n_App: UnsafeMutablePointer<GtkApplication>
 
 	internal var _windows = [Window]()
@@ -15,7 +18,7 @@ class Application: Object {
 		return _windows
 	}
 
-	init?(applicationId: String, flags: [ApplicationFlag]) {
+	public init?(applicationId: String, flags: [ApplicationFlag]) {
 		let totalFlag = flags.reduce(0) { $0 | $1.rawValue }
 		
 		n_App = gtk_application_new(applicationId, GApplicationFlags(totalFlag))
@@ -28,7 +31,7 @@ class Application: Object {
 
 	// MARK: - GApplication
 
-	func run(_ arguments: [String]) -> Int {
+	public func run(_ arguments: [String]) -> Int {
 		return Int(g_application_run (UnsafeMutablePointer<GApplication> (n_App), Int32(arguments.count), arguments.withUnsafeBufferPointer {
 			let buffer = UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>(allocatingCapacity: $0.count + 1)
 			buffer.initializeFrom($0.map { $0.withCString(strdup) })
@@ -37,9 +40,9 @@ class Application: Object {
 		}))
 	}
 
-	typealias ApplicationActivateNative = @convention(c)(UnsafeMutablePointer<GtkApplication>, gpointer) -> Void
+	public typealias ApplicationActivateNative = @convention(c)(UnsafeMutablePointer<GtkApplication>, gpointer) -> Void
 
-	lazy var activateSignal: Signal<ApplicationActivateCallback, Application, ApplicationActivateNative>
+	public lazy var activateSignal: Signal<ApplicationActivateCallback, Application, ApplicationActivateNative>
 			= Signal(obj: self, signal: "activate", c_handler: {
 				(_, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Application, ApplicationActivateCallback>.self)
@@ -50,11 +53,11 @@ class Application: Object {
 				action(application)
 			})
 
-	typealias ApplicationWindowAddedNative = @convention(c)(UnsafeMutablePointer<GtkApplication>,
+	public typealias ApplicationWindowAddedNative = @convention(c)(UnsafeMutablePointer<GtkApplication>,
 			UnsafeMutablePointer<GtkWindow>, gpointer) -> Void
 
 	/// Emitted when a Window is added to application through Application.addWindow(_:).
-	lazy var windowAddedSignal: Signal<ApplicationWindowAddedCallback, Application, ApplicationWindowAddedNative>
+	public lazy var windowAddedSignal: Signal<ApplicationWindowAddedCallback, Application, ApplicationWindowAddedNative>
 			= Signal(obj: self, signal: "window-added", c_handler: {
 				(_, n_Window, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Application, ApplicationWindowAddedCallback>.self)
@@ -66,10 +69,10 @@ class Application: Object {
 				action(application, window)
 			})
 
-	typealias ApplicationWindowRemovedNative = @convention(c)(UnsafeMutablePointer<GtkApplication>,
+	public typealias ApplicationWindowRemovedNative = @convention(c)(UnsafeMutablePointer<GtkApplication>,
 			UnsafeMutablePointer<GtkWindow>, gpointer) -> Void
 
-	lazy var windowRemovedSignal: Signal<ApplicationWindowRemovedCallback, Application, ApplicationWindowRemovedNative>
+	public lazy var windowRemovedSignal: Signal<ApplicationWindowRemovedCallback, Application, ApplicationWindowRemovedNative>
 			= Signal(obj: self, signal: "window-removed", c_handler: {
 				(_, n_Window, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Application, ApplicationWindowRemovedCallback>.self)
@@ -124,11 +127,11 @@ extension Application {
 
 extension Application: Equatable { }
 
-func ==(lhs: Application, rhs: Application) -> Bool {
+public func ==(lhs: Application, rhs: Application) -> Bool {
 	return lhs.n_App == rhs.n_App
 }
 
-enum ApplicationFlag: UInt32 {
+public enum ApplicationFlag: UInt32 {
 	case None = 0b00000001
 	case IsService = 0b00000010
 	case IsLauncher = 0b00000100

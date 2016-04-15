@@ -70,6 +70,18 @@ internal extension Container {
 		}
 
 		switch stringFromObject(obj: obj) {
+		case "GtkAboutDialog":
+			let aboutDialog = AboutDialog(n_AboutDialog: UnsafeMutablePointer<GtkAboutDialog>(obj.n_Widget))
+			aboutDialog.buildWidgetTree()
+			return aboutDialog
+		case "GtkApplicationWindow":
+			let applicationWindow = ApplicationWindow(n_ApplicationWindow: UnsafeMutablePointer<GtkApplicationWindow>(obj.n_Widget))
+			applicationWindow.buildWidgetTree()
+			return applicationWindow
+		case "GtkAssistant":
+			let assistant = Assistant(n_Assistant: UnsafeMutablePointer<GtkAssistant>(obj.n_Widget))
+			assistant.buildWidgetTree()
+			return assistant
 		case "GtkBin":
 			let bin = Bin(n_Bin: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkBin>.self))
 			bin.buildWidgetTree()
@@ -94,6 +106,13 @@ internal extension Container {
 			let dialog = Dialog(n_Dialog: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkDialog>.self))
 			dialog.buildWidgetTree()
 			return dialog
+		case "GtkGrid":
+			let grid = Grid(n_Grid: UnsafeMutablePointer<GtkGrid>(obj.n_Widget))
+			grid.buildWidgetTree()
+			return grid
+		case "GtkInvisible":
+			let invisible = Invisible(n_Invisible: UnsafeMutablePointer<GtkInvisible>(obj.n_Widget))
+			return invisible
 		case "GtkLabel":
 			let label = Label(n_Label: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkLabel>.self))
 			return label
@@ -104,6 +123,10 @@ internal extension Container {
 		case "GtkMisc":
 			let misc = Misc(n_Misc: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkMisc>.self))
 			return misc
+		case "GtkOffscreenWindow":
+			let offscreenWindow = OffscreenWindow(n_OffscreenWindow: UnsafeMutablePointer<GtkOffscreenWindow>(obj.n_Widget))
+			offscreenWindow.buildWidgetTree()
+			return offscreenWindow
 		case "GtkVBox":
 			let vBox = VBox(n_VBox: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkVBox>.self))
 			vBox.buildWidgetTree()
