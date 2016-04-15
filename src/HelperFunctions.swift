@@ -127,6 +127,10 @@ internal extension Container {
 			let offscreenWindow = OffscreenWindow(n_OffscreenWindow: UnsafeMutablePointer<GtkOffscreenWindow>(obj.n_Widget))
 			offscreenWindow.buildWidgetTree()
 			return offscreenWindow
+		case "GtkRevealer":
+			let revealer = Revealer(n_Revealer: UnsafeMutablePointer<GtkRevealer>(obj.n_Widget))
+			revealer.buildWidgetTree()
+			return revealer
 		case "GtkVBox":
 			let vBox = VBox(n_VBox: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkVBox>.self))
 			vBox.buildWidgetTree()
