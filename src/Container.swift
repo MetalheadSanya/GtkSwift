@@ -55,6 +55,25 @@ public class Container: Widget {
 		_children.remove(at: index)
 		widget.parent = nil
 	}
+	
+	internal func _clearChildren() {
+		var children = [Widget]()
+		
+		let n_Children = Array<UnsafeMutablePointer<GtkWidget>>(
+			gList: gtk_container_get_children(n_Container))
+		
+		for n_Child in n_Children {
+			var child = _children.filter{ $0.n_Widget == n_Child }.first
+			
+			if child == nil {
+				child = Container.correctWidgetForWidget(Widget(n_Widget: n_Child))
+			}
+			
+			children.append(child!)
+		}
+		
+		_children = children
+	}
 
 	// TODO: some for gtk_container_add_with_properties, vardic func
 
