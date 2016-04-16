@@ -34,7 +34,7 @@ public class FlowBox: Container {
 	public class Child: Bin {
 		private var n_FlowBoxChild: UnsafeMutablePointer<GtkFlowBoxChild>
 		
-		private init(n_FlowBoxChild: UnsafeMutablePointer<GtkFlowBoxChild>) {
+		internal init(n_FlowBoxChild: UnsafeMutablePointer<GtkFlowBoxChild>) {
 			self.n_FlowBoxChild = n_FlowBoxChild
 			super.init(n_Bin: UnsafeMutablePointer<GtkBin>(n_FlowBoxChild))
 		}

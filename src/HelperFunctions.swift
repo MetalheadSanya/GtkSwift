@@ -106,6 +106,16 @@ internal extension Container {
 			let dialog = Dialog(n_Dialog: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkDialog>.self))
 			dialog.buildWidgetTree()
 			return dialog
+		case "GtkFlowBox":
+			let flowBox = FlowBox(n_FlowBox:
+				UnsafeMutablePointer<GtkFlowBox>(obj.n_Widget))
+			flowBox.buildWidgetTree()
+			return flowBox
+		case "GtkFlowBoxChild":
+			let flowBoxChild = FlowBox.Child(n_FlowBoxChild:
+				UnsafeMutablePointer<GtkFlowBoxChild>(obj.n_Widget))
+			flowBoxChild.buildWidgetTree()
+			return flowBoxChild
 		case "GtkGrid":
 			let grid = Grid(n_Grid: UnsafeMutablePointer<GtkGrid>(obj.n_Widget))
 			grid.buildWidgetTree()
