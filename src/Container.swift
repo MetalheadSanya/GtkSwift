@@ -45,6 +45,18 @@ public class Container: Widget {
 		_children.append(widget)
 //		widget.parent = self
 	}
+	
+	internal func _childWithPointer(
+		_ pointer: UnsafeMutablePointer<GtkWidget>) -> Widget {
+		var child = _children.filter{ $0.n_Widget == pointer }.first
+		
+		if child == nil {
+			child = Container.correctWidgetForWidget(Widget(n_Widget: n_Widget))
+			_children.append(child!)
+		}
+		
+		return child!
+	}
 
 	public func removeWidget(_ widget: Widget) {
 		guard widget != self else { return }
