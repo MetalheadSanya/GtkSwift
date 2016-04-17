@@ -149,6 +149,15 @@ internal extension Container {
 			let revealer = Revealer(n_Revealer: UnsafeMutablePointer<GtkRevealer>(obj.n_Widget))
 			revealer.buildWidgetTree()
 			return revealer
+		case "GtkStack":
+			let stack = Stack(n_Stack: UnsafeMutablePointer<GtkStack>(obj.n_Widget))
+			stack.buildWidgetTree()
+			return stack
+		case "GtkStackSwitcher":
+			let stackSwitcher = StackSwitcher(n_StackSwitcher:
+				UnsafeMutablePointer<GtkStackSwitcher>(obj.n_Widget))
+			stackSwitcher.buildWidgetTree()
+			return stackSwitcher
 		case "GtkVBox":
 			let vBox = VBox(n_VBox: unsafeBitCast(obj.n_Widget, to: UnsafeMutablePointer<GtkVBox>.self))
 			vBox.buildWidgetTree()
