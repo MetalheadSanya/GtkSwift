@@ -153,6 +153,11 @@ internal extension Container {
 			let stack = Stack(n_Stack: UnsafeMutablePointer<GtkStack>(obj.n_Widget))
 			stack.buildWidgetTree()
 			return stack
+		case "GtkStackSidebar":
+			let stackSidebar = StackSidebar(
+				n_StackSidebar: UnsafeMutablePointer<GtkStackSidebar>(obj.n_Widget))
+			stackSidebar.buildWidgetTree()
+			return stackSidebar
 		case "GtkStackSwitcher":
 			let stackSwitcher = StackSwitcher(n_StackSwitcher:
 				UnsafeMutablePointer<GtkStackSwitcher>(obj.n_Widget))
