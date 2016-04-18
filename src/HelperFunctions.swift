@@ -15,38 +15,38 @@ internal let G_TYPE_INT = ((GType) ((6) << G_TYPE_FUNDAMENTAL_SHIFT))
 
 private func g_value_for_type(_ type: GType) -> GValue {
 	var val = GValue()
-
+	
 	g_value_init(&val, type)
-
+	
 	return val
 }
 
 internal func g_parameter_bool(name: String, value: Bool) -> GParameter {
 	var val = g_value_for_type(G_TYPE_BOOLEAN)
-
+	
 	g_value_set_boolean(&val, value ? 1 : 0)
-
+	
 	return GParameter(name: name, value: val)
 }
 
 internal func g_parameter_int32(name: String, value: Int) -> GParameter {
 	var val = g_value_for_type(G_TYPE_INT)
-
+	
 	g_value_set_int(&val, Int32(value))
-
+	
 	return GParameter(name: name, value: val)
 }
 
 private func _G_TYPE_CIT(_ ip: UnsafeMutablePointer<GTypeInstance>?, gt: GType) -> Bool {
-		let __inst = ip
-		let __t = gt
-		var __r: Bool = false
-		if __inst != nil && __inst!.pointee.g_class != nil && __inst!.pointee.g_class.pointee.g_type == __t {
-			__r = true
-		} else {
-			__r = g_type_check_instance_is_a(__inst, __t) != 0
-		}
-		return __r
+	let __inst = ip
+	let __t = gt
+	var __r: Bool = false
+	if __inst != nil && __inst!.pointee.g_class != nil && __inst!.pointee.g_class.pointee.g_type == __t {
+		__r = true
+	} else {
+		__r = g_type_check_instance_is_a(__inst, __t) != 0
+	}
+	return __r
 }
 
 private func G_TYPE_CHECK_INSTANCE_TYPE(_ ip: UnsafeMutablePointer<GTypeInstance>, _ gt: GType) -> Bool {
@@ -55,7 +55,7 @@ private func G_TYPE_CHECK_INSTANCE_TYPE(_ ip: UnsafeMutablePointer<GTypeInstance
 
 internal extension Container {
 	func buildWidgetTree() {
-
+		
 		let containerList = gtk_container_get_children(n_Container)
 		let n_Children = Array<UnsafeMutablePointer<GtkWidget>>(gList: containerList)
 		for n_Widget in n_Children {
@@ -63,12 +63,12 @@ internal extension Container {
 			outsideGtkAddWidget(widget)
 		}
 	}
-
+	
 	class func correctWidgetForWidget(_ obj: Widget) -> Widget {
 		func stringFromObject(obj: Object) -> String {
 			return String(cString: g_type_name(obj.gTypeFromInstance()))
 		}
-
+		
 		switch stringFromObject(obj: obj) {
 		case "GtkAboutDialog":
 			let aboutDialog = AboutDialog(n_AboutDialog: UnsafeMutablePointer<GtkAboutDialog>(obj.n_Widget))
@@ -76,7 +76,7 @@ internal extension Container {
 			return aboutDialog
 		case "GtkActionBar":
 			let actionBar = ActionBar(n_ActionBar:
-					UnsafeMutablePointer<GtkActionBar>(obj.n_Widget))
+				UnsafeMutablePointer<GtkActionBar>(obj.n_Widget))
 			actionBar.buildWidgetTree()
 			return actionBar
 		case "GtkApplicationWindow":
@@ -125,6 +125,11 @@ internal extension Container {
 			let grid = Grid(n_Grid: UnsafeMutablePointer<GtkGrid>(obj.n_Widget))
 			grid.buildWidgetTree()
 			return grid
+		case "GtkHeaderBar":
+			let headerBar = HeaderBar(n_HeaderBar:
+				UnsafeMutablePointer<GtkHeaderBar>(obj.n_Widget))
+			headerBar.buildWidgetTree()
+			return headerBar
 		case "GtkInvisible":
 			let invisible = Invisible(n_Invisible: UnsafeMutablePointer<GtkInvisible>(obj.n_Widget))
 			return invisible
@@ -182,6 +187,6 @@ internal extension Container {
 		default:
 			return obj
 		}
-
+		
 	}
 }
