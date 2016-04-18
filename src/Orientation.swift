@@ -1,7 +1,13 @@
 import CGTK
 
+/// Represents the orientation of widgets and other objects which can be
+/// switched between horizontal and vertical orientation on the fly, like
+/// `Toolbar` or `GesturePan`.
 public enum Orientation: RawRepresentable {
-	case Horizontal, Vertical
+	/// The element is in horizontal orientation.
+	case Horizontal
+	/// The element is in vertical orientation.
+	case Vertical
 
 	public typealias RawValue = GtkOrientation
 
@@ -14,7 +20,13 @@ public enum Orientation: RawRepresentable {
 		}
 	}
 
-	public init(rawValue: RawValue) {
-		self = (rawValue == GTK_ORIENTATION_HORIZONTAL) ? .Horizontal : .Vertical
+	public init?(rawValue: RawValue) {
+		switch rawValue {
+		case GTK_ORIENTATION_HORIZONTAL:
+			self = .Horizontal
+		case GTK_ORIENTATION_VERTICAL:
+			self = .Vertical
+		default: return nil
+		}
 	}
 }
