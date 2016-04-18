@@ -155,6 +155,11 @@ internal extension Container {
 			let offscreenWindow = OffscreenWindow(n_OffscreenWindow: UnsafeMutablePointer<GtkOffscreenWindow>(obj.n_Widget))
 			offscreenWindow.buildWidgetTree()
 			return offscreenWindow
+		case "GtkOverlay":
+			let overlay = Overlay(n_Overlay:
+				UnsafeMutablePointer<GtkOverlay>(obj.n_Widget))
+			overlay.buildWidgetTree()
+			return overlay
 		case "GtkRevealer":
 			let revealer = Revealer(n_Revealer: UnsafeMutablePointer<GtkRevealer>(obj.n_Widget))
 			revealer.buildWidgetTree()
