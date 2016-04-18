@@ -1,2 +1,4 @@
-job1:
+image: swiftdocker/swift
+
+test:
   script: "swift build"
