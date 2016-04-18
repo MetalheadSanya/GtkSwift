@@ -74,6 +74,11 @@ internal extension Container {
 			let aboutDialog = AboutDialog(n_AboutDialog: UnsafeMutablePointer<GtkAboutDialog>(obj.n_Widget))
 			aboutDialog.buildWidgetTree()
 			return aboutDialog
+		case "GtkActionBar":
+			let actionBar = ActionBar(n_ActionBar:
+					UnsafeMutablePointer<GtkActionBar>(obj.n_Widget))
+			actionBar.buildWidgetTree()
+			return actionBar
 		case "GtkApplicationWindow":
 			let applicationWindow = ApplicationWindow(n_ApplicationWindow: UnsafeMutablePointer<GtkApplicationWindow>(obj.n_Widget))
 			applicationWindow.buildWidgetTree()
