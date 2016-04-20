@@ -5,7 +5,7 @@
 
 import CGTK
 
-class Misc: Widget {
+public class Misc: Widget {
 
 	internal var n_Misc: UnsafeMutablePointer<GtkMisc>
 

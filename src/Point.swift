@@ -3,7 +3,7 @@
 // Copyright (c) 2016 Metalhead. All rights reserved.
 //
 
-struct Point {
+public struct Point {
 	var x: Int
 	var y: Int
 }
