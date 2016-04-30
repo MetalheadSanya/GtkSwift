@@ -2,3 +2,10 @@ image: swiftdocker/swift
 
 test:
   script: "swift build"
+	
+pages:
+  script:
+  - mv docs public
+  artifacts:
+    paths:
+    - public
