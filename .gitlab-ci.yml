@@ -1,8 +1,8 @@
 test:
-	image: swiftdocker/swift
+  image: swiftdocker/swift
   script: "swift build"
 pages:
-	image: ruby:2.1
+  image: ruby:2.1
   script:
   - mv docs public
   artifacts:
