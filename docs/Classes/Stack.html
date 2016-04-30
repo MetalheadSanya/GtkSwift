@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Stack Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Stack" class="dashAnchor"></a>
+    <a title="Stack Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">gtkswift Docs</a> (61% documented)</p>
+        <p class="header-right"><a href="https://github.com/MetalheadSanya/GtkSwift"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">gtkswift Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Stack Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AboutDialog.html">AboutDialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ActionBar.html">ActionBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Adjustment.html">Adjustment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Application.html">Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationWindow.html">ApplicationWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Assistant.html">Assistant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Bin.html">Bin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Box.html">Box</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ButtonBox.html">ButtonBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Dialog">Dialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowBox.html">FlowBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Grid.html">Grid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HeaderBar.html">HeaderBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Invisible.html">Invisible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Label.html">Label</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListBox.html">ListBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift4Misc">Misc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OffscreenWindow.html">OffscreenWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Overlay.html">Overlay</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Revealer.html">Revealer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Stack.html">Stack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSidebar.html">StackSidebar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSwitcher.html">StackSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Window">Window</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WindowGroup.html">WindowGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ApplicationFlag.html">ApplicationFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AssistantPageType.html">AssistantPageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/BaselinePosition.html">BaselinePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Justification.html">Justification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/License.html">License</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MovementStep.html">MovementStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Orientation.html">Orientation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PackType.html">PackType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PositionType.html">PositionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RevealerTransitionType.html">RevealerTransitionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SelectionMode.html">SelectionMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_11ApplicationS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_6WidgetS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V8gtkswift5Point">Point</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8gtkswift19WidgetFocusCallback">WidgetFocusCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Stack</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Stack</span><span class="p">:</span> <span class="kt">Container</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>Stack</code> widget is a container which only shows one of its children at a
+time. In contrast to <code>Notebook</code>, <code>Stack</code> does not provide a means for users
+to change the visible child. Instead, the <code><a href="../Classes/StackSwitcher.html">StackSwitcher</a></code> widget can be used
+with <code>Stack</code> to provide this functionality.</p>
+
+<p>Transitions between pages can be animated as slides or fades. This can be
+controlled with <code>transitionType</code> property. These animations respect the 
+“gtk-enable-animations” setting.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    The <code>Stack</code> widget was added in GTK+ 3.10.
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC8gtkswift5Stack14TransitionType"></a>
+                    <a name="//apple_ref/swift/Enum/TransitionType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC8gtkswift5Stack14TransitionType">TransitionType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>These enumeration values describe the possible transitions between pages
+in a <code><a href="../Classes/Stack.html">Stack</a></code> widget.</p>
+
+<p>New values may be added to this enumeration over time.</p>
+
+                        <a href="../Classes/Stack/TransitionType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">TransitionType</span><span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift5StackcFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift5StackcFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code><a href="../Classes/Stack.html">Stack</a></code> container.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift5Stack3addFTCS_6Widget8withNameSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/add(_:withName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift5Stack3addFTCS_6Widget8withNameSS_T_">add(_:withName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a child to stack. The child is identified by the <code>name</code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the widget to add
+
+</div>
+
+<p><li>Patameter name: the name for <code>child</code></li></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="n">withName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the widget to add</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift5Stack3addFTCS_6Widget8withNameSS8andTitleSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/add(_:withName:andTitle:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift5Stack3addFTCS_6Widget8withNameSS8andTitleSS_T_">add(_:withName:andTitle:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a child to stack. The child is identified by the <code>name</code>. The title 
+will be used by <code><a href="../Classes/StackSwitcher.html">StackSwitcher</a></code> to represent child in a tab bar, so it
+should be short.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the widget to add
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter name: the name for <code>child</code>
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter title: a human-readable title for <code>child</code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="n">withName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+	                <span class="n">andTitle</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the widget to add</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the name for <code>child</code></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a human-readable title for <code>child</code></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift5Stack5childFT6byNameSS_GSqCS_6Widget_"></a>
+                    <a name="//apple_ref/swift/Method/child(byName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift5Stack5childFT6byNameSS_GSqCS_6Widget_">child(byName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Finds the child of the <code><a href="../Classes/Stack.html">Stack</a></code> with the name given as the argument. 
+Returns <code>nil</code> if there is no child with this name.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter name: the name of the child to find</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>The requested child of the <code><a href="../Classes/Stack.html">Stack</a></code>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">child</span><span class="p">(</span><span class="n">byName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Widget</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the name of the child to find</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The requested child of the <code><a href="../Classes/Stack.html">Stack</a></code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift5Stack10setVisibleFCS_6WidgetT_"></a>
+                    <a name="//apple_ref/swift/Method/setVisible(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift5Stack10setVisibleFCS_6WidgetT_">setVisible(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Makes child the visible child of stack.</p>
+
+<p>If <code>child</code> is different from the currently visible child, the transition
+between the two will be animated with the current transition type of 
+stack.</p>
+
+<p>Note that the <code>child</code> widget has to be visible itself (see <code>show()</code>) in
+order to become the visible child of stack.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: a child of stack
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setVisible</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a child of stack</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack12visibleChildGSqCS_6Widget_"></a>
+                    <a name="//apple_ref/swift/Property/visibleChild" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack12visibleChildGSqCS_6Widget_">visibleChild</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The currently visible child of stack, or <code>nil</code> if there are no
+visible children.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">visibleChild</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift5Stack10setVisibleFT13childWithNameSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/setVisible(childWithName:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift5Stack10setVisibleFT13childWithNameSS_T_">setVisible(childWithName:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Makes the child with the given name visible.</p>
+
+<p>If child is different from the currently visible child, the transition
+between the two will be animated with the current transition type of 
+stack.</p>
+
+<p>Note that the child widget has to be visible itself (see <code>show()</code>) in 
+order to become the visible child of stack .</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter name: the name of the child to make visible
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setVisible</span><span class="p">(</span><span class="n">childWithName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the name of the child to make visible</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack18nameOfVisibleChildGSqSS_"></a>
+                    <a name="//apple_ref/swift/Property/nameOfVisibleChild" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack18nameOfVisibleChildGSqSS_">nameOfVisibleChild</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the currently visible child of stack, or <code>nil</code> if there is no
+visible child.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">nameOfVisibleChild</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift5Stack10setVisibleFT13childWithNameSS14withTransitionOS0_14TransitionType_T_"></a>
+                    <a name="//apple_ref/swift/Method/setVisible(childWithName:withTransition:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift5Stack10setVisibleFT13childWithNameSS14withTransitionOS0_14TransitionType_T_">setVisible(childWithName:withTransition:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Makes the child with the given name visible.</p>
+
+<p>Note that the child widget has to be visible itself (see <code>show()</code>) in 
+order to become the visible child of stack.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter name: the name of the child to make visible
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter transition: the transition type to use
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setVisible</span><span class="p">(</span><span class="n">childWithName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+	                       <span class="n">withTransition</span> <span class="nv">transition</span><span class="p">:</span> <span class="kt">TransitionType</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the name of the child to make visible</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transition</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the transition type to use</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack11homogeneousSb"></a>
+                    <a name="//apple_ref/swift/Property/homogeneous" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack11homogeneousSb">homogeneous</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Homogeneous sizing.</p>
+
+<p>If it is homogeneous, the <code><a href="../Classes/Stack.html">Stack</a></code> will request the same size for all its
+children. If it isn&rsquo;t, the stack may change size when a different child
+becomes visible.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">homogeneous</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack12hhomogeneousSb"></a>
+                    <a name="//apple_ref/swift/Property/hhomogeneous" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack12hhomogeneousSb">hhomogeneous</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>true</code> if the stack allocates the same width for all children.</p>
+
+<p>If it is homogeneous, the <code><a href="../Classes/Stack.html">Stack</a></code> will request the same width for all its
+children. If it isn&rsquo;t, the stack may change width when a different child
+becomes visible.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hhomogeneous</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack12vhomogeneousSb"></a>
+                    <a name="//apple_ref/swift/Property/vhomogeneous" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack12vhomogeneousSb">vhomogeneous</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>true</code> if the stack allocates the same height for all children.</p>
+
+<p>If it is homogeneous, the <code><a href="../Classes/Stack.html">Stack</a></code> will request the same height for all its
+ children. If it isn&rsquo;t, the stack may change height when a different child
+becomes visible.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">vhomogeneous</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack18transitionDurationSu"></a>
+                    <a name="//apple_ref/swift/Property/transitionDuration" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack18transitionDurationSu">transitionDuration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The amount of time (in milliseconds) that transitions between pages in 
+stack will take.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">transitionDuration</span><span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack14transitionTypeOS0_14TransitionType"></a>
+                    <a name="//apple_ref/swift/Property/transitionType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack14transitionTypeOS0_14TransitionType">transitionType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of animation that will be used for transitions between pages in
+stack. Available types include various kinds of fades and slides.</p>
+
+<p>The transition type can be changed without problems at runtime, so it is
+possible to change the animation based on the page that is about to become
+current.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">transitionType</span><span class="p">:</span> <span class="kt">TransitionType</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack17transitionRunningSb"></a>
+                    <a name="//apple_ref/swift/Property/transitionRunning" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack17transitionRunningSb">transitionRunning</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether the stack is currently in a transition from one page to another.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">transitionRunning</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift5Stack15interpolateSizeSb"></a>
+                    <a name="//apple_ref/swift/Property/interpolateSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift5Stack15interpolateSizeSb">interpolateSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether or not stack will interpolate its size when changing the visible
+child. If the <code>interpolateSize</code> property is set to <code>true</code>, stack will
+interpolate its size between the current one and the one it&rsquo;ll take after
+changing the visible child, according to the set transition duration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">interpolateSize</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

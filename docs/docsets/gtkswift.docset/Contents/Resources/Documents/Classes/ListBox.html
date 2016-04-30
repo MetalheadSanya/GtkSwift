@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ListBox Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ListBox" class="dashAnchor"></a>
+    <a title="ListBox Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">gtkswift Docs</a> (61% documented)</p>
+        <p class="header-right"><a href="https://github.com/MetalheadSanya/GtkSwift"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">gtkswift Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ListBox Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AboutDialog.html">AboutDialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ActionBar.html">ActionBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Adjustment.html">Adjustment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Application.html">Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationWindow.html">ApplicationWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Assistant.html">Assistant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Bin.html">Bin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Box.html">Box</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ButtonBox.html">ButtonBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Dialog">Dialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowBox.html">FlowBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Grid.html">Grid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HeaderBar.html">HeaderBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Invisible.html">Invisible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Label.html">Label</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListBox.html">ListBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift4Misc">Misc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OffscreenWindow.html">OffscreenWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Overlay.html">Overlay</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Revealer.html">Revealer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Stack.html">Stack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSidebar.html">StackSidebar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSwitcher.html">StackSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Window">Window</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WindowGroup.html">WindowGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ApplicationFlag.html">ApplicationFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AssistantPageType.html">AssistantPageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/BaselinePosition.html">BaselinePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Justification.html">Justification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/License.html">License</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MovementStep.html">MovementStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Orientation.html">Orientation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PackType.html">PackType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PositionType.html">PositionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RevealerTransitionType.html">RevealerTransitionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SelectionMode.html">SelectionMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_11ApplicationS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_6WidgetS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V8gtkswift5Point">Point</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8gtkswift19WidgetFocusCallback">WidgetFocusCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ListBox</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:CC8gtkswift7ListBox3Row"></a>
+                    <a name="//apple_ref/swift/Class/Row" class="dashAnchor"></a>
+                    <a class="token" href="#/s:CC8gtkswift7ListBox3Row">Row</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Classes/ListBox/Row.html" class="slightly-smaller">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7ListBox17ListBoxFilterFunc"></a>
+                    <a name="//apple_ref/swift/Alias/ListBoxFilterFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7ListBox17ListBoxFilterFunc">ListBoxFilterFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Will be called whenever the row changes or is added and lets you control 
+if the row should be visible or not.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter row: the row that may be filtered</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p><code>true</code> if the row should be visible, <code>false</code> otherwise</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ListBoxFilterFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>row</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the row that may be filtered</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if the row should be visible, <code>false</code> otherwise</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7ListBox23ListBoxUpdateHeaderFunc"></a>
+                    <a name="//apple_ref/swift/Alias/ListBoxUpdateHeaderFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7ListBox23ListBoxUpdateHeaderFunc">ListBoxUpdateHeaderFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whenever <code>row</code> changes or which row is before <code>row</code> changes this is 
+called, which lets you update the header on <code>row</code>. You may remove or set a 
+new one via <code><a href="../Classes/ListBox/Row.html#/s:vCC8gtkswift7ListBox3Row6headerGSqCS_6Widget_">ListBox.Row.header</a></code> property or just change the state of the 
+current header widget.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter row: the row to update
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter before: the row before <code>row</code>, or <code>nil</code> if it is first.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ListBoxUpdateHeaderFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span><span class="p">,</span> <span class="nv">before</span><span class="p">:</span> <span class="kt">Row</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>row</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the row to update</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>before</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the row before <code>row</code>, or <code>nil</code> if it is first.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7ListBox18ListBoxForeachFunc"></a>
+                    <a name="//apple_ref/swift/Alias/ListBoxForeachFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7ListBox18ListBoxForeachFunc">ListBoxForeachFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A function used by <code><a href="../Classes/ListBox.html#/s:FC8gtkswift7ListBox15selectedForeachFFT3rowCS0_3Row_T_T_">selectedForeach(_:)</a></code>. It will be called on every
+selected child of the box.</p>
+
+<p>Parameter row: a <code><a href="../Classes/ListBox/Row.html">ListBox.Row</a></code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ListBoxForeachFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7ListBox15ListBoxSortFunc"></a>
+                    <a name="//apple_ref/swift/Alias/ListBoxSortFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7ListBox15ListBoxSortFunc">ListBoxSortFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Compare two rows to determine which should be first.</p>
+
+<p>Parameter row1: the first row
+Parameter row2: the second row</p>
+
+<p>Returns: &lt; 0 if <code>row1</code> should be before <code>row2</code>, 0 if they are equal and </p>
+
+<blockquote>
+<p>0 otherwise</p>
+</blockquote>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ListBoxSortFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nv">row1</span><span class="p">:</span> <span class="kt">Row</span><span class="p">,</span> <span class="nv">row2</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBoxcFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBoxcFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code><a href="../Classes/ListBox.html">ListBox</a></code> container.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox7prependFCS_6WidgetT_"></a>
+                    <a name="//apple_ref/swift/Method/prepend(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox7prependFCS_6WidgetT_">prepend(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Prepend a widget to the list. If a sort function is set, the widget will
+actually be inserted at the calculated position and this function has the
+same effect of <code>addWidget(_:)</code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the <code><a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a></code> to add
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">prepend</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>Widget</code> to add</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox6insertFTCS_6Widget2toSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/insert(_:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox6insertFTCS_6Widget2toSi_T_">insert(_:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Insert the <code>child</code> into the box at <code>position</code>. If a sort function is set,
+the widget will actually be inserted at the calculated position and this
+function has the same effect of <code>addWidget(_:)</code>.</p>
+
+<p>If <code>position</code> is -1, or larger than the total number of items in the box,
+then the <code>child</code> will be appended to the end.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the <code><a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a></code> to add
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter position: the position to insert <code>child</code> in
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">insert</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="n">to</span> <span class="nv">position</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>Widget</code> to add</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the position to insert <code>child</code> in</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox6selectFGSqCS0_3Row_T_"></a>
+                    <a name="//apple_ref/swift/Method/select(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox6selectFGSqCS0_3Row_T_">select(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Make <code>row</code> the currently selected row.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter row: the row to select or <code>nil</code>.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">select</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>row</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the row to select or <code>nil</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox8unselectFCS0_3RowT_"></a>
+                    <a name="//apple_ref/swift/Method/unselect(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox8unselectFCS0_3RowT_">unselect(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unselects a single row of box, if the selection mode allows it.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter row: the row to unselected
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unselect</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>row</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the row to unselected</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox9selectAllFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/selectAll()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox9selectAllFT_T_">selectAll()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Select all children of box, if the selection mode allows it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">selectAll</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox11unselectAllFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/unselectAll()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox11unselectAllFT_T_">unselectAll()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unselect all children of box, if the selection mode allows it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unselectAll</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox14getSelectedRowFT_CS0_3Row"></a>
+                    <a name="//apple_ref/swift/Method/getSelectedRow()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox14getSelectedRowFT_CS0_3Row">getSelectedRow()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the selected row.</p>
+
+<p>Note that the box may allow multiple selection, in which case you should
+use <code><a href="../Classes/ListBox.html#/s:FC8gtkswift7ListBox15selectedForeachFFT3rowCS0_3Row_T_T_">selectedForeach(_:)</a></code> to find all selected rows.</p>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    The selected row.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSelectedRow</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Row</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The selected row.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox15selectedForeachFFT3rowCS0_3Row_T_T_"></a>
+                    <a name="//apple_ref/swift/Method/selectedForeach(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox15selectedForeachFFT3rowCS0_3Row_T_T_">selectedForeach(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calls a function for each selected child.</p>
+
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    The selection cannot be modified from within this function.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">selectedForeach</span><span class="p">(</span><span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">ListBoxForeachFunc</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7ListBox12selectedRowsGSaCS0_3Row_"></a>
+                    <a name="//apple_ref/swift/Property/selectedRows" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7ListBox12selectedRowsGSaCS0_3Row_">selectedRows</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a array of all selected children.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">selectedRows</span><span class="p">:</span> <span class="p">[</span><span class="kt">Row</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7ListBox13selectionModeOS_13SelectionMode"></a>
+                    <a name="//apple_ref/swift/Property/selectionMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7ListBox13selectionModeOS_13SelectionMode">selectionMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The selection mode of the listbox.
+- seealso: <code><a href="../Enums/SelectionMode.html">SelectionMode</a></code> for details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">selectionMode</span><span class="p">:</span> <span class="kt">SelectionMode</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7ListBox21activateOnSingleClickSb"></a>
+                    <a name="//apple_ref/swift/Property/activateOnSingleClick" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7ListBox21activateOnSingleClickSb">activateOnSingleClick</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether rows activate on single clicks.</p>
+
+<p>If <code>activateOnSingleClick</code> is <code>true</code>, rows will be activated when you
+click on them, otherwise you need to double-click.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">activateOnSingleClick</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TODO:%20gtk_list_box_get_adjustment(),%20gtk_list_box_set_adjustment(),"></a>
+                <a name="//apple_ref/swift/Section/TODO: gtk_list_box_get_adjustment(), gtk_list_box_set_adjustment()," class="dashAnchor"></a>
+                <a href="#/TODO:%20gtk_list_box_get_adjustment(),%20gtk_list_box_set_adjustment(),">
+                  <h3 class="section-name">TODO: gtk_list_box_get_adjustment(), gtk_list_box_set_adjustment(),</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox14setPlaceholderFCS_6WidgetT_"></a>
+                    <a name="//apple_ref/swift/Method/setPlaceholder(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox14setPlaceholderFCS_6WidgetT_">setPlaceholder(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the placeholder widget that is shown in the list when it doesn&rsquo;t
+display any visible children.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter placeholder: a <code><a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a></code> or <code>nil</code>.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setPlaceholder</span><span class="p">(</span><span class="n">_</span> <span class="nv">placeholder</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>placeholder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a <code>Widget</code> or <code>nil</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox6getRowFT7atIndexSi_GSqCS0_3Row_"></a>
+                    <a name="//apple_ref/swift/Method/getRow(atIndex:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox6getRowFT7atIndexSi_GSqCS0_3Row_">getRow(atIndex:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the n-th child in the list (not counting headers). If <code>index</code> is
+negative or larger than the number of items in the list, <code>nil</code> is
+returned.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter index: the index of the row</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>The child <code><a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a></code> or <code>nil</code>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getRow</span><span class="p">(</span><span class="n">atIndex</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Row</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the index of the row</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The child <code><a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a></code> or <code>nil</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox6getRowFT3atYSi_GSqCS0_3Row_"></a>
+                    <a name="//apple_ref/swift/Method/getRow(atY:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox6getRowFT3atYSi_GSqCS0_3Row_">getRow(atY:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the row at the <code>y</code> position.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter y: position</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>The row or &lsquo;nil&rsquo; in case no row exists for the given y
+coordinate.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getRow</span><span class="p">(</span><span class="n">atY</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Row</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>y</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>position</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The row or &lsquo;nil&rsquo; in case no row exists for the given y coordinate.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox16invalidateFilterFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/invalidateFilter()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox16invalidateFilterFT_T_">invalidateFilter()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update the filtering for all rows. Call this when result of the filter
+function on the box is changed due to an external factor. For instance,
+this would be used if the filter function just looked for a specific
+search string and the entry with the search string has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invalidateFilter</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox17invalidateHeadersFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/invalidateHeaders()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox17invalidateHeadersFT_T_">invalidateHeaders()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update the separators for all rows. Call this when result of the header
+function on the box is changed due to an external factor.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invalidateHeaders</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox14invalidateSortFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/invalidateSort()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox14invalidateSortFT_T_">invalidateSort()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update the sorting for all rows. Call this when result of the sort
+function on the box is changed due to an external factor.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invalidateSort</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7ListBox10filterFuncGSqFT3rowCS0_3Row_Sb_"></a>
+                    <a name="//apple_ref/swift/Property/filterFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7ListBox10filterFuncGSqFT3rowCS0_3Row_Sb_">filterFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>By setting a filter function on the box one can decide dynamically which 
+of the rows to show. For instance, to implement a search function on a 
+list that filters the original list to only show the matching rows.</p>
+
+<p>The <code>filterFunc</code> will be called for each row after the call, and it will 
+continue to be called each time a row changes (via 
+<code><a href="../Classes/ListBox/Row.html#/s:FCC8gtkswift7ListBox3Row7changedFT_T_">ListBox.Row.changed()</a></code>) or when <code><a href="../Classes/ListBox.html#/s:FC8gtkswift7ListBox16invalidateFilterFT_T_">invalidateFilter()</a></code> is called.</p>
+
+<p>Note that using a filter function is incompatible with using a model (see 
+gtk_list_box_bind_model()).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">filterFunc</span><span class="p">:</span> <span class="kt">ListBoxFilterFunc</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7ListBox10headerFuncGSqFT3rowCS0_3Row6beforeGSqS1___T__"></a>
+                    <a name="//apple_ref/swift/Property/headerFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7ListBox10headerFuncGSqFT3rowCS0_3Row6beforeGSqS1___T__">headerFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>By setting a header function on the box one can dynamically add headers in 
+front of rows, depending on the contents of the row and its position in 
+the list. For instance, one could use it to add headers in front of the 
+first item of a new kind, in a list sorted by the kind.</p>
+
+<p>The <code>headerFunc</code> can look at the current header widget using
+<code><a href="../Classes/ListBox/Row.html#/s:vCC8gtkswift7ListBox3Row6headerGSqCS_6Widget_">ListBox.Row.header</a></code> property and either update the state of the widget as 
+needed, or set a new one using <code><a href="../Classes/ListBox/Row.html#/s:vCC8gtkswift7ListBox3Row6headerGSqCS_6Widget_">ListBox.Row.header</a></code>. If no header is 
+needed, set the header to <code>nil</code>.</p>
+
+<p>Note that you may get many calls headerFunc to this for a particular row 
+when e.g. changing things that don’t affect the header. In this case it is 
+important for performance to not blindly replace an existing header with 
+an identical one.</p>
+
+<p>The <code>headerFunc</code> function will be called for each row after the call, and 
+it will continue to be called each time a row changes (via 
+<code><a href="../Classes/ListBox/Row.html#/s:FCC8gtkswift7ListBox3Row7changedFT_T_">ListBox.Row.changed()</a></code>) and when the row before changes (either by 
+<code><a href="../Classes/ListBox/Row.html#/s:FCC8gtkswift7ListBox3Row7changedFT_T_">ListBox.Row.changed()</a></code> on the previous row, or when the previous row 
+becomes a different row). It is also called for all rows when 
+<code><a href="../Classes/ListBox.html#/s:FC8gtkswift7ListBox17invalidateHeadersFT_T_">invalidateHeaders()</a></code> is called.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">headerFunc</span><span class="p">:</span> <span class="kt">ListBoxUpdateHeaderFunc</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7ListBox8sortFuncGSqFT4row1CS0_3Row4row2S1__Si_"></a>
+                    <a name="//apple_ref/swift/Property/sortFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7ListBox8sortFuncGSqFT4row1CS0_3Row4row2S1__Si_">sortFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>By setting a sort function on the box one can dynamically reorder the rows 
+of the list, based on the contents of the rows.</p>
+
+<p>The sortFunc will be called for each row after the call, and will continue 
+to be called each time a row changes (via <code><a href="../Classes/ListBox/Row.html#/s:FCC8gtkswift7ListBox3Row7changedFT_T_">ListBox.Row.changed()</a></code>) and 
+when <code><a href="../Classes/ListBox.html#/s:FC8gtkswift7ListBox14invalidateSortFT_T_">invalidateSort()</a></code> is called.</p>
+
+<p>Note that using a sort function is incompatible with using a model (see 
+<code>gtk_list_box_bind_model()</code>).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">sortFunc</span><span class="p">:</span> <span class="kt">ListBoxSortFunc</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox13dragHighlightFCS0_3RowT_"></a>
+                    <a name="//apple_ref/swift/Method/dragHighlight(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox13dragHighlightFCS0_3RowT_">dragHighlight(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is a helper function for implementing DnD onto a <code><a href="../Classes/ListBox.html">ListBox</a></code>. The 
+passed in <code>row</code> will be highlighted via <code>dragHighlight()</code>, and any
+previously highlighted row will be unhighlighted.</p>
+
+<p>The row will also be unhighlighted when the widget gets a drag leave 
+event.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">dragHighlight</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">Row</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7ListBox15dragUnhighlightFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/dragUnhighlight()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7ListBox15dragUnhighlightFT_T_">dragUnhighlight()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If a row has previously been highlighted via <code>dragHighlight(row:)</code> it will 
+have the highlight removed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">dragUnhighlight</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

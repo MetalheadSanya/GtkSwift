@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Adjustment Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Adjustment" class="dashAnchor"></a>
+    <a title="Adjustment Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">gtkswift Docs</a> (61% documented)</p>
+        <p class="header-right"><a href="https://github.com/MetalheadSanya/GtkSwift"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">gtkswift Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Adjustment Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AboutDialog.html">AboutDialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ActionBar.html">ActionBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Adjustment.html">Adjustment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Application.html">Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationWindow.html">ApplicationWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Assistant.html">Assistant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Bin.html">Bin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Box.html">Box</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ButtonBox.html">ButtonBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Dialog">Dialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowBox.html">FlowBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Grid.html">Grid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HeaderBar.html">HeaderBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Invisible.html">Invisible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Label.html">Label</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListBox.html">ListBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift4Misc">Misc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OffscreenWindow.html">OffscreenWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Overlay.html">Overlay</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Revealer.html">Revealer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Stack.html">Stack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSidebar.html">StackSidebar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSwitcher.html">StackSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Window">Window</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WindowGroup.html">WindowGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ApplicationFlag.html">ApplicationFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AssistantPageType.html">AssistantPageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/BaselinePosition.html">BaselinePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Justification.html">Justification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/License.html">License</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MovementStep.html">MovementStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Orientation.html">Orientation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PackType.html">PackType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PositionType.html">PositionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RevealerTransitionType.html">RevealerTransitionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SelectionMode.html">SelectionMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_11ApplicationS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_6WidgetS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V8gtkswift5Point">Point</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8gtkswift19WidgetFocusCallback">WidgetFocusCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Adjustment</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Adjustment</span><span class="p">:</span> <span class="kt">Object</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>Adjustment</code> object represents a value which has an associated lower and
+upper bound, together with step and page increments, and a page size. It is
+used within several GTK+ widgets, including <code>SpinButton</code>, <code>Viewport</code>, and
+<code>Range</code> (which is a base class for <code>Scrollbar</code> and <code>Scale</code>).</p>
+
+<p>The <code>Adjustment</code> object does not update the value itself. Instead it is left
+up to the owner of the <code>Adjustment</code> to control the value.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift10Adjustment15ChangedCallback"></a>
+                    <a name="//apple_ref/swift/Alias/ChangedCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift10Adjustment15ChangedCallback">ChangedCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the object which received the signal
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ChangedCallback</span> <span class="o">=</span> <span class="p">(</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the object which received the signal</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift10Adjustment20ValueChangedCallback"></a>
+                    <a name="//apple_ref/swift/Alias/ValueChangedCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift10Adjustment20ValueChangedCallback">ValueChangedCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the object which received the signal
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ValueChangedCallback</span> <span class="o">=</span> <span class="p">(</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the object which received the signal</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift10AdjustmentcFT5valueSd5lowerSd5upperSd13stepIncrementSd13pageIncrementSd8pageSizeSd_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(value:lower:upper:stepIncrement:pageIncrement:pageSize:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift10AdjustmentcFT5valueSd5lowerSd5upperSd13stepIncrementSd13pageIncrementSd8pageSizeSd_S0_">init(value:lower:upper:stepIncrement:pageIncrement:pageSize:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code><a href="../Classes/Adjustment.html">Adjustment</a></code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter value: the initial value
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter lower: the minimum value
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter upper: the maximum value
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter stepIncrement: the step increment
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter pageIncrement: pageIncrement
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter pageSize: the page size
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">lower</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">upper</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span>
+	                        <span class="nv">stepIncrement</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">pageIncrement</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span>
+	                        <span class="nv">pageSize</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the initial value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lower</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the minimum value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>upper</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the maximum value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>stepIncrement</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the step increment</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pageIncrement</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>pageIncrement</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pageSize</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the page size</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment5valueSd"></a>
+                    <a name="//apple_ref/swift/Property/value" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment5valueSd">value</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The value of the adjustment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift10Adjustment9clampPageFTSd5upperSd_T_"></a>
+                    <a name="//apple_ref/swift/Method/clampPage(_:upper:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift10Adjustment9clampPageFTSd5upperSd_T_">clampPage(_:upper:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment5valueSd">value</a></code> property to ensure that the range between <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment5lowerSd">lower</a></code> and
+<code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment5upperSd">upper</a></code> is in the current page (i.e. between <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment5valueSd">value</a></code> and <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment5valueSd">value</a></code> +
+<code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment8pageSizeSd">pageSize</a></code>). If the range is larger than the page size, then only the
+start of it will be in the current page.</p>
+
+<p>A <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment18valueChangedSignalERR">valueChangedSignal</a></code> will be emitted if the value is changed.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter lower: the lower value
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter upper: the upper value
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clampPage</span><span class="p">(</span><span class="nv">lower</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">upper</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lower</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the lower value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>upper</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the upper value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift10Adjustment9configureFTSd5lowerSd5upperSd13stepIncrementSd13pageIncrementSd8pageSizeSd_T_"></a>
+                    <a name="//apple_ref/swift/Method/configure(_:lower:upper:stepIncrement:pageIncrement:pageSize:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift10Adjustment9configureFTSd5lowerSd5upperSd13stepIncrementSd13pageIncrementSd8pageSizeSd_T_">configure(_:lower:upper:stepIncrement:pageIncrement:pageSize:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets all properties of the adjustment at once.</p>
+
+<p>Use this function to avoid multiple emissions of the <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment13changedSignalERR">changedSignal</a></code>. See
+<code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment5lowerSd">lower</a></code> property for an alternative way of compressing multiple emissions
+of <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment13changedSignalERR">changedSignal</a></code> into one.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter value: the new value
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter lower: the new minimum value
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter upper: the new maximum value
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter stepIncrement: the new step increment
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter pageIncrement: the new page increment
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter pageSize: the new page size
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">lower</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">upper</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span>
+	                      <span class="nv">stepIncrement</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">pageIncrement</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span>
+	                      <span class="nv">pageSize</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>lower</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new minimum value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>upper</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new maximum value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>stepIncrement</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new step increment</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pageIncrement</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new page increment</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pageSize</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new page size</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment5lowerSd"></a>
+                    <a name="//apple_ref/swift/Property/lower" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment5lowerSd">lower</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The minimum value of the adjustment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lower</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment13pageIncrementSd"></a>
+                    <a name="//apple_ref/swift/Property/pageIncrement" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment13pageIncrementSd">pageIncrement</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The page increment of the adjustment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pageIncrement</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment8pageSizeSd"></a>
+                    <a name="//apple_ref/swift/Property/pageSize" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment8pageSizeSd">pageSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The page size of the adjustment. Note that the page-size is irrelevant and
+should be set to zero if the adjustment is used for a simple scalar value,
+e.g. in a <code>SpinButton</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pageSize</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment13stepIncrementSd"></a>
+                    <a name="//apple_ref/swift/Property/stepIncrement" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment13stepIncrementSd">stepIncrement</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The step increment of the adjustment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">stepIncrement</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment5upperSd"></a>
+                    <a name="//apple_ref/swift/Property/upper" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment5upperSd">upper</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum value of the adjustment. Note that values will be restricted 
+by <code>upper - pageSize</code> if the page-size property is nonzero.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">upper</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment16minimumIncrementSd"></a>
+                    <a name="//apple_ref/swift/Property/minimumIncrement" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment16minimumIncrementSd">minimumIncrement</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The smaller of step increment and page increment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">minimumIncrement</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Signals"></a>
+                <a name="//apple_ref/swift/Section/Signals" class="dashAnchor"></a>
+                <a href="#/Signals">
+                  <h3 class="section-name">Signals</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment13changedSignalERR"></a>
+                    <a name="//apple_ref/swift/Property/changedSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment13changedSignalERR">changedSignal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Emitted when one or more of the <code><a href="../Classes/Adjustment.html">Adjustment</a></code> properties have been changed,
+other than the <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment5valueSd">value</a></code> property.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">changedSignal</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift10Adjustment18valueChangedSignalERR"></a>
+                    <a name="//apple_ref/swift/Property/valueChangedSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift10Adjustment18valueChangedSignalERR">valueChangedSignal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Emitted when the <code><a href="../Classes/Adjustment.html#/s:vC8gtkswift10Adjustment5valueSd">value</a></code> property has been changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">valueChangedSignal</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

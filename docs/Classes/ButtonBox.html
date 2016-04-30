@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ButtonBox Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ButtonBox" class="dashAnchor"></a>
+    <a title="ButtonBox Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">gtkswift Docs</a> (61% documented)</p>
+        <p class="header-right"><a href="https://github.com/MetalheadSanya/GtkSwift"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">gtkswift Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ButtonBox Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AboutDialog.html">AboutDialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ActionBar.html">ActionBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Adjustment.html">Adjustment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Application.html">Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationWindow.html">ApplicationWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Assistant.html">Assistant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Bin.html">Bin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Box.html">Box</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ButtonBox.html">ButtonBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Dialog">Dialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowBox.html">FlowBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Grid.html">Grid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HeaderBar.html">HeaderBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Invisible.html">Invisible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Label.html">Label</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListBox.html">ListBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift4Misc">Misc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OffscreenWindow.html">OffscreenWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Overlay.html">Overlay</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Revealer.html">Revealer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Stack.html">Stack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSidebar.html">StackSidebar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSwitcher.html">StackSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Window">Window</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WindowGroup.html">WindowGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ApplicationFlag.html">ApplicationFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AssistantPageType.html">AssistantPageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/BaselinePosition.html">BaselinePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Justification.html">Justification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/License.html">License</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MovementStep.html">MovementStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Orientation.html">Orientation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PackType.html">PackType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PositionType.html">PositionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RevealerTransitionType.html">RevealerTransitionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SelectionMode.html">SelectionMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_11ApplicationS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_6WidgetS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V8gtkswift5Point">Point</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8gtkswift19WidgetFocusCallback">WidgetFocusCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ButtonBox</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC8gtkswift9ButtonBox5Style"></a>
+                    <a name="//apple_ref/swift/Enum/Style" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC8gtkswift9ButtonBox5Style">Style</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used to dictate the style that a <code><a href="../Classes/ButtonBox.html">ButtonBox</a></code> uses to layout the buttons it
+contains.</p>
+
+                        <a href="../Classes/ButtonBox/Style.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">Style</span><span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift9ButtonBoxcFT11orientationOS_11Orientation_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(orientation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift9ButtonBoxcFT11orientationOS_11Orientation_S0_">init(orientation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code><a href="../Classes/ButtonBox.html">ButtonBox</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">orientation</span><span class="p">:</span> <span class="kt">Orientation</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift9ButtonBox6layoutOS0_5Style"></a>
+                    <a name="//apple_ref/swift/Property/layout" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift9ButtonBox6layoutOS0_5Style">layout</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The method being used to arrange the buttons in a button box.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">layout</span><span class="p">:</span> <span class="kt">Style</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift9ButtonBox17getChildSecondaryFCS_6WidgetSb"></a>
+                    <a name="//apple_ref/swift/Method/getChildSecondary(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift9ButtonBox17getChildSecondaryFCS_6WidgetSb">getChildSecondary(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns whether <code>child</code> should appear in a secondary group of children.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter child: a child of box</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>whether <code>child</code> should appear in a secondary group of children.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getChildSecondary</span><span class="p">(</span><span class="n">_</span> <span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a child of box</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>whether <code>child</code> should appear in a secondary group of children.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift9ButtonBox22getChildNonHomogeneousFCS_6WidgetSb"></a>
+                    <a name="//apple_ref/swift/Method/getChildNonHomogeneous(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift9ButtonBox22getChildNonHomogeneousFCS_6WidgetSb">getChildNonHomogeneous(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns whether the <code>child</code> is exempted from homogenous sizing.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter child: a child of widget</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p><code>true</code> if the <code>child</code> is not subject to homogenous sizing</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getChildNonHomogeneous</span><span class="p">(</span><span class="n">_</span> <span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a child of widget</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if the <code>child</code> is not subject to homogenous sizing</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift9ButtonBox8setChildFTCS_6Widget11isSecondarySb_T_"></a>
+                    <a name="//apple_ref/swift/Method/setChild(_:isSecondary:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift9ButtonBox8setChildFTCS_6Widget11isSecondarySb_T_">setChild(_:isSecondary:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets whether <code>child</code> should appear in a secondary group of children. A
+typical use of a secondary child is the help button in a dialog.</p>
+
+<p>This group appears after the other children if the style is
+<code>.Start</code>, <code>.Spread</code> or <code>.Edge</code>, and before the other children if the style
+is <code>.End</code>. For horizontal button boxes, the definition of before/after
+depends on direction of the widget (see <code>derection</code> property). If the
+style is <code>.Start</code> or <code>.End</code>, then the secondary children are aligned at
+the other end of the button box from the main children. For the other
+styles, they appear immediately next to the main children.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: a child of widget
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter secondary: if <code>true</code>, the <code>child</code> appears in a secondary group
+of the button box.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setChild</span><span class="p">(</span><span class="n">_</span> <span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="n">isSecondary</span> <span class="nv">secondary</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a child of widget</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>secondary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>if <code>true</code>, the <code>child</code> appears in a secondary group of the button box.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift9ButtonBox8setChildFTCS_6Widget16isNonHomogeneousSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/setChild(_:isNonHomogeneous:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift9ButtonBox8setChildFTCS_6Widget16isNonHomogeneousSb_T_">setChild(_:isNonHomogeneous:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets whether the child is exempted from homogeous sizing.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: a child of widget
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter nonHomogeneous: the new value
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setChild</span><span class="p">(</span><span class="n">_</span> <span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="n">isNonHomogeneous</span> <span class="nv">nonHomogeneous</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a child of widget</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>nonHomogeneous</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

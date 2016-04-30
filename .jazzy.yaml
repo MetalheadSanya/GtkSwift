@@ -1,0 +1,8 @@
+module: gtkswift
+author: Alexander Zalutskiy
+author_url: https://gitlab.com/u/metalhead-sanya
+github_url: https://github.com/MetalheadSanya/GtkSwift
+
+# swift_version: 3.0
+
+xcodebuild_arguments: [-scheme,gtk-swift,-toolchain,org.swift.3020160412a]

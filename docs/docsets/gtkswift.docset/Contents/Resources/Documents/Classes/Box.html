@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Box Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Box" class="dashAnchor"></a>
+    <a title="Box Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">gtkswift Docs</a> (61% documented)</p>
+        <p class="header-right"><a href="https://github.com/MetalheadSanya/GtkSwift"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">gtkswift Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Box Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AboutDialog.html">AboutDialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ActionBar.html">ActionBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Adjustment.html">Adjustment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Application.html">Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationWindow.html">ApplicationWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Assistant.html">Assistant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Bin.html">Bin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Box.html">Box</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ButtonBox.html">ButtonBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Dialog">Dialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowBox.html">FlowBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Grid.html">Grid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HeaderBar.html">HeaderBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Invisible.html">Invisible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Label.html">Label</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListBox.html">ListBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift4Misc">Misc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OffscreenWindow.html">OffscreenWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Overlay.html">Overlay</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Revealer.html">Revealer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Stack.html">Stack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSidebar.html">StackSidebar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSwitcher.html">StackSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Window">Window</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WindowGroup.html">WindowGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ApplicationFlag.html">ApplicationFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AssistantPageType.html">AssistantPageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/BaselinePosition.html">BaselinePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Justification.html">Justification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/License.html">License</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MovementStep.html">MovementStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Orientation.html">Orientation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PackType.html">PackType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PositionType.html">PositionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RevealerTransitionType.html">RevealerTransitionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SelectionMode.html">SelectionMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_11ApplicationS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_6WidgetS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V8gtkswift5Point">Point</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8gtkswift19WidgetFocusCallback">WidgetFocusCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Box</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Box</span><span class="p">:</span> <span class="kt">Container</span></code></pre>
+
+                </div>
+              </div>
+            <p>The <code>Box</code> widget organizes child widgets into a rectangular area.</p>
+
+<p>The rectangular area of a <code>Box</code> is organized into either a single row or a
+single column of child widgets depending upon the orientation. Thus, all 
+children of a <code>Box</code> are allocated one dimension in common, which is the 
+height of a row, or the width of a column.</p>
+
+<p><code>Box</code> uses a notion of packing. Packing refers to adding widgets with
+reference to a particular position in a <code><a href="../Classes/Container.html">Container</a></code>. For a Box, there are 
+two reference positions: the start and the end of the box. For a vertical 
+<code>Box</code>, the start is defined as the top of the box and the end is defined as 
+the bottom. For a horizontal <code>Box</code> the start is defined as the left side and 
+the end is defined as the right side.</p>
+
+<p>Use repeated calls to <code>packStart(child:expand:fill:padding)</code> to pack widgets
+into a <code>Box</code> from start to end. Use <code>packEnd(child:expand:fill:padding)</code> to 
+add widgets from end to start. You may intersperse these calls and add 
+widgets from both ends of the same <code>Box</code>.</p>
+
+<p>Because <code>Box</code> is a <code><a href="../Classes/Container.html">Container</a></code>, you may also use <code>addWidget(_:)</code> to insert 
+widgets into the box, and they will be packed with the default values for 
+expand and fill child properties. Use <code>removeWidget(_:)</code> to remove widgets 
+from the <code>Box</code>.</p>
+
+<p>Use <code>homogeneous</code> property to specify whether or not all children of the 
+<code>Box</code> are forced to get the same amount of space.</p>
+
+<p>Use <code>spacing</code> property to determine how much space will be minimally placed 
+between all children in the <code>Box</code>. Note that spacing is added between the 
+children, while padding added by <code>packStart(child:expand:fill:padding)</code> or 
+<code>packEnd(child:expand:fill:padding)</code> is added on either side of the widget 
+it belongs to.</p>
+
+<p>Use <code>reorder(child:position:)</code> to move a <code>Box</code> child to a different place in
+the box.</p>
+
+<p>Use <code>setChildPacking(_:forChild:)</code> to reset the expand, fill and padding 
+child properties. Use <code>getQueryChildPacking(child:)</code> to query these fields.</p>
+
+<p>Note that a single-row or single-column Grid provides exactly the same 
+functionality as Box.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:VC8gtkswift3Box12ChildPacking"></a>
+                    <a name="//apple_ref/swift/Struct/ChildPacking" class="dashAnchor"></a>
+                    <a class="token" href="#/s:VC8gtkswift3Box12ChildPacking">ChildPacking</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Classes/Box/ChildPacking.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Box</span><span class="p">:</span> <span class="kt">Container</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift3BoxcFT11orientationOS_11Orientation7spacingSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(orientation:spacing:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift3BoxcFT11orientationOS_11Orientation7spacingSi_S0_">init(orientation:spacing:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new Box.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter orientation: the box’s orientation.
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter spacing: the number of pixels to place by default between 
+children.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">orientation</span><span class="p">:</span> <span class="kt">Orientation</span><span class="p">,</span> <span class="nv">spacing</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orientation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the box’s orientation.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>spacing</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the number of pixels to place by default between children.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift3Box9packStartFTCS_6Widget6expandSb4fillSb7paddingSu_T_"></a>
+                    <a name="//apple_ref/swift/Method/packStart(_:expand:fill:padding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift3Box9packStartFTCS_6Widget6expandSb4fillSb7paddingSu_T_">packStart(_:expand:fill:padding:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds <code>child</code> to box, packed with reference to the end of box. The <code>child</code>
+is packed after (away from end of) any other child packed with reference
+to the end of box.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the Widget to be added to box
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter expand: <code>true</code> if the new child is to be given extra space
+allocated to box. The extra space will be divided evenly between all
+children that use this option
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter fill: <code>true</code> if space given to <code>child</code> by the <code>expand</code> option
+is actually allocated to <code>child</code>, rather than just padding it. This
+parameter has no effect if expand is set to <code>false</code>. A <code>child</code> is always
+allocated the full height of a horizontal Box and the full width of a
+vertical Box. This option affects the other dimension
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter padding: extra space in pixels to put between this child and
+its neighbors, over and above the global amount specified by “spacing”
+property. If <code>child</code> is a widget at one of the reference ends of box,
+then <code>padding</code> pixels are also put between <code>child</code> and the reference
+edge of box
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">packStart</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="nv">expand</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
+	                      <span class="nv">fill</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">padding</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Widget to be added to box</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expand</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> if the new child is to be given extra space allocated to box. The extra space will be divided evenly between all children that use this option</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fill</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> if space given to <code>child</code> by the <code>expand</code> option is actually allocated to <code>child</code>, rather than just padding it. This parameter has no effect if expand is set to <code>false</code>. A <code>child</code> is always allocated the full height of a horizontal Box and the full width of a vertical Box. This option affects the other dimension</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>padding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>extra space in pixels to put between this child and its neighbors, over and above the global amount specified by “spacing” property. If <code>child</code> is a widget at one of the reference ends of box, then <code>padding</code> pixels are also put between <code>child</code> and the reference edge of box</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift3Box7packEndFTCS_6Widget6expandSb4fillSb7paddingSu_T_"></a>
+                    <a name="//apple_ref/swift/Method/packEnd(_:expand:fill:padding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift3Box7packEndFTCS_6Widget6expandSb4fillSb7paddingSu_T_">packEnd(_:expand:fill:padding:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds <code>child</code> to box, packed with reference to the start of box. The
+<code>child</code> is packed after any other child packed with reference to the start
+of box.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the Widget to be added to box
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter expand: <code>true</code> if the new child is to be given extra space
+allocated to box. The extra space will be divided evenly between all
+children that use this option
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter fill: <code>true</code> if space given to <code>child</code> by the <code>expand</code> option
+is actually allocated to <code>child</code>, rather than just padding it. This
+parameter has no effect if expand is set to <code>false</code>. A <code>child</code> is always
+allocated the full height of a horizontal Box and the full width of a
+vertical Box. This option affects the other dimension
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter padding: extra space in pixels to put between this child and
+its neighbors, over and above the global amount specified by “spacing”
+property. If <code>child</code> is a widget at one of the reference ends of box,
+then <code>padding</code> pixels are also put between <code>child</code> and the reference
+edge of box
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">packEnd</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="nv">expand</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">fill</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">padding</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Widget to be added to box</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>expand</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> if the new child is to be given extra space allocated to box. The extra space will be divided evenly between all children that use this option</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fill</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>true</code> if space given to <code>child</code> by the <code>expand</code> option is actually allocated to <code>child</code>, rather than just padding it. This parameter has no effect if expand is set to <code>false</code>. A <code>child</code> is always allocated the full height of a horizontal Box and the full width of a vertical Box. This option affects the other dimension</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>padding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>extra space in pixels to put between this child and its neighbors, over and above the global amount specified by “spacing” property. If <code>child</code> is a widget at one of the reference ends of box, then <code>padding</code> pixels are also put between <code>child</code> and the reference edge of box</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift3Box11homogeneousSb"></a>
+                    <a name="//apple_ref/swift/Property/homogeneous" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift3Box11homogeneousSb">homogeneous</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>homogeneous</code> property of box, controlling whether or not all children of
+box are given equal space in the box.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">homogeneous</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift3Box7spacingSi"></a>
+                    <a name="//apple_ref/swift/Property/spacing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift3Box7spacingSi">spacing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>spacing</code> property of box, which is the number of pixels to place between
+children of box .</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">spacing</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift3Box7reorderFTCS_6Widget8positionSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/reorder(_:position:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift3Box7reorderFTCS_6Widget8positionSi_T_">reorder(_:position:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Moves <code>child</code> to a new position in the list of box children. The list
+contains widgets packed <code>.Start</code> as well as widgets packed <code>.End</code>, in the
+order that these widgets were added to box.</p>
+
+<p>A widget’s position in the box children list determines where the widget
+is packed into box. A child widget at some position in the list will be
+packed just after all other widgets of the same packing type that appear
+earlier in the list.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the Widget to move
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter position: the new position for <code>child</code> in the list of children
+of box, starting from 0. If negative, indicates the end of the list
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reorder</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="nv">position</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Widget to move</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new position for <code>child</code> in the list of children of box, starting from 0. If negative, indicates the end of the list</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift3Box20getQueryChildPackingFCS_6WidgetVS0_12ChildPacking"></a>
+                    <a name="//apple_ref/swift/Method/getQueryChildPacking(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift3Box20getQueryChildPackingFCS_6WidgetVS0_12ChildPacking">getQueryChildPacking(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Obtains information about how <code>child</code> is packed into box.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter child: the Widget of the child to query</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>A <code><a href="../Classes/Box/ChildPacking.html">ChildPacking</a></code> struct with padding, expand, fill and packing
+type</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getQueryChildPacking</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ChildPacking</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Widget of the child to query</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/Box/ChildPacking.html">ChildPacking</a></code> struct with padding, expand, fill and packing type</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift3Box15setChildPackingFTVS0_12ChildPacking8forChildCS_6Widget_T_"></a>
+                    <a name="//apple_ref/swift/Method/setChildPacking(_:forChild:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift3Box15setChildPackingFTVS0_12ChildPacking8forChildCS_6Widget_T_">setChildPacking(_:forChild:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the way <code>child</code> is packed into box.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter childPacking: A <code><a href="../Classes/Box/ChildPacking.html">ChildPacking</a></code> struct with packing settings
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the Widget of the child to set
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setChildPacking</span><span class="p">(</span><span class="n">_</span> <span class="nv">childPacking</span><span class="p">:</span> <span class="kt">ChildPacking</span><span class="p">,</span>
+	                            <span class="n">forChild</span> <span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>childPacking</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>ChildPacking</code> struct with packing settings</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the Widget of the child to set</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift3Box16baselinePositionOS_16BaselinePosition"></a>
+                    <a name="//apple_ref/swift/Property/baselinePosition" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift3Box16baselinePositionOS_16BaselinePosition">baselinePosition</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The baseline position of a box. This affects only horizontal boxes with
+at least one baseline aligned child. If there is more vertical space
+available than requested, and the baseline is not allocated by the parent
+then position is used to allocate the baseline wrt the extra space
+available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">baselinePosition</span><span class="p">:</span> <span class="kt">BaselinePosition</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift3Box12centerWidgetGSqCS_6Widget_"></a>
+                    <a name="//apple_ref/swift/Property/centerWidget" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift3Box12centerWidgetGSqCS_6Widget_">centerWidget</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Center widget; that is a child widget that will be centered with respect 
+to the full width of the box, even if the children at either side take up 
+different amounts of space.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">centerWidget</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

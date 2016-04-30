@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FlowBox Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FlowBox" class="dashAnchor"></a>
+    <a title="FlowBox Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">gtkswift Docs</a> (61% documented)</p>
+        <p class="header-right"><a href="https://github.com/MetalheadSanya/GtkSwift"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">gtkswift Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FlowBox Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AboutDialog.html">AboutDialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ActionBar.html">ActionBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Adjustment.html">Adjustment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Application.html">Application</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ApplicationWindow.html">ApplicationWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Assistant.html">Assistant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Bin.html">Bin</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Box.html">Box</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ButtonBox.html">ButtonBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Container.html">Container</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Dialog">Dialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FlowBox.html">FlowBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Grid.html">Grid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HeaderBar.html">HeaderBar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Invisible.html">Invisible</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Label.html">Label</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListBox.html">ListBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift4Misc">Misc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OffscreenWindow.html">OffscreenWindow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Overlay.html">Overlay</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Revealer.html">Revealer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Stack.html">Stack</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSidebar.html">StackSidebar</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StackSwitcher.html">StackSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift6Window">Window</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/WindowGroup.html">WindowGroup</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/ApplicationFlag.html">ApplicationFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AssistantPageType.html">AssistantPageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/BaselinePosition.html">BaselinePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Justification.html">Justification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/License.html">License</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MovementStep.html">MovementStep</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Orientation.html">Orientation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PackType.html">PackType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/PositionType.html">PositionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RevealerTransitionType.html">RevealerTransitionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SelectionMode.html">SelectionMode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_11ApplicationS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_6WidgetS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V8gtkswift5Point">Point</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:8gtkswift19WidgetFocusCallback">WidgetFocusCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FlowBox</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FlowBox</span><span class="p">:</span> <span class="kt">Container</span></code></pre>
+
+                </div>
+              </div>
+            <p>A <code>FlowBox</code> positions child widgets in sequence according to its
+orientation.</p>
+
+<p>For instance, with the horizontal orientation, the widgets will be arranged
+from left to right, starting a new row under the previous row when
+necessary. Reducing the width in this case will require more rows, so a
+larger height will be requested.</p>
+
+<p>Likewise, with the vertical orientation, the widgets will be arranged from
+top to bottom, starting a new column to the right when necessary. Reducing
+the height will require more columns, so a larger width will be requested.</p>
+
+<p>The children of a <code>FlowBox</code> can be dynamically sorted and filtered.</p>
+
+<p>Although a <code>FlowBox</code> must have only <code><a href="../Classes/FlowBox/Child.html">FlowBox.Child</a></code> children, you can add
+any kind of widget to it via <code>addWidget(_:)</code>, and a <code><a href="../Classes/FlowBox/Child.html">FlowBox.Child</a></code> widget
+will automatically be inserted between the box and the widget.</p>
+
+<div class="aside aside-seealso">
+    <p class="aside-title">Seealso</p>
+    <p><code><a href="../Classes/ListBox.html">ListBox</a></code>.</p>
+
+</div>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p><code>FlowBox</code> was added in GTK+ 3.12.</p>
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:CC8gtkswift7FlowBox5Child"></a>
+                    <a name="//apple_ref/swift/Class/Child" class="dashAnchor"></a>
+                    <a class="token" href="#/s:CC8gtkswift7FlowBox5Child">Child</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="../Classes/FlowBox/Child.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FlowBox</span><span class="p">:</span> <span class="kt">Container</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox19UnselectAllCallback"></a>
+                    <a name="//apple_ref/swift/Alias/UnselectAllCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox19UnselectAllCallback">UnselectAllCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the <code><a href="../Classes/FlowBox.html">FlowBox</a></code> on which the signal is emitted
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">UnselectAllCallback</span> <span class="o">=</span> <span class="p">(</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>FlowBox</code> on which the signal is emitted</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox11ForeachFunc"></a>
+                    <a name="//apple_ref/swift/Alias/ForeachFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox11ForeachFunc">ForeachFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A function used by <code>selectedForeach()</code>. It will be called on every
+selected child of the box.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: a <code><a href="../Classes/FlowBox/Child.html">FlowBox.Child</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ForeachFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Child</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a <code>FlowBox.Child</code></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox10FilterFunc"></a>
+                    <a name="//apple_ref/swift/Alias/FilterFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox10FilterFunc">FilterFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A function that will be called whenrever a child changes or is added. It
+lets you control if the child should be visible or not.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter child: a <code><a href="../Classes/FlowBox/Child.html">FlowBox.Child</a></code> that may be filtered</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p><code>true</code> if the row should be visible, <code>false</code> otherwise</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">FilterFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Child</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a <code>FlowBox.Child</code> that may be filtered</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> if the row should be visible, <code>false</code> otherwise</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox17SelectAllCallback"></a>
+                    <a name="//apple_ref/swift/Alias/SelectAllCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox17SelectAllCallback">SelectAllCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the <code><a href="../Classes/FlowBox.html">FlowBox</a></code> on which the signal is emitted
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SelectAllCallback</span> <span class="o">=</span> <span class="p">(</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>FlowBox</code> on which the signal is emitted</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox18MoveCursorCallback"></a>
+                    <a name="//apple_ref/swift/Alias/MoveCursorCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox18MoveCursorCallback">MoveCursorCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the <code><a href="../Classes/FlowBox.html">FlowBox</a></code> on which the signal is emitted
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter step: the granularity fo the move, as a <code><a href="../Enums/MovementStep.html">MovementStep</a></code>
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter count: the number of <code>step</code> units to move</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p><code>true</code> to stop other handlers from being invoked for the event.
+<code>false</code> to propagate the event further.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">MoveCursorCallback</span> <span class="o">=</span> <span class="p">(</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>FlowBox</code> on which the signal is emitted</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>step</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the granularity fo the move, as a <code>MovementStep</code></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>count</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the number of <code>step</code> units to move</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>true</code> to stop other handlers from being invoked for the event. <code>false</code> to propagate the event further.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox22ChildActivatedCallback"></a>
+                    <a name="//apple_ref/swift/Alias/ChildActivatedCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox22ChildActivatedCallback">ChildActivatedCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the <code><a href="../Classes/FlowBox.html">FlowBox</a></code> on which the signal is emitted
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the child that is activated
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ChildActivatedCallback</span> <span class="o">=</span> <span class="p">(</span><span class="nv">box</span><span class="p">:</span> <span class="kt">FlowBox</span><span class="p">,</span> <span class="nv">child</span><span class="p">:</span> <span class="kt">Child</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>FlowBox</code> on which the signal is emitted</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the child that is activated</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox25ToggleCursorChildCallback"></a>
+                    <a name="//apple_ref/swift/Alias/ToggleCursorChildCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox25ToggleCursorChildCallback">ToggleCursorChildCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the <code><a href="../Classes/FlowBox.html">FlowBox</a></code> on which the signal is emitted
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ToggleCursorChildCallback</span> <span class="o">=</span> <span class="p">(</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>FlowBox</code> on which the signal is emitted</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox31SelectedChildrenChangedCallback"></a>
+                    <a name="//apple_ref/swift/Alias/SelectedChildrenChangedCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox31SelectedChildrenChangedCallback">SelectedChildrenChangedCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the <code><a href="../Classes/FlowBox.html">FlowBox</a></code> on which the signal is emitted
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SelectedChildrenChangedCallback</span> <span class="o">=</span> <span class="p">(</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>FlowBox</code> on which the signal is emitted</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox8SortFunc"></a>
+                    <a name="//apple_ref/swift/Alias/SortFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox8SortFunc">SortFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A function to compare two children to determine which should come first.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child1: the first child
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter child2: the second child</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>&lt; 0 if <code>child1</code> should be before <code>child2</code>, 0 if the are equal,
+and &gt; 0 otherwise</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">SortFunc</span> <span class="o">=</span> <span class="p">(</span><span class="nv">child1</span><span class="p">:</span> <span class="kt">Child</span><span class="p">,</span> <span class="nv">child2</span><span class="p">:</span> <span class="kt">Child</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child1</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the first child</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child2</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the second child</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>&lt; 0 if <code>child1</code> should be before <code>child2</code>, 0 if the are equal, and &gt; 0 otherwise</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C8gtkswift7FlowBox27ActivateCursorChildCallback"></a>
+                    <a name="//apple_ref/swift/Alias/ActivateCursorChildCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift7FlowBox27ActivateCursorChildCallback">ActivateCursorChildCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter box: the <code><a href="../Classes/FlowBox.html">FlowBox</a></code> on which the signal is emitted
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ActivateCursorChildCallback</span> <span class="o">=</span> <span class="p">(</span><span class="nv">box</span><span class="p">:</span> <span class="kt">FlowBox</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>box</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>FlowBox</code> on which the signal is emitted</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBoxcFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBoxcFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a FlowBox.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox6insertFTCS_6Widget2atSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/insert(_:at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox6insertFTCS_6Widget2atSi_T_">insert(_:at:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Inserts the <code>child</code> into box at <code>position</code>.</p>
+
+<p>If a sort function is set, the widget will actually be inserted at the
+calculated position and this function has the same effect as
+<code><a href="../Classes/FlowBox.html#/s:FC8gtkswift7FlowBox9addWidgetFCS_6WidgetT_">addWidget(_:)</a></code>.
+If <code>position</code> is -1, or larger than the total number of children in the
+box, then the <code>child</code> will be appended to the end.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: the <code><a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a></code> to add
+
+</div>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter position: the position to insert <code>child</code> in
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">insert</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Widget</span><span class="p">,</span> <span class="n">at</span> <span class="nv">position</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>Widget</code> to add</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the position to insert <code>child</code> in</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox8getChildFT7atIndexSi_GSqCS0_5Child_"></a>
+                    <a name="//apple_ref/swift/Method/getChild(atIndex:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox8getChildFT7atIndexSi_GSqCS0_5Child_">getChild(atIndex:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the nth child in the box.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    <p>Parameter idx: the position of the child</p>
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    <p>The child widget, which will always be a <code><a href="../Classes/FlowBox/Child.html">FlowBox.Child</a></code> or
+<code>nil</code> in case no child widget with the given index exists.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getChild</span><span class="p">(</span><span class="n">atIndex</span> <span class="nv">idx</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Child</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>idx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the position of the child</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The child widget, which will always be a <code><a href="../Classes/FlowBox/Child.html">FlowBox.Child</a></code> or <code>nil</code> in case no child widget with the given index exists.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/TODO:%20gtk_flow_box_set_hadjustment(),%20gtk_flow_box_set_vadjustment(),"></a>
+                <a name="//apple_ref/swift/Section/TODO: gtk_flow_box_set_hadjustment(), gtk_flow_box_set_vadjustment()," class="dashAnchor"></a>
+                <a href="#/TODO:%20gtk_flow_box_set_hadjustment(),%20gtk_flow_box_set_vadjustment(),">
+                  <h3 class="section-name">TODO: gtk_flow_box_set_hadjustment(), gtk_flow_box_set_vadjustment(),</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox11homogeneousSb"></a>
+                    <a name="//apple_ref/swift/Property/homogeneous" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox11homogeneousSb">homogeneous</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines whether all children should be allocated the same size.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">homogeneous</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox10rowSpacingSu"></a>
+                    <a name="//apple_ref/swift/Property/rowSpacing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox10rowSpacingSu">rowSpacing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The amount of vertical space between two children.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rowSpacing</span><span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox13columnSpacingSu"></a>
+                    <a name="//apple_ref/swift/Property/columnSpacing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox13columnSpacingSu">columnSpacing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The amount of horizontal space between two children.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">columnSpacing</span><span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox18minChildrenPerLineSu"></a>
+                    <a name="//apple_ref/swift/Property/minChildrenPerLine" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox18minChildrenPerLineSu">minChildrenPerLine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The minimum number of children to allocate consecutively in the given
+orientation.</p>
+
+<p>Setting the minimum children per line ensures that a reasonably small
+height will be requested for the overall minimum width of the box.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">minChildrenPerLine</span><span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox18maxChildrenPerLineSu"></a>
+                    <a name="//apple_ref/swift/Property/maxChildrenPerLine" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox18maxChildrenPerLineSu">maxChildrenPerLine</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum amount of children to request space for consecutively in the
+given orientation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">maxChildrenPerLine</span><span class="p">:</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox21activateOnSingleClickSb"></a>
+                    <a name="//apple_ref/swift/Property/activateOnSingleClick" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox21activateOnSingleClickSb">activateOnSingleClick</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines whether children can be activated with a single click, or
+require a double-click.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">activateOnSingleClick</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox15selectedForeachFFT5childCS0_5Child_T_T_"></a>
+                    <a name="//apple_ref/swift/Method/selectedForeach(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox15selectedForeachFFT5childCS0_5Child_T_T_">selectedForeach(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calls a function for each selected child.</p>
+
+<p>Note that the selection cannot be modified from within this function.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter f: the function to call for each selected child.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">selectedForeach</span><span class="p">(</span><span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">ForeachFunc</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>f</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the function to call for each selected child.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox16selectedChildrenGSaCS0_5Child_"></a>
+                    <a name="//apple_ref/swift/Property/selectedChildren" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox16selectedChildrenGSaCS0_5Child_">selectedChildren</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a array of all selected children.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">selectedChildren</span><span class="p">:</span> <span class="p">[</span><span class="kt">Child</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox6selectFCS0_5ChildT_"></a>
+                    <a name="//apple_ref/swift/Method/select(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox6selectFCS0_5ChildT_">select(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Selects a single child of box, if the selection mode allows it.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: a child of box
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">select</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Child</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a child of box</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox8unselectFCS0_5ChildT_"></a>
+                    <a name="//apple_ref/swift/Method/unselect(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox8unselectFCS0_5ChildT_">unselect(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unselects a single child of box, if the selection mode allows it.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter child: a child of box
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unselect</span><span class="p">(</span><span class="nv">child</span><span class="p">:</span> <span class="kt">Child</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>child</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a child of box</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox9selectAllFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/selectAll()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox9selectAllFT_T_">selectAll()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Select all children of box, if the selection mode allows it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">selectAll</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox11unselectAllFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/unselectAll()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox11unselectAllFT_T_">unselectAll()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unselect all children of box, if the selection mode allows it.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unselectAll</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox13selectionModeOS_13SelectionMode"></a>
+                    <a name="//apple_ref/swift/Property/selectionMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox13selectionModeOS_13SelectionMode">selectionMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The selection mode used by the flow box.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">selectionMode</span><span class="p">:</span> <span class="kt">SelectionMode</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox10filterFuncGSqFT5childCS0_5Child_Sb_"></a>
+                    <a name="//apple_ref/swift/Property/filterFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox10filterFuncGSqFT5childCS0_5Child_Sb_">filterFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>By setting a filter function on the box one can decide dynamically which
+of the children to show. For instance, to implement a search function that
+only shows the children matching the search terms.</p>
+
+<p>The <code>filterFunc</code> will be called for each child after the call, and it will
+continue to be called each time a child changes (via
+<code><a href="../Classes/FlowBox/Child.html#/s:FCC8gtkswift7FlowBox5Child7changedFT_T_">FlowBox.Child.changed()</a></code>) or when <code><a href="../Classes/FlowBox.html#/s:FC8gtkswift7FlowBox16invalidateFilterFT_T_">invalidateFilter()</a></code> is called.</p>
+
+<p>Note that using a filter function is incompatible with using a model (see
+gtk_flow_box_bind_model()).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">filterFunc</span><span class="p">:</span> <span class="kt">FilterFunc</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox16invalidateFilterFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/invalidateFilter()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox16invalidateFilterFT_T_">invalidateFilter()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the filtering for all children.</p>
+
+<p>Call this function when the result of the filter function on the box is
+changed due ot an external factor. For instance, this would be used if the
+filter function just looked for a specific search term, and the entry with
+the string has changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invalidateFilter</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox8sortFuncGSqFT6child1CS0_5Child6child2S1__Si_"></a>
+                    <a name="//apple_ref/swift/Property/sortFunc" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox8sortFuncGSqFT6child1CS0_5Child6child2S1__Si_">sortFunc</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>By setting a sort function on the box , one can dynamically reorder the
+children of the box, based on the contents of the children.</p>
+
+<p>The sortFunc will be called for each child after the call, and will
+continue to be called each time a child changes (via
+<code><a href="../Classes/FlowBox/Child.html#/s:FCC8gtkswift7FlowBox5Child7changedFT_T_">FlowBox.Child.changed()</a></code>) and when <code><a href="../Classes/FlowBox.html#/s:FC8gtkswift7FlowBox14invalidateSortFT_T_">invalidateSort()</a></code> is called.</p>
+
+<p>Note that using a sort function is incompatible with using a model (see
+<code>gtk_flow_box_bind_model()</code>).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">sortFunc</span><span class="p">:</span> <span class="kt">SortFunc</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox14invalidateSortFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/invalidateSort()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox14invalidateSortFT_T_">invalidateSort()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the sorting for all children.</p>
+
+<p>Call this when the result of the sort function on box is changed due to an
+external factor.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invalidateSort</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Overrides"></a>
+                <a name="//apple_ref/swift/Section/Overrides" class="dashAnchor"></a>
+                <a href="#/Overrides">
+                  <h3 class="section-name">Overrides</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox9addWidgetFCS_6WidgetT_"></a>
+                    <a name="//apple_ref/swift/Method/addWidget(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox9addWidgetFCS_6WidgetT_">addWidget(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FlowBox</span><span class="p">:</span> <span class="kt">Container</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC8gtkswift7FlowBox12removeWidgetFCS_6WidgetT_"></a>
+                    <a name="//apple_ref/swift/Method/removeWidget(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC8gtkswift7FlowBox12removeWidgetFCS_6WidgetT_">removeWidget(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FlowBox</span><span class="p">:</span> <span class="kt">Container</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Signals"></a>
+                <a name="//apple_ref/swift/Section/Signals" class="dashAnchor"></a>
+                <a href="#/Signals">
+                  <h3 class="section-name">Signals</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox25activateCursorChildSignalERR"></a>
+                    <a name="//apple_ref/swift/Property/activateCursorChildSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox25activateCursorChildSignalERR">activateCursorChildSignal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>::activate-cursor-child</code> signal is a keybinding signal which gets
+emitted when the user activates the box.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">activateCursorChildSignal</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox14childActivatedERR"></a>
+                    <a name="//apple_ref/swift/Property/childActivated" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox14childActivatedERR">childActivated</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>::child-activated</code> signal is emitted when a child has been activated
+by the user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">childActivated</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox16moveCursorSignalERR"></a>
+                    <a name="//apple_ref/swift/Property/moveCursorSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox16moveCursorSignalERR">moveCursorSignal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>::move-cursor</code> signal is a keybinding signal which gets emitted when
+the user initiates a cursor movement.</p>
+
+<p>Applications should not connect to it, but may emit it with <code>emit()</code> if
+they need to control the cursor programmatically.</p>
+
+<p>The default bindings for this signal come in two variants, the variant
+with the Shift modifier extends the selection, the variant without the
+Shift modifer does not. There are too many key combinations to list them
+all here.</p>
+
+<ul>
+<li>Arrow keys move by individual children</li>
+<li>Home/End keys move to the ends of the box</li>
+<li>PageUp/PageDown keys move vertically by pages</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">moveCursorSignal</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox15selectAllSignalERR"></a>
+                    <a name="//apple_ref/swift/Property/selectAllSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox15selectAllSignalERR">selectAllSignal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>::select-all</code> signal is a keybinding signal which gets emitted to
+select all children of the box, if the selection mode permits it.</p>
+
+<p>The default bindings for this signal is Ctrl-a.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">selectAllSignal</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox29selectedChildrenChangedSignalERR"></a>
+                    <a name="//apple_ref/swift/Property/selectedChildrenChangedSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox29selectedChildrenChangedSignalERR">selectedChildrenChangedSignal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>::selected-children-changed</code> signal is emitted when the set of 
+selected children changes.</p>
+
+<p>Use <code><a href="../Classes/FlowBox.html#/s:FC8gtkswift7FlowBox15selectedForeachFFT5childCS0_5Child_T_T_">selectedForeach(_:)</a></code> or <code><a href="../Classes/FlowBox.html#/s:vC8gtkswift7FlowBox16selectedChildrenGSaCS0_5Child_">selectedChildren</a></code> to obtain the selected 
+children.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">selectedChildrenChangedSignal</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox23toggleCursorChildSignalERR"></a>
+                    <a name="//apple_ref/swift/Property/toggleCursorChildSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox23toggleCursorChildSignalERR">toggleCursorChildSignal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>::toggle-cursor-child</code> signal is a keybinding signal which toggles
+the selection of the child that has the focus.</p>
+
+<p>The default binding for this signal is Ctrl-Space.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">toggleCursorChildSignal</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC8gtkswift7FlowBox17unselectAllSignalERR"></a>
+                    <a name="//apple_ref/swift/Property/unselectAllSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC8gtkswift7FlowBox17unselectAllSignalERR">unselectAllSignal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>::unselect-all signal</code> is a keybinding signal which gets emitted to
+unselect all children of the box, if the selection mode permits it.</p>
+
+<p>The default bindings for this signal is Ctrl-Shift-a.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">unselectAllSignal</span><span class="p">:</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
