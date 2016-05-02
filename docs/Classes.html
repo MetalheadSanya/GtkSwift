@@ -13,7 +13,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">gtkswift Docs</a> (61% documented)</p>
+        <p><a href="index.html">gtkswift Docs</a> (62% documented)</p>
         <p class="header-right"><a href="https://github.com/MetalheadSanya/GtkSwift"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -73,6 +73,9 @@
                 <a href="Classes/HeaderBar.html">HeaderBar</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/Image.html">Image</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/Invisible.html">Invisible</a>
               </li>
               <li class="nav-group-task">
@@ -124,6 +127,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/BaselinePosition.html">BaselinePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/IconSize.html">IconSize</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/Justification.html">Justification</a>
@@ -864,6 +870,62 @@ and close buttons, or the window icon.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C8gtkswift5Image"></a>
+                    <a name="//apple_ref/swift/Class/Image" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C8gtkswift5Image">Image</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>Image</code> widget displays an image. Various kinds of object can be 
+displayed as an image; most typically, you would load a <code>Pixbuf</code> (<q>pixel 
+buffer</q>) from a file, and then display that. There’s a initializer to do
+this, <code><a href="Classes/Image.html#/s:FC8gtkswift5ImagecFT8fileNameSS_S0_">Image.init(fileName:)</a></code>, used as follows:</p>
+
+<pre class="highlight plaintext"><code>GtkWidget *image;
+image = gtk_image_new_from_file ("myfile.png");
+</code></pre>
+
+<p>If the file isn’t loaded successfully, the image will contain a “broken
+image” icon similar to that used in many web browsers. If you want to handle
+errors in loading the file yourself, for example by displaying an error
+message, then load the image with <code>Pixbuf.init(fromFile:)</code>, then create the
+<code>Image</code> with <code>Image.init(pixbuf:)</code>.</p>
+
+<p>The image file may contain an animation, if so the <code>Image</code> will display an
+animation (<code>PixbufAnimation</code>) instead of a static image.</p>
+
+<p><code>Image</code> is a subclass of <code><a href="Classes.html#/s:C8gtkswift4Misc">Misc</a></code>, which implies that you can align it
+(center, left, right) and add padding to it, using <code><a href="Classes.html#/s:C8gtkswift4Misc">Misc</a></code> methods.</p>
+
+<p><code>Image</code> is a “no window” widget (has no <code><a href="Classes.html#/s:C8gtkswift6Window">Window</a></code> of its own), so by default
+does not receive events. If you want to receive events on the image, such as
+button clicks, place the image inside a <code>EventBox</code>, then connect to the
+event signals on the event box.</p>
+
+                        <a href="Classes/Image.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Image</span><span class="p">:</span> <span class="kt">Misc</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C8gtkswift4Misc"></a>
                     <a name="//apple_ref/swift/Class/Misc" class="dashAnchor"></a>
                     <a class="token" href="#/s:C8gtkswift4Misc">Misc</a>
@@ -1079,7 +1141,7 @@ child from invisible to visible.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-04-30)</p>
+          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-05-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
