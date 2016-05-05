@@ -5,7 +5,7 @@
 
 import CGTK
 
-class VBox: Box {
+public class VBox: Box {
 	internal var n_VBox: UnsafeMutablePointer<GtkVBox>
 
 	internal init(n_VBox: UnsafeMutablePointer<GtkVBox>) {

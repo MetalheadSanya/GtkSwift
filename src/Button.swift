@@ -3,7 +3,7 @@ import gobjectswift
 
 typealias ButtonClickedCallback = (Button) -> Void
 
-class Button: Container {
+public class Button: Container {
 	internal var n_Button: UnsafeMutablePointer<GtkButton>
 
 	internal init(n_Button: UnsafeMutablePointer<GtkButton>) {
@@ -11,7 +11,7 @@ class Button: Container {
 		super.init(n_Container: unsafeBitCast(self.n_Button, to: UnsafeMutablePointer<GtkContainer>.self))
 	}
 
-	convenience init(label: String) {
+	public convenience init(label: String) {
 		self.init(n_Button: unsafeBitCast(gtk_button_new_with_label(label), to: UnsafeMutablePointer<GtkButton>.self))
 	}
 
