@@ -5,15 +5,15 @@
 
 import CGTK
 
-enum ButtonsType: Int {
+public enum ButtonsType: Int {
 	case None, Ok, Close, Cancel, YesNo, OkCancel
 }
 
-enum MessageType: Int {
+public enum MessageType: Int {
 	case Info, Warning, Question, Error, Other
 }
 
-class MessageDialog: Dialog {
+public class MessageDialog: Dialog {
 	internal var n_MessageDialog: UnsafeMutablePointer<GtkMessageDialog>
 
 	override class var n_Type: UInt {
