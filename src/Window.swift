@@ -26,7 +26,7 @@ public class Window: Bin {
 		self.init(n_Window: unsafeBitCast(gtk_window_new(type.n_Type), to: UnsafeMutablePointer<GtkWindow>.self))
 	}
 
-	var title: String? {
+	public var title: String? {
 		get {
 			return String(cString: gtk_window_get_title(n_Window))
 		}
@@ -35,7 +35,7 @@ public class Window: Bin {
 		}
 	}
 
-	var defaultSize: Size {
+	public var defaultSize: Size {
 		get {
 			let width = UnsafeMutablePointer<Int32>(nil)
 			let height = UnsafeMutablePointer<Int32>(nil)
@@ -49,7 +49,7 @@ public class Window: Bin {
 		}
 	}
 
-	var resizable: Bool {
+	public var resizable: Bool {
 		get {
 			return gtk_window_get_resizable(n_Window) != 0
 		}
@@ -59,7 +59,7 @@ public class Window: Bin {
 		}
 	}
 
-	var transientFor: Window? {
+	public var transientFor: Window? {
 		get {
 			return Window(o_Window: gtk_window_get_transient_for(n_Window))
 		}
@@ -68,7 +68,7 @@ public class Window: Bin {
 		}
 	}
 
-	var modal: Bool {
+	public var modal: Bool {
 		get {
 			return gtk_window_get_modal(n_Window) != 0
 		}
@@ -77,13 +77,21 @@ public class Window: Bin {
 		}
 	}
 
-	var destroyWithParent: Bool {
+	public var destroyWithParent: Bool {
 		get {
 			return gtk_window_get_destroy_with_parent(n_Window) != 0
 		}
 		set(value) {
 			gtk_window_set_destroy_with_parent(n_Window, value ? 1 : 0)
 		}
+	}
+
+	public func fullscreen() {
+		gtk_window_fullscreen(n_Window)
+	}
+
+	public func unfullscreen() {
+		gtk_window_unfullscreen(n_Window)
 	}
 }
 
