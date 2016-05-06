@@ -14,7 +14,7 @@ public class ApplicationWindow: Window {
 		application._addWindowToApplicationStack(self)
 	}
 
-	public var showManuBar: Bool {
+	public var showMenuBar: Bool {
 		get {
 			return gtk_application_window_get_show_menubar(n_ApplicationWindow) != 0
 		}
