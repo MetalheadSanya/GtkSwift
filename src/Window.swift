@@ -85,6 +85,14 @@ public class Window: Bin {
 			gtk_window_set_destroy_with_parent(n_Window, value ? 1 : 0)
 		}
 	}
+
+	public func fullscreen() {
+		gtk_window_fullscreen(n_Window)
+	}
+
+	public func unfullscreen() {
+		gtk_window_unfullscreen(n_Window)
+	}
 }
 
 // extension Window: Equatable { }
