@@ -1,4 +1,4 @@
-struct Size {
+public struct Size {
 	var width: Int
 	var height: Int
 }

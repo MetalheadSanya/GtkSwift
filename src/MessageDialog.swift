@@ -5,15 +5,15 @@
 
 import CGTK
 
-enum ButtonsType: Int {
+public enum ButtonsType: Int {
 	case None, Ok, Close, Cancel, YesNo, OkCancel
 }
 
-enum MessageType: Int {
+public enum MessageType: Int {
 	case Info, Warning, Question, Error, Other
 }
 
-class MessageDialog: Dialog {
+public class MessageDialog: Dialog {
 	internal var n_MessageDialog: UnsafeMutablePointer<GtkMessageDialog>
 
 	override class var n_Type: UInt {
@@ -62,14 +62,14 @@ class MessageDialog: Dialog {
 		}
 	}
 
-	func setMarkup(_ murkupString: String) {
-		gtk_message_dialog_set_markup(n_MessageDialog, murkupString)
+	public func setMarkup(_ markupString: String) {
+		gtk_message_dialog_set_markup(n_MessageDialog, markupString)
 	}
 
 	//TODO: gtk_message_dialog_format_secondary_text
 	//TODO: gtk_message_dialog_format_secondary_markup
 
-	func getMessageArea() -> VBox {
+	public func getMessageArea() -> VBox {
 		return VBox(n_VBox: unsafeBitCast(gtk_message_dialog_get_message_area(n_MessageDialog),
 				to: UnsafeMutablePointer<GtkVBox>.self))
 	}

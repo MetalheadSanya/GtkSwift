@@ -226,25 +226,25 @@ public class Widget: Object {
 					return action(widget) ? 1 : 0
 				})
 
-	func destroy() {
+	public func destroy() {
 		gtk_widget_destroy(n_Widget)
 	}
 
 	// TODO: some for gtk_widget_in_destruction(), gtk_widget_destroyed()
 
-	func show() {
+	public func show() {
 		gtk_widget_show(n_Widget)
 	}
 
-	func showNow() {
+	public func showNow() {
 		gtk_widget_show_now(n_Widget)
 	}
 
-	func hide() {
+	public func hide() {
 		gtk_widget_hide(n_Widget)
 	}
 
-	func showAll() {
+	public func showAll() {
 		gtk_widget_show_all(n_Widget)
 	}
 
