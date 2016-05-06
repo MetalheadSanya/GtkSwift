@@ -3,3 +3,4 @@ Packages/
 .idea/
 .DS_Store
 GTK-swift.xcodeproj/
+src/main.swift
