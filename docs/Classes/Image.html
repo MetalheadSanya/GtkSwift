@@ -14,7 +14,7 @@
     <a title="Image Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">gtkswift Docs</a> (62% documented)</p>
+        <p><a href="../index.html">gtkswift Docs</a> (64% documented)</p>
         <p class="header-right"><a href="https://github.com/MetalheadSanya/GtkSwift"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -56,6 +56,9 @@
                 <a href="../Classes/Box.html">Box</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/Button.html">Button</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/ButtonBox.html">ButtonBox</a>
               </li>
               <li class="nav-group-task">
@@ -63,6 +66,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/s:C8gtkswift6Dialog">Dialog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Entry.html">Entry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EntryBuffer.html">EntryBuffer</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/FlowBox.html">FlowBox</a>
@@ -86,6 +95,9 @@
                 <a href="../Classes/ListBox.html">ListBox</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift13MessageDialog">MessageDialog</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes.html#/s:C8gtkswift4Misc">Misc</a>
               </li>
               <li class="nav-group-task">
@@ -105,6 +117,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/StackSwitcher.html">StackSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C8gtkswift4VBox">VBox</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/s:C8gtkswift6Widget">Widget</a>
@@ -130,13 +145,25 @@
                 <a href="../Enums/BaselinePosition.html">BaselinePosition</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/ButtonsType.html">ButtonsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/DeleteType.html">DeleteType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/IconSize.html">IconSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ImageType.html">ImageType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/Justification.html">Justification</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/License.html">License</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MessageType.html">MessageType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/MovementStep.html">MovementStep</a>
@@ -159,13 +186,33 @@
             </ul>
           </li>
           <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/GtkInputHints.html">GtkInputHints</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi1aFTVSC13GtkInputHintsS0__S0_">&amp;(_:_:)</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_11ApplicationS0__Sb">==(_:_:)</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Functions.html#/s:ZF8gtkswiftoi2eeFTCS_6WidgetS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi1xFTVSC13GtkInputHintsS0__S0_">^(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftoi1oFTVSC13GtkInputHintsS0__S0_">|(_:_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:ZF8gtkswiftop1tFVSC13GtkInputHintsS0_">~(_:)</a>
               </li>
             </ul>
           </li>
@@ -173,7 +220,13 @@
             <a href="../Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs.html#/s:V8gtkswift5Point">Point</a>
+                <a href="../Structs/Point.html">Point</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Rectangle.html">Rectangle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Size.html">Size</a>
               </li>
             </ul>
           </li>
@@ -202,8 +255,7 @@ displayed as an image; most typically, you would load a <code>Pixbuf</code> (<q>
 buffer</q>) from a file, and then display that. There’s a initializer to do
 this, <code><a href="../Classes/Image.html#/s:FC8gtkswift5ImagecFT8fileNameSS_S0_">Image.init(fileName:)</a></code>, used as follows:</p>
 
-<pre class="highlight plaintext"><code>GtkWidget *image;
-image = gtk_image_new_from_file ("myfile.png");
+<pre class="highlight plaintext"><code>let image = Image(fileName: "myfile.png")
 </code></pre>
 
 <p>If the file isn’t loaded successfully, the image will contain a “broken
@@ -225,43 +277,6 @@ event signals on the event box.</p>
 
           </section>
           <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:OC8gtkswift5Image4Type"></a>
-                    <a name="//apple_ref/swift/Enum/Type" class="dashAnchor"></a>
-                    <a class="token" href="#/s:OC8gtkswift5Image4Type">Type</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Describes the image data representation used by a <code><a href="../Classes/Image.html">Image</a></code>. If you want to
-get the image from the widget, you can only get the currently-stored
-representation. e.g. if the <code><a href="../Classes/Image.html#/s:vC8gtkswift5Image11storageTypeOS0_4Type">Image.storageType</a></code> is <code><a href="../Classes/Image/Type.html#/s:FOC8gtkswift5Image4Type6PixbufFMS1_S1_">Image.Type.Pixbuf</a></code>,
-then you can call <code>Image.getPixbuf()</code> but not <code>Image.getStock()</code>. For
-empty images, you can request any storage type (call any of the <q>get</q>
-functions), but they will all return <code>nil</code> values.</p>
-
-                        <a href="../Classes/Image/Type.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="err">`</span><span class="k">Type</span><span class="err">`</span><span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
             <div class="task-group">
               <div class="task-name-container">
                 <a name="/Initializers"></a>
@@ -322,7 +337,7 @@ image” icon. It always returns a valid <code><a href="../Classes/Image.html">I
 <code><a href="../Classes/Image.html">Image</a></code> from the pixbuf. (Or for animations, use
 <code>PixbufAnimation.init(fromFile:)</code>.</p>
 
-<p>The storage type (<code><a href="../Classes/Image.html#/s:vC8gtkswift5Image11storageTypeOS0_4Type">Image.storageType</a></code>) of the returned image is not
+<p>The storage type (<code><a href="../Classes/Image.html#/s:vC8gtkswift5Image11storageTypeOS_9ImageType">Image.storageType</a></code>) of the returned image is not
 defined, it will be whatever is appropriate for displaying the file.</p>
 
 <div class="aside aside-parameter">
@@ -461,7 +476,7 @@ file isn’t found or can’t be loaded, the resulting <code><a href="../Classes
 <code><a href="../Classes/Image.html">Image</a></code> from the pixbuf. (Or for animations, use
 <code>PixbufAnimation.init(fromFile:)</code>.</p>
 
-<p>The storage type (<code><a href="../Classes/Image.html#/s:vC8gtkswift5Image11storageTypeOS0_4Type">Image.storageType</a></code>) of the returned image is not
+<p>The storage type (<code><a href="../Classes/Image.html#/s:vC8gtkswift5Image11storageTypeOS_9ImageType">Image.storageType</a></code>) of the returned image is not
 defined, it will be whatever is appropriate for displaying the file.</p>
 
 <div class="aside aside-parameter">
@@ -770,9 +785,9 @@ defined, it will be whatever is appropriate for displaying the file.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC8gtkswift5Image11storageTypeOS0_4Type"></a>
+                    <a name="/s:vC8gtkswift5Image11storageTypeOS_9ImageType"></a>
                     <a name="//apple_ref/swift/Property/storageType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC8gtkswift5Image11storageTypeOS0_4Type">storageType</a>
+                    <a class="token" href="#/s:vC8gtkswift5Image11storageTypeOS_9ImageType">storageType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -781,15 +796,14 @@ defined, it will be whatever is appropriate for displaying the file.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the type of representation being used by the <code><a href="../Classes/Image.html">Image</a></code> to store image
-data. If the <code><a href="../Classes/Image.html">Image</a></code> has no image data, the return value will be
-<code><a href="../Classes/Image/Type.html#/s:FOC8gtkswift5Image4Type5EmptyFMS1_S1_">Image.Type.Empty</a></code>.</p>
+data. If the <code><a href="../Classes/Image.html">Image</a></code> has no image data, the value is <code>Image.Type.Empty</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">storageType</span><span class="p">:</span> <span class="k">Type</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">storageType</span><span class="p">:</span> <span class="kt">ImageType</span></code></pre>
 
                         </div>
                       </div>
@@ -830,7 +844,7 @@ it is used instead of the icon size set by
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-05-02)</p>
+          <p>&copy; 2016 <a class="link" href="https://gitlab.com/u/metalhead-sanya" target="_blank" rel="external">Alexander Zalutskiy</a>. All rights reserved. (Last updated: 2016-05-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

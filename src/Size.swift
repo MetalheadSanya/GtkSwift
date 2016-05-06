@@ -1,4 +1,4 @@
-struct Size {
-	var width: Int
-	var height: Int
+public struct Size {
+	public var width: Int
+	public var height: Int
 }

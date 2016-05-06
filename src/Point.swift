@@ -4,6 +4,6 @@
 //
 
 public struct Point {
-	var x: Int
-	var y: Int
+	public var x: Int
+	public var y: Int
 }
