@@ -6,16 +6,16 @@
 import CGTK
 import gobjectswift
 
-enum DialogFlag: Int {
+public enum DialogFlag: Int {
 	case Modal = 0b00000001
 	case DestroyWithParent = 0b00000010
   case UseHeaderBar = 0b00000100
 }
 
-typealias DialogCloseCallback = (Dialog) -> Void
-typealias DialogResponseCallback = (Dialog, Int) -> Void
+public typealias DialogCloseCallback = (Dialog) -> Void
+public typealias DialogResponseCallback = (Dialog, Int) -> Void
 
-typealias DialogButton = (text: String, response: Int)
+public typealias DialogButton = (text: String, response: Int)
 
 public class Dialog: Window {
 
@@ -60,46 +60,46 @@ public class Dialog: Window {
 		}
 	}
 
-	func run() -> Int {
+	public func run() -> Int {
 		return Int(gtk_dialog_run(n_Dialog))
 	}
 
-	func response(_ response: Int) {
+	public func response(_ response: Int) {
 		gtk_dialog_response(n_Dialog, Int32(response))
 	}
 
-	func addButtonWithText(_ text: String, response: Int) -> Button {
+	public func addButtonWithText(_ text: String, response: Int) -> Button {
 		return Button(n_Button: unsafeBitCast(gtk_dialog_add_button(n_Dialog, text, Int32(response)),
 				to: UnsafeMutablePointer<GtkButton>.self))
 	}
 
-	func addButtons(_ buttons: [DialogButton]) {
+	public func addButtons(_ buttons: [DialogButton]) {
 		for button in buttons {
 			_ = addButtonWithText(button.text, response: button.response)
 		}
 	}
 
-	func addActionWidget(_ widget: Widget, response: Int) {
+	public func addActionWidget(_ widget: Widget, response: Int) {
 		gtk_dialog_add_action_widget(n_Dialog, widget.n_Widget, Int32(response))
 	}
 
-	func setDefaultResponse(_ response: Int) {
+	public func setDefaultResponse(_ response: Int) {
 		gtk_dialog_set_default_response(n_Dialog, Int32(response))
 	}
 
-	func setResponseSensitive(_ response: Int, sensitive: Bool) {
+	public func setResponseSensitive(_ response: Int, sensitive: Bool) {
 		gtk_dialog_set_response_sensitive(n_Dialog, Int32(response), sensitive ? 1 : 0)
 	}
 
-	func getResponseForWidget(_ widget: Widget) -> Int {
+	public func getResponseForWidget(_ widget: Widget) -> Int {
 		return Int(gtk_dialog_get_response_for_widget(n_Dialog, widget.n_Widget))
 	}
 
-	func getWidgetWorResponse(_ response: Int) -> Widget? {
+	public func getWidgetWorResponse(_ response: Int) -> Widget? {
 		return Widget(o_Widget: gtk_dialog_get_widget_for_response(n_Dialog, Int32(response)))
 	}
 
-	func getContentArea() -> Box {
+	public func getContentArea() -> Box {
 		return Box(n_Box: unsafeBitCast(gtk_dialog_get_content_area(n_Dialog), to: UnsafeMutablePointer<GtkBox>.self))
 	}
 
@@ -111,9 +111,9 @@ public class Dialog: Window {
 //		}
 //	}
 
-	typealias DialogCloseNative = @convention(c)(UnsafeMutablePointer<GtkDialog>, gpointer) -> Void
+	public typealias DialogCloseNative = @convention(c)(UnsafeMutablePointer<GtkDialog>, gpointer) -> Void
 
-	lazy var clodeSignal: Signal<DialogCloseCallback, Dialog, DialogCloseNative>
+	public lazy var clodeSignal: Signal<DialogCloseCallback, Dialog, DialogCloseNative>
 			= Signal(obj: self, signal: "close", c_handler: {
 				(_, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Dialog, DialogCloseCallback>.self)
@@ -124,10 +124,10 @@ public class Dialog: Window {
 				action(dialog)
 			})
 
-	typealias DialogResponseNative = @convention(c)(UnsafeMutablePointer<GtkDialog>, gint, gpointer) -> Void
+	public typealias DialogResponseNative = @convention(c)(UnsafeMutablePointer<GtkDialog>, gint, gpointer) -> Void
 
 	/// Emitted when a Window is added to application through Application.addWindow(_:).
-	lazy var windowAddedSignal: Signal<DialogResponseCallback, Dialog, DialogResponseNative>
+	public lazy var windowAddedSignal: Signal<DialogResponseCallback, Dialog, DialogResponseNative>
 			= Signal(obj: self, signal: "response", c_handler: {
 				(_, n_response, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Dialog, DialogResponseCallback>.self)

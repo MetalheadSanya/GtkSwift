@@ -1,34 +1,34 @@
 import CGTK
 import gobjectswift
 
-typealias WidgetAccelClosuresChangedCallback = (Widget) -> Void
+public typealias WidgetAccelClosuresChangedCallback = (Widget) -> Void
 // TODO: some for “button-press-event”, “button-release-event”, need gdk-swift
 // TODO: some for “can-activate-accel”, need understand this
 // TODO: some for “child-notify”, need understand this
-typealias WidgetCompositedChangedCallback = (Widget) -> Void
+public typealias WidgetCompositedChangedCallback = (Widget) -> Void
 // TODO: some for “configure-event”, “damage-event”, “delete-event”, need gdk-swift
-typealias WidgetDestroyCallback = (Widget) -> Void
+public typealias WidgetDestroyCallback = (Widget) -> Void
 // TODO: some for “destroy-event”, need gdk-swift
-typealias WidgetDirectionChangedCallback = (Widget, TextDirection) -> Void
+public typealias WidgetDirectionChangedCallback = (Widget, TextDirection) -> Void
 /* TODO: some for “drag-begin”, “drag-data-delete”, “drag-data-get”, “drag-data-received”, “drag-drop”, “drag-end”,
          “drag-failed”, “drag-leave”, “drag-motion”, need gdk-swift */
 // TODO: some for “draw”, need cario-swift
 // TODO: some for “enter-notify-event”, “event”, “event-after”, need gdk-swift
-typealias WidgetFocusCallback = (Widget, DirectionType) -> Bool
+public typealias WidgetFocusCallback = (Widget, DirectionType) -> Bool
 // TODO: some for “focus-in-event”, “focus-out-event”, “grab-broken-event”, need gdk-swift
-typealias WidgetGrabFocusCallback = (Widget) -> Void
-typealias WidgetGrabNotifyCallback = (Widget, Bool) -> Void
-typealias WidgetHideCallback = (Widget) -> Void
+public typealias WidgetGrabFocusCallback = (Widget) -> Void
+public typealias WidgetGrabNotifyCallback = (Widget, Bool) -> Void
+public typealias WidgetHideCallback = (Widget) -> Void
 // TODO: need some ideas about 'The “hierarchy-changed” signal'
 // TODO: some for “key-press-event”, “key-release-event”, need gdk-swift
-typealias WidgetKeyboardNavigationFailedCallback = (Widget, DirectionType) -> Bool
+public typealias WidgetKeyboardNavigationFailedCallback = (Widget, DirectionType) -> Bool
 // TODO: some for “leave-notify-event”, need gdk-swift
-typealias WidgetMapCallback = (Widget) -> Void
+public typealias WidgetMapCallback = (Widget) -> Void
 // TODO: some for "map-event", need gdk-swift
-typealias WidgetMnemonicActivateCallback = (Widget, Bool) -> Bool
+public typealias WidgetMnemonicActivateCallback = (Widget, Bool) -> Bool
 // TODO: some for “motion-notify-event”, need gdk-swift
-typealias WidgetMoveFocusCallback = (Widget, DirectionType) -> Bool
-typealias WidgetPopupMenuCallback = (Widget) -> Bool
+public typealias WidgetMoveFocusCallback = (Widget, DirectionType) -> Bool
+public typealias WidgetPopupMenuCallback = (Widget) -> Bool
 
 
 public class Widget: Object {
@@ -53,9 +53,9 @@ public class Widget: Object {
 
 	}
 	
-	typealias WidgetAccelClosuresChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	public typealias WidgetAccelClosuresChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
 	
-	lazy var accelClosuresChangedSignal: Signal<WidgetAccelClosuresChangedCallback, Widget, WidgetAccelClosuresChangedNative> 
+	public lazy var accelClosuresChangedSignal: Signal<WidgetAccelClosuresChangedCallback, Widget, WidgetAccelClosuresChangedNative>
 			= Signal(obj: self, signal: "accel-closures-changed", c_handler: {
 				(_, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetAccelClosuresChangedCallback>.self)
@@ -66,9 +66,9 @@ public class Widget: Object {
 				action(widget)
 			})
 
-	typealias WidgetCompositesChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	public typealias WidgetCompositesChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
 
-	lazy var compositesChangedSignal: Signal<WidgetCompositedChangedCallback, Widget, WidgetCompositesChangedNative> 
+	public lazy var compositesChangedSignal: Signal<WidgetCompositedChangedCallback, Widget, WidgetCompositesChangedNative>
 			= Signal(obj: self, signal: "composited-changed", c_handler: {
 				(_, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetAccelClosuresChangedCallback>.self)
@@ -79,9 +79,9 @@ public class Widget: Object {
 				action(widget)
 			})
 			
-	typealias WidgetDestroyNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	public typealias WidgetDestroyNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
 
-	lazy var destoySignal: Signal<WidgetDestroyCallback, Widget, WidgetDestroyNative> = Signal(obj: self, signal: "destroy",
+	public lazy var destoySignal: Signal<WidgetDestroyCallback, Widget, WidgetDestroyNative> = Signal(obj: self, signal: "destroy",
 			c_handler: {
 				(_, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetDestroyCallback>.self)
@@ -92,9 +92,9 @@ public class Widget: Object {
 				action(widget)
 			})
 			
-	typealias WidgetDirectionChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkTextDirection, gpointer) -> Void
+	public typealias WidgetDirectionChangedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkTextDirection, gpointer) -> Void
 
-	lazy var directionChangedSignal: Signal<WidgetDirectionChangedCallback, Widget, WidgetDirectionChangedNative> 
+	public lazy var directionChangedSignal: Signal<WidgetDirectionChangedCallback, Widget, WidgetDirectionChangedNative>
 			= Signal(obj: self, signal: "direction-changed", c_handler: {
 				(_, c_text_direction, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetDirectionChangedCallback>.self)
@@ -105,9 +105,9 @@ public class Widget: Object {
 				action(widget, TextDirection(rawValue: c_text_direction)!)
 			})
 			
-	typealias WidgetFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Bool
+	public typealias WidgetFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Bool
 	
-	lazy var focusSignal: Signal<WidgetFocusCallback, Widget, WidgetFocusNative> 
+	public lazy var focusSignal: Signal<WidgetFocusCallback, Widget, WidgetFocusNative>
 			= Signal(obj: self, signal: "focus", c_handler: {
 				(_, c_direction_type, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetFocusCallback>.self)
@@ -119,9 +119,9 @@ public class Widget: Object {
 				return action(widget, DirectionType(rawValue: c_direction_type))
 			})
 	
-	typealias WidgetGrabFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	public typealias WidgetGrabFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
 	
-	lazy var grabFocusSignal: Signal<WidgetGrabFocusCallback, Widget, WidgetGrabFocusNative> = Signal(obj: self, signal: "grab-focus",
+	public lazy var grabFocusSignal: Signal<WidgetGrabFocusCallback, Widget, WidgetGrabFocusNative> = Signal(obj: self, signal: "grab-focus",
 			c_handler: {
 				(_, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetGrabFocusCallback>.self)
@@ -132,9 +132,9 @@ public class Widget: Object {
 				action(widget)
 			})
 	
-	typealias WidgetGrabNotifyNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, Int32, gpointer) -> Void
+	public typealias WidgetGrabNotifyNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, Int32, gpointer) -> Void
 	
-	lazy var grabNotifySignal: Signal<WidgetGrabNotifyCallback, Widget, WidgetGrabNotifyNative> 
+	public lazy var grabNotifySignal: Signal<WidgetGrabNotifyCallback, Widget, WidgetGrabNotifyNative>
 			= Signal(obj: self, signal: "grab-notify", c_handler: {
 				(_, c_was_grabbed, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetGrabNotifyCallback>.self)
@@ -146,9 +146,9 @@ public class Widget: Object {
 				action(widget, c_was_grabbed != 0)
 			})
 			
-	typealias WidgetHideNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	public typealias WidgetHideNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
 	
-	lazy var hideSignal: Signal<WidgetHideCallback, Widget, WidgetHideNative> = Signal(obj: self, signal: "hide",
+	public lazy var hideSignal: Signal<WidgetHideCallback, Widget, WidgetHideNative> = Signal(obj: self, signal: "hide",
 			c_handler: {
 				(_, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetHideCallback>.self)
@@ -159,9 +159,9 @@ public class Widget: Object {
 				action(widget)
 			})
 			
-	typealias WidgetKeyboardNavigationFailedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Bool
+	public typealias WidgetKeyboardNavigationFailedNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Bool
 
-	lazy var keyboardNavigationFailedSignal: Signal<WidgetKeyboardNavigationFailedCallback, Widget, WidgetKeyboardNavigationFailedNative> 
+	public lazy var keyboardNavigationFailedSignal: Signal<WidgetKeyboardNavigationFailedCallback, Widget, WidgetKeyboardNavigationFailedNative>
 			= Signal(obj: self, signal: "keynav-failed", c_handler: {
 				(_, c_direction_type, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetKeyboardNavigationFailedCallback>.self)
@@ -173,9 +173,9 @@ public class Widget: Object {
 				return action(widget, DirectionType(rawValue: c_direction_type))
 			})
 			
-	typealias WidgetMapNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
+	public typealias WidgetMapNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Void
 
-	lazy var mapSignal: Signal<WidgetMapCallback, Widget, WidgetMapNative> = Signal(obj: self, signal: "map",
+	public lazy var mapSignal: Signal<WidgetMapCallback, Widget, WidgetMapNative> = Signal(obj: self, signal: "map",
 			c_handler: {
 				(_, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetHideCallback>.self)
@@ -186,9 +186,9 @@ public class Widget: Object {
 				action(widget)
 			})
 			
-	typealias WidgetMnemonicActivateNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, Int32, gpointer) -> Int32
+	public typealias WidgetMnemonicActivateNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, Int32, gpointer) -> Int32
 	
-	lazy var mnemonicActivateSignal: Signal<WidgetMnemonicActivateCallback, Widget, WidgetMnemonicActivateNative> 
+	public lazy var mnemonicActivateSignal: Signal<WidgetMnemonicActivateCallback, Widget, WidgetMnemonicActivateNative>
 			= Signal(obj: self, signal: "mnemonic-activate", c_handler: {
 				(_, arg1, user_data) -> Int32 in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetMnemonicActivateCallback>.self)
@@ -199,9 +199,9 @@ public class Widget: Object {
 				return action(widget, arg1 != 0) ? 1 : 0
 			})
 			
-	typealias WidgetMoveFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Int32
+	public typealias WidgetMoveFocusNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, GtkDirectionType, gpointer) -> Int32
 	
-	lazy var moveFocusSignal: Signal<WidgetMoveFocusCallback, Widget, WidgetMoveFocusNative> 
+	public lazy var moveFocusSignal: Signal<WidgetMoveFocusCallback, Widget, WidgetMoveFocusNative>
 			= Signal(obj: self, signal: "move-focus", c_handler: {
 				(_, c_direction_type, user_data) in
 				let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetMoveFocusCallback>.self)
@@ -213,9 +213,9 @@ public class Widget: Object {
 				return action(widget, DirectionType(rawValue: c_direction_type)) ? 1 : 0
 			})
 	
-	typealias WidgetPopupMenuNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Int32
+	public typealias WidgetPopupMenuNative = @convention(c)(UnsafeMutablePointer<GtkWidget>, gpointer) -> Int32
 	
-	lazy var popupMenuSignal: Signal<WidgetPopupMenuCallback, Widget, WidgetPopupMenuNative> 
+	public lazy var popupMenuSignal: Signal<WidgetPopupMenuCallback, Widget, WidgetPopupMenuNative>
 			= Signal(obj: self, signal: "popup-menu", c_handler: {
 					(_, user_data) -> Int32 in
 					let data = unsafeBitCast(user_data, to: SignalData<Widget, WidgetPopupMenuCallback>.self)
@@ -249,20 +249,20 @@ public class Widget: Object {
 	}
 
 	///This function is only for use in widget implementations. Causes a widget to be mapped if it isn’t already.
-	func map() {
+	public func map() {
 		gtk_widget_map(n_Widget)
 	}
 
 	///This function is only for use in widget implementations. Causes a widget to be unmapped if it isn’t already.
-	func unmap() {
+	public func unmap() {
 		gtk_widget_map(n_Widget)
 	}
 
-	func realize() {
+	public func realize() {
 		gtk_widget_realize(n_Widget)
 	}
 
-	func unrealize() {
+	public func unrealize() {
 		gtk_widget_realize(n_Widget)
 	}
 
@@ -272,19 +272,19 @@ public class Widget: Object {
 	// }
 
 	/// Equivalent to calling gtk_widget_queue_draw_area() for the entire area of a widget.
-	func queueDraw() {
+	public func queueDraw() {
 		gtk_widget_queue_draw(n_Widget)
 	}
 
 	/// This function is only for use in widget implementations. Flags a widget to have its size renegotiated;
 	/// should be called when a widget for some reason has a new size request. For example, when you change the text in a
 	/// GtkLabel, GtkLabel queues a resize to ensure there’s enough space for the new text.
-	func queueResize() {
+	public func queueResize() {
 		gtk_widget_queue_resize(n_Widget)
 	}
 
 	/// This function works like gtk_widget_queue_resize(), except that the widget is not invalidated.
-	func queueResizeNoRedraw() {
+	public func queueResizeNoRedraw() {
 		gtk_widget_queue_resize_no_redraw(n_Widget)
 	}
 
@@ -293,21 +293,19 @@ public class Widget: Object {
 	// 	return gtk_widget_get_frame_clock(n_Widget)
 	// }
 
-	var scaleFactor: Int {
-		get {
-			return Int(gtk_widget_get_scale_factor(n_Widget))
-		}
+	public var scaleFactor: Int {
+		return Int(gtk_widget_get_scale_factor(n_Widget))
 	}
 
 	// TODO: some for gtk_widget_get_frame_clock(), gtk_widget_get_frame_clock()
 
 	// TODO: some for gtk_widget_size_allocate(), gtk_widget_size_allocate_with_baseline(), need GtkAllocation
 
-	func sizeAllocate(_ rect: Rectangle) {
+	public func sizeAllocate(_ rect: Rectangle) {
 		gtk_widget_size_allocate(n_Widget, rect.gdkRectangle)
 	}
 
-	func sizeAllocateWithBaseline(rect: Rectangle, baseline: Int) {
+	public func sizeAllocateWithBaseline(rect: Rectangle, baseline: Int) {
 
 	}
 
@@ -326,7 +324,7 @@ public class Widget: Object {
 	// 	 return gtk_widget_event(n_Widget, event) != 0	
 	// }
 
-	func activate() -> Bool {
+	public func activate() -> Bool {
 		return gtk_widget_activate(n_Widget) != 0
 	}
 
@@ -335,33 +333,33 @@ public class Widget: Object {
 	// 	 return gtk_widget_intersect(n_Widget, area, intersection) != 0
 	// }
 
-	var isFocus: Bool {
+	public var isFocus: Bool {
 		return gtk_widget_is_focus(n_Widget) != 0
 	}
 
-	func grabFocus() {
+	public func grabFocus() {
 		gtk_widget_grab_focus(n_Widget)
 	}
 
-	func grabDefault() {
+	public func grabDefault() {
 		gtk_widget_grab_default(n_Widget)
 	}
 
-	var name: String {
+	public var name: String {
 		get {
 			return String(gtk_widget_get_name(n_Widget))
 		}
-		set(value) {
-			gtk_widget_set_name(n_Widget, value)
+		set {
+			gtk_widget_set_name(n_Widget, newValue)
 		}
 	}
 
-	var sensitive: Bool {
+	public var sensitive: Bool {
 		get {
 			return gtk_widget_get_sensitive(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_sensitive(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_sensitive(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
@@ -372,7 +370,7 @@ public class Widget: Object {
 	Remove parent can be called by implementations of the remove method on Container, to dissociate a child from
 	the container.
 	*/
-	var parent: Widget? {
+	public var parent: Widget? {
 		didSet {
 			if let parent = parent {
 				gtk_widget_set_parent(n_Widget, parent.n_Widget)
@@ -407,7 +405,7 @@ public class Widget: Object {
 
 	// TODO: some for gtk_widget_set_device_enabled(), gtk_widget_get_device_enabled(), user gdk-swift
 
-	func getToplevel() -> Widget? {
+	public func getToplevel() -> Widget? {
 		var widget = self
 
 		while widget.parent != nil {
@@ -417,7 +415,7 @@ public class Widget: Object {
 		return widget
 	}
 
-	func getAncestor<T:Widget>() -> T? {
+	public func getAncestor<T:Widget>() -> T? {
 		var widget = self
 
 		while !(widget is T) {
@@ -432,7 +430,7 @@ public class Widget: Object {
 
 	// TODO: some for gtk_widget_get_visual(), gtk_widget_set_visual(), user gdk-swift
 
-	func isAncestorFor(_ ancestor: Widget) -> Bool {
+	public func isAncestorFor(_ ancestor: Widget) -> Bool {
 		var widget = self
 
 		while widget.parent != nil {
@@ -447,21 +445,21 @@ public class Widget: Object {
 
 	// TODO: some for gtk_widget_translate_coordinates(), need Point class
 
-	func hideOnDelete() -> Bool {
+	public func hideOnDelete() -> Bool {
 		return gtk_widget_hide_on_delete(n_Widget) != 0
 	}
 
-	var direction: TextDirection {
+	public var direction: TextDirection {
 		get {
 			let direction = gtk_widget_get_direction(n_Widget)
 			return TextDirection(rawValue: direction)!
 		}
-		set(value) {
-			gtk_widget_set_direction(n_Widget, direction.rawValue)
+		set {
+			gtk_widget_set_direction(n_Widget, newValue.rawValue)
 		}
 	}
 
-	class var defaultDirection: TextDirection {
+	public class var defaultDirection: TextDirection {
 		get {
 			let direction = gtk_widget_get_default_direction()
 			return TextDirection(rawValue: direction)!
@@ -480,12 +478,12 @@ public class Widget: Object {
 
 	// TODO: some for gtk_widget_queue_draw_region(), need cario-swift
 
-	var appPrintable: Bool {
+	public var appPrintable: Bool {
 		get {
 			return gtk_widget_get_app_paintable(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_app_paintable(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_app_paintable(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
@@ -513,18 +511,18 @@ public class Widget: Object {
 	/* TODO: some for gtk_widget_class_set_accessible_type(), gtk_widget_class_set_accessible_role(),
 	   gtk_widget_get_accessible(), use atk-swift */
 
-	func childFocus(direcrion: DirectionType) -> Bool {
+	public func childFocus(direcrion: DirectionType) -> Bool {
 		return gtk_widget_child_focus(n_Widget, direcrion.rawValue) != 0
 	}
 
 	// TODO: some for gtk_widget_child_notify(), gtk_widget_freeze_child_notify(), need signals
 
-	var childVisible: Bool {
+	public var childVisible: Bool {
 		get {
 			return gtk_widget_get_child_visible(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_child_visible(n_Widget, childVisible ? 1 : 0)
+		set {
+			gtk_widget_set_child_visible(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
@@ -536,7 +534,7 @@ public class Widget: Object {
 
 	// TODO: some for gtk_widget_get_screen(), gtk_widget_has_screen(), use gdk-swift
 
-	var sizeRequest: Size {
+	public var sizeRequest: Size {
 		get {
 			let width = UnsafeMutablePointer<Int32>(nil)
 			let height = UnsafeMutablePointer<Int32>(nil)
@@ -545,69 +543,70 @@ public class Widget: Object {
 
 			return Size(width: Int(width!.pointee), height: Int(height!.pointee))
 		}
-		set(value) {
-			gtk_widget_set_size_request(n_Widget, Int32(value.width), Int32(value.height))
+		set {
+			gtk_widget_set_size_request(n_Widget, Int32(newValue.width),
+			                            Int32(newValue.height))
 		}
 	}
 
 	// TODO: some for gtk_widget_thaw_child_notify(), need signals
 
-	var noShowAll: Bool {
+	public var noShowAll: Bool {
 		get {
 			return gtk_widget_get_no_show_all(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_no_show_all(n_Widget, noShowAll ? 1 : 0)
+		set {
+			gtk_widget_set_no_show_all(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
 	/* TODO: some for gtk_widget_list_mnemonic_labels(), gtk_widget_add_mnemonic_label(),
 	         gtk_widget_remove_mnemonic_label(), need understand this */
 
-	var composited: Bool {
+	public var composited: Bool {
 		get {
 			return gtk_widget_is_composited(n_Widget) != 0
 		}
 	}
 
-	func errorBell() {
+	public func errorBell() {
 		gtk_widget_error_bell(n_Widget)
 	}
 
-	func keynavFailed(_ direction: DirectionType) -> Bool {
+	public func keynavFailed(_ direction: DirectionType) -> Bool {
 		return gtk_widget_keynav_failed(n_Widget, direction.rawValue) != 0
 	}
 
-	var tooltipMarkup: String {
+	public var tooltipMarkup: String {
 		get {
 			return String(gtk_widget_get_tooltip_markup(n_Widget))
 		}
-		set(value) {
-			gtk_widget_set_tooltip_markup(n_Widget, value)
+		set {
+			gtk_widget_set_tooltip_markup(n_Widget, newValue)
 		}
 	}
 
-	var tooltipText: String {
+	public var tooltipText: String {
 		get {
 			return String(gtk_widget_get_tooltip_text(n_Widget))
 		}
-		set(value) {
-			gtk_widget_set_tooltip_text(n_Widget, value)
+		set {
+			gtk_widget_set_tooltip_text(n_Widget, newValue)
 		}
 	}
 
 	// TODO: some for gtk_widget_get_tooltip_window(), gtk_widget_set_tooltip_window(), need get defailt tooltip_window
 
-	var hasTooltip: Bool {
+	public var hasTooltip: Bool {
 		get {
 			return gtk_widget_get_has_tooltip(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_has_tooltip(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_has_tooltip(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	func triggerTooltipQuery() {
+	public func triggerTooltipQuery() {
 		gtk_widget_trigger_tooltip_query(n_Widget)
 	}
 
@@ -624,96 +623,96 @@ public class Widget: Object {
 	// 	}
 	// }
 
-	func registerWindow(_ window: Window) {
+	public func registerWindow(_ window: Window) {
 		gtk_widget_register_window(n_Widget, OpaquePointer(window.n_Window))
 	}
 
-	func unregisterWindow(_ window: Window) {
+	public func unregisterWindow(_ window: Window) {
 		gtk_widget_unregister_window(n_Widget, OpaquePointer(window.n_Window))
 	}
 
 	// TODO: some for gtk_cairo_should_draw_window(), gtk_cairo_transform_to_window(), use cario-swift
 
-	var allocatedWidth: Int {
+	public var allocatedWidth: Int {
 		return Int(gtk_widget_get_allocated_width(n_Widget))
 	}
 
-	var allocatedHeight: Int {
+	public var allocatedHeight: Int {
 		return Int(gtk_widget_get_allocated_height(n_Widget))
 	}
 
 	// TODO: some for gtk_widget_get_allocation(), gtk_widget_set_allocation(), need GtkAllocation class
 
-	var allocatedBaseline: Int {
+	public var allocatedBaseline: Int {
 		return Int(gtk_widget_get_allocated_baseline(n_Widget))
 	}
 
 	// TODO: some for gtk_widget_get_clip(), gtk_widget_set_clip(), need GtkAllocation class
 
-	var canDefault: Bool {
+	public var canDefault: Bool {
 		get {
 			return gtk_widget_get_can_default(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_can_default(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_can_default(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var canFocus: Bool {
+	public var canFocus: Bool {
 		get {
 			return gtk_widget_get_can_focus(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_can_focus(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_can_focus(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var hasWindow: Bool {
+	public var hasWindow: Bool {
 		get {
 			return gtk_widget_get_has_window(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_has_window(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_has_window(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var isSensitive: Bool {
+	public var isSensitive: Bool {
 		return gtk_widget_is_sensitive(n_Widget) != 0
 	}
 
-	var visible: Bool {
+	public var visible: Bool {
 		get {
 			return gtk_widget_get_visible(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_visible(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_visible(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var isVisible: Bool {
+	public var isVisible: Bool {
 		return gtk_widget_is_visible(n_Widget) != 0
 	}
 
 	/* TODO: some for gtk_widget_set_state_flags(), gtk_widget_unset_state_flags(), gtk_widget_get_state_flags(),
 	         need GtkStateFlags enum */
 
-	var hasDefault: Bool {
+	public var hasDefault: Bool {
 		return gtk_widget_has_default(n_Widget) != 0
 	}
 
-	var hasFocus: Bool {
+	public var hasFocus: Bool {
 		return gtk_widget_has_focus(n_Widget) != 0
 	}
 
-	var hasVisibleFocus: Bool {
+	public var hasVisibleFocus: Bool {
 		return gtk_widget_has_visible_focus(n_Widget) != 0
 	}
 
-	var hasGrab: Bool {
+	public var hasGrab: Bool {
 		return gtk_widget_has_grab(n_Widget) != 0
 	}
 
-	var isDrawable: Bool {
+	public var isDrawable: Bool {
 		return gtk_widget_is_drawable(n_Widget) != 0
 	}
 
@@ -730,30 +729,30 @@ public class Widget: Object {
 		}
 	}
 
-	var supportMultidevice: Bool {
+	public var supportMultidevice: Bool {
 		get {
 			return gtk_widget_get_support_multidevice(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_support_multidevice(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_support_multidevice(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var realized: Bool {
+	public var realized: Bool {
 		get {
 			return gtk_widget_get_realized(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_realized(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_realized(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var mapped: Bool {
+	public var mapped: Bool {
 		get {
 			return gtk_widget_get_mapped(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_mapped(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_mapped(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
@@ -761,12 +760,12 @@ public class Widget: Object {
 
 	// TODO: some for gtk_widget_insert_action_group(), use gio-swift
 
-	var opacity: Double {
+	public var opacity: Double {
 		get {
 			return gtk_widget_get_opacity(n_Widget)
 		}
-		set(value) {
-			gtk_widget_set_opacity(n_Widget, value)
+		set {
+			gtk_widget_set_opacity(n_Widget, newValue)
 		}
 	}
 
@@ -778,13 +777,13 @@ public class Widget: Object {
 
 	// TODO: some for gtk_widget_get_style_context(), need GtkStyleContext class
 
-	func resetStyle() {
+	public func resetStyle() {
 		gtk_widget_reset_style(n_Widget)
 	}
 
 	// TODO: some for gtk_requisition_new(), gtk_requisition_copy(), gtk_requisition_free(), need GtkRequisition class
 
-	func getPreferredHeight() -> (minimum:Int, natural:Int) {
+	public func getPreferredHeight() -> (minimum:Int, natural:Int) {
 		let minimum = UnsafeMutablePointer<Int32>(nil)
 		let natural = UnsafeMutablePointer<Int32>(nil)
 
@@ -793,7 +792,7 @@ public class Widget: Object {
 		return (minimum: Int(minimum!.pointee), natural: Int(natural!.pointee))
 	}
 
-	func getPreferredWidth() -> (minimum:Int, natural:Int) {
+	public func getPreferredWidth() -> (minimum:Int, natural:Int) {
 		let minimum = UnsafeMutablePointer<Int32>(nil)
 		let natural = UnsafeMutablePointer<Int32>(nil)
 
@@ -802,7 +801,7 @@ public class Widget: Object {
 		return (minimum: Int(minimum!.pointee), natural: Int(natural!.pointee))
 	}
 
-	func getPreferredHeightForWidth(_ width: Int) -> (minimum:Int, natural:Int) {
+	public func getPreferredHeightForWidth(_ width: Int) -> (minimum:Int, natural:Int) {
 		let minimum = UnsafeMutablePointer<Int32>(nil)
 		let natural = UnsafeMutablePointer<Int32>(nil)
 
@@ -811,7 +810,7 @@ public class Widget: Object {
 		return (minimum: Int(minimum!.pointee), natural: Int(natural!.pointee))
 	}
 
-	func getPreferredWidthForHeight(_ height: Int) -> (minimum:Int, natural:Int) {
+	public func getPreferredWidthForHeight(_ height: Int) -> (minimum:Int, natural:Int) {
 		let minimum = UnsafeMutablePointer<Int32>(nil)
 		let natural = UnsafeMutablePointer<Int32>(nil)
 
@@ -820,7 +819,7 @@ public class Widget: Object {
 		return (minimum: Int(minimum!.pointee), natural: Int(natural!.pointee))
 	}
 
-	func getPreferredHeightAndBaselineForWidth(_ width: Int) -> (height:(minimum:Int, natural:Int),
+	public func getPreferredHeightAndBaselineForWidth(_ width: Int) -> (height:(minimum:Int, natural:Int),
 	                                                           baseline:(minimum:Int, natural:Int)) {
 		let minimumHeight = UnsafeMutablePointer<Int32>(nil)
 		let naturalHeight = UnsafeMutablePointer<Int32>(nil)
@@ -845,83 +844,83 @@ public class Widget: Object {
 	/* TODO: some for gtk_widget_get_halign(), gtk_widget_set_halign(), gtk_widget_get_valign(),
 					 gtk_widget_get_valign_with_baseline(), gtk_widget_set_valign(), need GtkAlign class */
 
-	var marginStart: Int {
+	public var marginStart: Int {
 		get {
 			return Int(gtk_widget_get_margin_start(n_Widget))
 		}
-		set(value) {
-			gtk_widget_set_margin_start(n_Widget, Int32(value))
+		set {
+			gtk_widget_set_margin_start(n_Widget, gint(newValue))
 		}
 	}
 
-	var marginEnd: Int {
+	public var marginEnd: Int {
 		get {
 			return Int(gtk_widget_get_margin_end(n_Widget))
 		}
-		set(value) {
-			gtk_widget_set_margin_end(n_Widget, Int32(value))
+		set {
+			gtk_widget_set_margin_end(n_Widget, gint(newValue))
 		}
 	}
 
-	var marginTop: Int {
+	public var marginTop: Int {
 		get {
 			return Int(gtk_widget_get_margin_top(n_Widget))
 		}
-		set(value) {
-			gtk_widget_set_margin_top(n_Widget, Int32(value))
+		set {
+			gtk_widget_set_margin_top(n_Widget, gint(newValue))
 		}
 	}
 
-	var marginBottom: Int {
+	public var marginBottom: Int {
 		get {
 			return Int(gtk_widget_get_margin_bottom(n_Widget))
 		}
-		set(value) {
-			gtk_widget_set_margin_bottom(n_Widget, Int32(value))
+		set {
+			gtk_widget_set_margin_bottom(n_Widget, gint(newValue))
 		}
 	}
 
-	var hexpand: Bool {
+	public var hexpand: Bool {
 		get {
 			return gtk_widget_get_hexpand(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_hexpand(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_hexpand(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var hexpandSet: Bool {
+	public var hexpandSet: Bool {
 		get {
 			return gtk_widget_get_hexpand_set(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_hexpand_set(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_hexpand_set(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var vexpand: Bool {
+	public var vexpand: Bool {
 		get {
 			return gtk_widget_get_vexpand(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_vexpand(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_vexpand(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	var vexpandSet: Bool {
+	public var vexpandSet: Bool {
 		get {
 			return gtk_widget_get_vexpand_set(n_Widget) != 0
 		}
-		set(value) {
-			gtk_widget_set_vexpand_set(n_Widget, value ? 1 : 0)
+		set {
+			gtk_widget_set_vexpand_set(n_Widget, newValue ? 1 : 0)
 		}
 	}
 
-	func queueComputeExpand() {
+	public func queueComputeExpand() {
 		gtk_widget_queue_compute_expand(n_Widget)
 	}
 
-	func computeExpand(orientation: Orientation) -> Bool {
+	public func computeExpand(orientation: Orientation) -> Bool {
 		return gtk_widget_compute_expand(n_Widget, orientation.rawValue) != 0
 	}
 }

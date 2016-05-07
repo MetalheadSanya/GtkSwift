@@ -39,7 +39,7 @@ public class Bin: Container {
 		_child = nil
 	}
 
-	var childWidget: Widget? {
+	public var childWidget: Widget? {
 		return _child
 	}
 

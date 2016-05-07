@@ -30,22 +30,22 @@ public class Window: Bin {
 		get {
 			return String(cString: gtk_window_get_title(n_Window))
 		}
-		set(value) {
-			gtk_window_set_title(n_Window, value!)
+		set {
+			gtk_window_set_title(n_Window, newValue)
 		}
 	}
 
 	public var defaultSize: Size {
 		get {
-			let width = UnsafeMutablePointer<Int32>(nil)
-			let height = UnsafeMutablePointer<Int32>(nil)
+			var width: gint = 0
+			var height: gint = 0
 
-			gtk_window_get_default_size(n_Window, width, height)
+			gtk_window_get_default_size(n_Window, &width, &height)
 
-			return Size(width: Int(width!.pointee), height: Int(height!.pointee))
+			return Size(width: Int(width), height: Int(height))
 		}
-		set(value) {
-			gtk_window_set_default_size(n_Window, Int32(value.width), Int32(value.height))
+		set {
+			gtk_window_set_default_size(n_Window, gint(newValue.width), gint(newValue.height))
 		}
 	}
 
@@ -53,9 +53,8 @@ public class Window: Bin {
 		get {
 			return gtk_window_get_resizable(n_Window) != 0
 		}
-
-		set(value) {
-			gtk_window_set_resizable(n_Window, value ? 1 : 0)
+		set {
+			gtk_window_set_resizable(n_Window, newValue ? 1 : 0)
 		}
 	}
 
@@ -63,8 +62,8 @@ public class Window: Bin {
 		get {
 			return Window(o_Window: gtk_window_get_transient_for(n_Window))
 		}
-		set (value) {
-			gtk_window_set_transient_for(n_Window, value == nil ? nil : value!.n_Window)
+		set {
+			gtk_window_set_transient_for(n_Window, newValue?.n_Window)
 		}
 	}
 
@@ -72,8 +71,8 @@ public class Window: Bin {
 		get {
 			return gtk_window_get_modal(n_Window) != 0
 		}
-		set(value) {
-			gtk_window_set_modal(n_Window, value ? 1 : 0)
+		set {
+			gtk_window_set_modal(n_Window, newValue ? 1 : 0)
 		}
 	}
 
@@ -81,8 +80,8 @@ public class Window: Bin {
 		get {
 			return gtk_window_get_destroy_with_parent(n_Window) != 0
 		}
-		set(value) {
-			gtk_window_set_destroy_with_parent(n_Window, value ? 1 : 0)
+		set {
+			gtk_window_set_destroy_with_parent(n_Window, newValue ? 1 : 0)
 		}
 	}
 
@@ -101,7 +100,7 @@ func ==(lhs: Window, rhs: Window) -> Bool {
 	return lhs.n_Window == rhs.n_Window
 }
 
-enum WindowType: Int {
+public enum WindowType: Int {
 	case TopLevel
 	case Popup
 

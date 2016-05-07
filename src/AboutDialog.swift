@@ -183,9 +183,9 @@ public class AboutDialog: Dialog {
 		}
 	}
 	
-	typealias AboutDialogActivateLinkNative = @convention(c)(UnsafeMutablePointer<GtkAboutDialog>, UnsafeMutablePointer<CChar>, gpointer) -> Void
+	public typealias AboutDialogActivateLinkNative = @convention(c)(UnsafeMutablePointer<GtkAboutDialog>, UnsafeMutablePointer<CChar>, gpointer) -> Void
 	
-	lazy var activateLinkSignal: Signal<AboutDialogActivateLinkCallback, AboutDialog, AboutDialogActivateLinkNative>
+	public lazy var activateLinkSignal: Signal<AboutDialogActivateLinkCallback, AboutDialog, AboutDialogActivateLinkNative>
 		= Signal(obj: self, signal: "activate-link", c_handler: {
 			(_, n_Uri, user_data) in
 			let data = unsafeBitCast(user_data, to: SignalData<AboutDialog, AboutDialogActivateLinkCallback>.self)

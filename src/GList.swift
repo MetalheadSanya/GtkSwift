@@ -1,7 +1,7 @@
 import CGTK
 
 extension Array {
-	init(gList: UnsafeMutablePointer<GList>?) {
+	internal init(gList: UnsafeMutablePointer<GList>?) {
 		var list = gList
 		var data = [Element]()
 

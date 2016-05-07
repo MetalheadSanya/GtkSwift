@@ -101,12 +101,12 @@ extension Application {
 		_windows.append(window)
 	}
 
-	func addWindow(_ window: Window) {
+	public func addWindow(_ window: Window) {
 		_windows.append(window)
 		gtk_application_add_window(n_App, window.n_Window)
 	}
 
-	func removeWindow(_ window: Window) {
+	public func removeWindow(_ window: Window) {
 		if let index = _windows.index(of: window) {
 			_windows.remove(at: index)
 		}
@@ -114,7 +114,7 @@ extension Application {
 		gtk_application_remove_window(n_App, window.n_Window)
 	}
 
-	var activeWindow: Window! {
+	public var activeWindow: Window! {
 		let n_Window = gtk_application_get_active_window(n_App)
 		return _getWindowForNativeWindow(n_Window)
 	}

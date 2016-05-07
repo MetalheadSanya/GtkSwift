@@ -118,9 +118,9 @@ public class Assistant: Window {
 		gtk_assistant_previous_page(n_Assistant)
 	}
 	
-	typealias AssistantApplyNative = @convention(c)(UnsafeMutablePointer<GtkAssistant>, gpointer) -> Void
+	public typealias AssistantApplyNative = @convention(c)(UnsafeMutablePointer<GtkAssistant>, gpointer) -> Void
 	
-	lazy var applySignal: Signal<AssistantApplyCallback, Assistant, AssistantApplyNative>
+	public lazy var applySignal: Signal<AssistantApplyCallback, Assistant, AssistantApplyNative>
 		= Signal(obj: self, signal: "apply", c_handler: {
 			(_, user_data) in
 			let data = unsafeBitCast(user_data, to: SignalData<Assistant, AssistantApplyCallback>.self)
@@ -131,9 +131,9 @@ public class Assistant: Window {
 			action(assistant)
 		})
 	
-	typealias AssistantCancelNative = @convention(c)(UnsafeMutablePointer<GtkAssistant>, gpointer) -> Void
+	public typealias AssistantCancelNative = @convention(c)(UnsafeMutablePointer<GtkAssistant>, gpointer) -> Void
 	
-	lazy var cancelSignal: Signal<AssistantCancelCallback, Assistant, AssistantCancelNative>
+	public lazy var cancelSignal: Signal<AssistantCancelCallback, Assistant, AssistantCancelNative>
 		= Signal(obj: self, signal: "cancel", c_handler: {
 			(_, user_data) in
 			let data = unsafeBitCast(user_data, to: SignalData<Assistant, AssistantCancelCallback>.self)
@@ -144,9 +144,9 @@ public class Assistant: Window {
 			action(assistant)
 		})
 	
-	typealias AssistantCloseNative = @convention(c)(UnsafeMutablePointer<GtkAssistant>, gpointer) -> Void
+	public typealias AssistantCloseNative = @convention(c)(UnsafeMutablePointer<GtkAssistant>, gpointer) -> Void
 	
-	lazy var closeSignal: Signal<AssistantCloseCallback, Assistant, AssistantCloseNative>
+	public lazy var closeSignal: Signal<AssistantCloseCallback, Assistant, AssistantCloseNative>
 		= Signal(obj: self, signal: "close", c_handler: {
 			(_, user_data) in
 			let data = unsafeBitCast(user_data, to: SignalData<Assistant, AssistantCloseCallback>.self)
@@ -157,9 +157,9 @@ public class Assistant: Window {
 			action(assistant)
 		})
 	
-	typealias AssistantEscapeNative = @convention(c)(UnsafeMutablePointer<GtkAssistant>, gpointer) -> Void
+	public typealias AssistantEscapeNative = @convention(c)(UnsafeMutablePointer<GtkAssistant>, gpointer) -> Void
 	
-	lazy var escapeSignal: Signal<AssistantEscapeCallback, Assistant, AssistantEscapeNative>
+	public lazy var escapeSignal: Signal<AssistantEscapeCallback, Assistant, AssistantEscapeNative>
 		= Signal(obj: self, signal: "escape", c_handler: {
 			(_, user_data) in
 			let data = unsafeBitCast(user_data, to: SignalData<Assistant, AssistantEscapeCallback>.self)

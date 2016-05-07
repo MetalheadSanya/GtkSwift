@@ -1,11 +1,11 @@
 import CGTK
 
-enum TextDirection : RawRepresentable {
+public enum TextDirection : RawRepresentable {
 	case None, LeftToRight, RightToLeft
 
-	typealias RawValue = GtkTextDirection
+	public typealias RawValue = GtkTextDirection
 
-	var rawValue: RawValue {
+	public var rawValue: RawValue {
 		switch self {
 		case .None:
 			return GTK_TEXT_DIR_NONE
@@ -16,7 +16,7 @@ enum TextDirection : RawRepresentable {
 		}
 	}
 
-	init?(rawValue: RawValue) {
+	public init?(rawValue: RawValue) {
 		switch rawValue {
 		case GTK_TEXT_DIR_NONE:
 			self = TextDirection.None

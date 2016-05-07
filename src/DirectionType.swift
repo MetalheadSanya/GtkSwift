@@ -1,11 +1,11 @@
 import CGTK
 
-enum DirectionType: RawRepresentable {
+public enum DirectionType: RawRepresentable {
 	case TabForward, TabBackward, Up, Down, Left, Right
 
-	typealias RawValue = GtkDirectionType
+	public typealias RawValue = GtkDirectionType
 
-	var rawValue: RawValue {
+	public var rawValue: RawValue {
 		switch self {
 		case .TabForward:
 			return GTK_DIR_TAB_FORWARD
@@ -22,7 +22,7 @@ enum DirectionType: RawRepresentable {
 		}
 	}
 
-	init(rawValue: RawValue) {
+	public init(rawValue: RawValue) {
 		self = (rawValue == GTK_DIR_TAB_FORWARD) ? .TabForward : 
 		    (rawValue == GTK_DIR_TAB_BACKWARD) ? .TabBackward :
 		    (rawValue == GTK_DIR_UP) ? .Up :

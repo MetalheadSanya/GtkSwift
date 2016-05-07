@@ -13,7 +13,7 @@ public class Misc: Widget {
 		return gtk_misc_get_type()
 	}
 
-	init(n_Misc: UnsafeMutablePointer<GtkMisc>) {
+	internal init(n_Misc: UnsafeMutablePointer<GtkMisc>) {
 		self.n_Misc = n_Misc
 		super.init(n_Widget: unsafeBitCast(self.n_Misc, to: UnsafeMutablePointer<GtkWidget>.self))
 	}
