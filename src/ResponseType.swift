@@ -4,15 +4,15 @@
 //
 
 public enum ResponseType: Int {
-	public case None = -1
-	public case Reject = -2
-	public case Accept = -3
-	public case DeleteEvent = -4
-	public case Ok = -5
-	public case Cancel = -6
-	public case Close = -7
-	public case Yes = -8
-	public case No = -9
-	public case Apply = -10
-	public case Help = -11
+	case None = -1
+	case Reject = -2
+	case Accept = -3
+	case DeleteEvent = -4
+	case Ok = -5
+	case Cancel = -6
+	case Close = -7
+	case Yes = -8
+	case No = -9
+	case Apply = -10
+	case Help = -11
 }
