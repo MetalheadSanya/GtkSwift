@@ -75,6 +75,8 @@ You can find API on https://gtk.gitlab.io/gtk-swift/
 
 Please create issues and pull request on main repository of project on https://gitlab.com/gtk/gtk-swift
 
+If you want help developing project, please, use fork and pull requests features.
+
 ## License
 
 GtkSwift is available under the BSD3 license. See the LICENSE file for more info.
